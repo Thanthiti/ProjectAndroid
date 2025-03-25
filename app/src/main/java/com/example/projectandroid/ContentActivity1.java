@@ -17,6 +17,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
     private TextView btnBack, btnNext;
     private ProgressBar progressBar;
     private ScrollView scrollView;
+    private int a = 5;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -51,7 +52,6 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
             }
         });
     }
-
     @Override
     public void onClick(View v) {
         if (v == btnBack) {
