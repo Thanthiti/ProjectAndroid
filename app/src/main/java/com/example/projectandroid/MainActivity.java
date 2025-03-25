@@ -21,7 +21,7 @@ public class MainActivity extends AppCompatActivity {
             return insets;
         });
         String Test  = "asde";
-        int n = 1;
+        int n = 1000;
         String Palm = "palms";
     }
 }
