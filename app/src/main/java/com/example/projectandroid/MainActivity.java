@@ -13,6 +13,7 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     ProgressBar progressBar = findViewById(R.id.home_btnProgress);
     Button btnProgress;
+    int ttes = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
