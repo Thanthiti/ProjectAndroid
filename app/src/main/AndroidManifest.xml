@@ -13,7 +13,7 @@
         android:theme="@style/Theme.ProjectAndroid"
         tools:targetApi="31">
         <activity
-            android:name=".ContentActivity1"
+            android:name=".MainActivity"
             android:exported="true" >
         <intent-filter>
             <action android:name="android.intent.action.MAIN" />
@@ -28,7 +28,7 @@
             android:name=".LoginActivity"
             android:exported="false"/>
         <activity
-            android:name=".MainActivity"
+            android:name=".ContentActivity1"
             android:exported="false" />
     </application>
 
