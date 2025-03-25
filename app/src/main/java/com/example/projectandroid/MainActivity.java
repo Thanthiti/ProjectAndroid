@@ -20,8 +20,8 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        String Test  = "asd";
+        String Test  = "asde";
         int n = 1;
-        String Palm = "palm";
+        String Palm = "palms";
     }
 }
