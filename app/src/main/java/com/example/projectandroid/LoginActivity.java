@@ -21,5 +21,6 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
         String T = "hello";
+        String s ="as";
     }
 }
