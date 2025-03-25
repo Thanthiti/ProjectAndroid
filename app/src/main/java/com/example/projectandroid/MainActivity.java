@@ -22,5 +22,6 @@ public class MainActivity extends AppCompatActivity {
         });
         String Test  = "asd";
         int n = 1;
+        String Palm = "palm";
     }
 }
