@@ -20,6 +20,6 @@ public class LoginActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        String T = "asd";
+        String T = "hello";
     }
 }
