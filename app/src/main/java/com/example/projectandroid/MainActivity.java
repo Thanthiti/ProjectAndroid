@@ -1,6 +1,7 @@
 package com.example.projectandroid;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.ProgressBar;
 
@@ -10,10 +11,9 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-public class MainActivity extends AppCompatActivity {
-    ProgressBar progressBar = findViewById(R.id.home_btnProgress);
+public class MainActivity extends AppCompatActivity implements View.OnClickListener {
+    ProgressBar progressBar;
     Button btnProgress;
-    int ttes = 1;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,6 +24,16 @@ public class MainActivity extends AppCompatActivity {
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+        progressBar = findViewById(R.id.home_progressbar);
+        btnProgress = findViewById(R.id.home_btnProgress);
+        btnProgress.setOnClickListener(this);
 
+    }
+
+    @Override
+    public void onClick(View view) {
+        if (view.getId() == R.id.home_btnProgress) {
+            progressBar.incrementProgressBy(10);
+        }
     }
 }
