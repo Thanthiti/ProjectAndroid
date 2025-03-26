@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".ContentActivity1">
+
+    <!-- Header Bar -->
+    <RelativeLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/header_background"
+        android:elevation="6dp"
+        android:padding="10dp">
+
+        <!-- ปุ่ม Back -->
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/roundbtn_back"
+            android:padding="8dp"
+            android:text="◀ Back"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- รูปโปรไฟล์ -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:elevation="4dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <!-- ปุ่ม Next -->
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/roundbtn_next"
+            android:padding="8dp"
+            android:text="Next ▶"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar3"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@id/headerBar"
+        android:layout_centerHorizontal="true"
+        android:elevation="4dp"
+        android:max="100"
+        android:progress="40"
+        android:progressDrawable="@drawable/custom_progress2" />
+
+
+    <!-- ScrollView -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/progressBar3"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- หัวข้อหลัก -->
+            <TextView
+                android:id="@+id/titleText3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/title_background"
+                android:elevation="8dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:padding="12dp"
+                android:shadowColor="#66000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                android:text="บทที่ 3: ตัวดำเนินการใน Java"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/operatorTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleText3"
+                android:layout_marginTop="12dp"
+                android:text="🔹 ตัวดำเนินการ (Operators)"
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/operatorInfo1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorTitle"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="16dp"
+                android:text="• ใช้ในการดำเนินการกับตัวแปรและค่าต่าง ๆ\nตัวอย่างด้านล่างเป็นการใช้ตัวดำเนินการ + เพื่อบวกเลขสองค่าเข้าด้วยกัน:"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/operatorExample1"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorInfo1"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:padding="12dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="int x = 100 + 50;"
+                android:textAlignment="viewStart"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/operatorInfo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorExample1"
+                android:layout_marginTop="8dp"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="16dp"
+                android:text="• แม้ว่าตัวดำเนินการ + มักใช้ในการบวกเลขสองตัว แต่ก็สามารถใช้บวกตัวแปรกับค่าหรือกับตัวแปรอื่นได้ เช่น:"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/operatorExample2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorInfo2"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:padding="12dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="int sum1 = 100 + 50;        // 150 (100 + 50)\nint sum2 = sum1 + 250;      // 400 (150 + 250)\nint sum3 = sum2 + sum2;     // 800 (400 + 400)"
+                android:textAlignment="viewStart"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/operatorTypesTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorExample2"
+                android:layout_marginTop="12dp"
+                android:text="🔹 ประเภทของตัวดำเนินการใน Java"
+                android:textColor="#0033Cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/operatorTypesInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorTypesTitle"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="16dp"
+                android:text="• Java แบ่งตัวดำเนินการออกเป็น 5 กลุ่มหลัก ได้แก่:"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/operatorTypesList"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorTypesInfo"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:padding="12dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="1. ตัวดำเนินการทางคณิตศาสตร์ (Arithmetic operators)\n2. ตัวดำเนินการกำหนดค่า (Assignment operators)\n3. ตัวดำเนินการเปรียบเทียบ (Comparison operators)\n4. ตัวดำเนินการตรรกศาสตร์ (Logical operators)\n5. ตัวดำเนินการบิต (Bitwise operators)"
+                android:textAlignment="viewStart"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/arithmeticTitle"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/operatorTypesList"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:text="🔹 ตัวดำเนินการทางคณิตศาสตร์: "
+                android:textColor="#0033CC"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/arithmeticInfo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arithmeticTitle"
+                android:fontFamily="serif"
+                android:paddingStart="16dp"
+                android:paddingTop="4dp"
+                android:paddingEnd="16dp"
+                android:text="• ใช้สำหรับการคำนวณทางคณิตศาสตร์ทั่วไป"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/arithmeticTable"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arithmeticInfo"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:padding="12dp"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="&quot;+&quot; Addition : บวกค่าตัวเลขสองค่าเข้า\nด้วยกัน\n&quot;-&quot; Subtraction : ลบค่าตัวเลขออกจาก\nกัน\n&quot;*&quot; Multiplication : คูณค่าตัวเลขสองค่าเข้าด้วยกัน\n&quot;/&quot; Division : หารค่าตัวเลขสองค่า\n&quot;%&quot; Modulus : คืนค่าค่าเศษจากการหาร\n&quot;++&quot; Increment : เพิ่มค่าตัวแปรทีละ 1\n&quot;--&quot; Decrement : ลดค่าตัวแปรทีละ 1"
+                android:textAlignment="viewStart"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/titleAssignOperators"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/arithmeticTable"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:text="🔹 ตัวดำเนินการกำหนดค่า: "
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/descriptionAssignOp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleAssignOperators"
+                android:fontFamily="serif"
+                android:padding="8dp"
+                android:text="• ตัวดำเนินการกำหนดค่าใน Java ใช้สำหรับกำหนดค่าหรือตัวเลขให้กับตัวแปร โดยใช้เครื่องหมาย = ร่วมกับตัวดำเนินการทางคณิตศาสตร์อื่น ๆ เพื่อให้การเขียนโค้ดกระชับขึ้น"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/exampleAssignOp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descriptionAssignOp"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:padding="12dp"
+                android:text="📌 ตัวอย่างตัวดำเนินการกำหนดค่า: \nint x = 10;\nตัวดำเนินการ += ใช้ในการบวกค่าตัวแปรเดิม:\nint x = 10;\nx += 5;  // x = x + 5 (ค่า x ตอนนี้เป็น 15)"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <TableLayout
+                android:id="@+id/tabOperator"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/exampleAssignOp"
+                android:layout_marginTop="8dp"
+                android:background="#f5f5f5"
+                android:padding="8dp"
+                android:stretchColumns="1">
+                <!-- หัวข้อของตาราง -->
+                <TableRow android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="ตัวดำเนินการ"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="ตัวอย่าง"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="เหมือนกับ"
+                        android:textColor="@android:color/white"
+                        android:textStyle="bold" />
+                </TableRow>
+
+                <!-- แถวของข้อมูล -->
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = 5" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = 5" />
+                </TableRow>
+
+                <TableRow android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="+=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x += 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x + 3" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="-=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x -= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x - 3" />
+                </TableRow>
+
+                <TableRow android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="*=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x *= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x * 3" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="/=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x /= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x / 3" />
+                </TableRow>
+
+                <TableRow android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="%=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x %= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x % 3" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="&amp;=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x &amp;= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x &amp; 3" />
+                </TableRow>
+
+                <TableRow android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="|=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x |= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x | 3" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="^=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x ^= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x ^ 3" />
+                </TableRow>
+
+                <TableRow android:background="@android:color/darker_gray">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text=">>=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x >>= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x >> 3" />
+                </TableRow>
+
+                <TableRow>
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="&lt;&lt;=" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x &lt;&lt;= 3" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x = x &lt;&lt; 3" />
+                </TableRow>
+
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/logicOperator"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tabOperator"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:text="🔹ตัวดำเนินการตรรกศาสตร์: "
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/desLogicOp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/logicOperator"
+                android:fontFamily="serif"
+                android:padding="8dp"
+                android:text="• ในการตรวจสอบค่าความจริง (true หรือ false) ของเงื่อนไข"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+            <TableLayout
+                android:id="@+id/tablogicOp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/desLogicOp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/radius_table"
+                android:padding="8dp"
+                android:stretchColumns="1">
+
+                <TableRow android:background="#f5f5f5">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="&amp;&amp;" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Logical and" />
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="คืนค่า true ถ้าทั้งสองเงื่อนไขเป็น true" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x &lt; 5 &amp;&amp; x &lt; 10" />
+                </TableRow>
+
+                <TableRow android:background="#f5f5f5">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="||" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Logical or" />
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="คืนค่า true ถ้าเงื่อนไขอย่างน้อยหนึ่งเป็น true" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x &lt; 5 || x &lt; 4" />
+                </TableRow>
+
+                <TableRow android:background="#f5f5f5">
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="!" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="Logical not" />
+
+                    <TextView
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="กลับค่าความจริง (ถ้า true เปลี่ยนเป็น false)" />
+
+                    <TextView
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="!(x &lt; 5 &amp;&amp; x &lt; 10)" />
+                </TableRow>
+            </TableLayout>
+
+            <TextView
+                android:id="@+id/exampleLogicOp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/tablogicOp"
+                android:layout_marginTop="8dp"
+                android:background="#F5F5F5"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:padding="12dp"
+                android:text="📌 ตัวอย่างตัวดำเนินการตรรกศาสตร์:\nint x = 5;\nSystem.out.println(x > 3 &amp;&amp; x &lt; 10); // true\nSystem.out.println(x > 3 || x > 10); // true\nSystem.out.println(!(x > 3 &amp;&amp; x &lt; 10)); // false"
+                android:textColor="#222222"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnQuiz3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/exampleLogicOp"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#ffc43c"
+                android:fontFamily="serif"
+                android:text="Start Quiz"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:elevation="8dp"
+                android:outlineProvider="none"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>

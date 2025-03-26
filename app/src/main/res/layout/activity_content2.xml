@@ -1,0 +1,384 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".ContentActivity1">
+
+    <!-- Header Bar -->
+    <RelativeLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="@drawable/header_background"
+        android:padding="10dp"
+        android:elevation="6dp">
+
+        <!-- ปุ่ม Back -->
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/roundbtn_back"
+            android:padding="8dp"
+            android:text="◀ Back"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+
+        <!-- รูปโปรไฟล์ -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round"
+            android:elevation="4dp" />
+
+        <!-- ปุ่ม Next -->
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/roundbtn_next"
+            android:padding="8dp"
+            android:text="Next ▶"
+            android:textColor="#FFFFFF"
+            android:textSize="16sp"
+            android:textStyle="bold" />
+    </RelativeLayout>
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar2"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@id/headerBar"
+        android:layout_centerHorizontal="true"
+        android:elevation="4dp"
+        android:max="100"
+        android:progress="20"
+        android:progressDrawable="@drawable/custom_progress2" />
+
+
+    <!-- ScrollView -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/progressBar2"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+            <!-- หัวข้อหลัก -->
+            <TextView
+                android:id="@+id/titleText2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/title_background"
+                android:elevation="8dp"
+                android:fontFamily="serif"
+                android:gravity="center"
+                android:padding="12dp"
+                android:shadowColor="#66000000"
+                android:shadowDx="2"
+                android:shadowDy="2"
+                android:shadowRadius="4"
+                android:text="บทที่ 2: ตัวแปรใน Java"
+                android:textColor="#FFFFFF"
+                android:textSize="24sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/variableInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleText2"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:paddingTop="16dp"
+                android:text="🔹 ตัวแปร (Variable):"
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/variableInfo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo1"
+                android:autoLink="web"
+                android:fontFamily="serif"
+                android:lineSpacingExtra="6sp"
+                android:padding="8dp"
+                android:text="คือภาชนะที่ใช้เก็บค่าข้อมูลใน Java มีตัวแปรหลายประเภท เช่น:\n
+• String - ใช้เก็บข้อความ เช่น &quot;Hello&quot; โดยค่าของ String ต้องอยู่ในเครื่องหมายคำพูดคู่ (&quot;ตัวอย่าง&quot;)\n
+• int - ใช้เก็บจำนวนเต็ม เช่น 123 หรือ -123\n
+• float - ใช้เก็บเลขทศนิยม เช่น 19.99 หรือ -19.99\n
+• char - ใช้เก็บตัวอักษรเพียงตัวเดียว เช่น 'a' หรือ 'B' โดยต้องอยู่ในเครื่องหมายคำพูดเดี่ยว ('')\n
+• boolean - ใช้เก็บค่าความจริง มีเพียงสองค่าเท่านั้น คือ true หรือ false"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="18sp"
+                android:textStyle="normal" />
+
+
+            <TextView
+                android:id="@+id/variableInfo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo2"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:paddingTop="16dp"
+                android:text="🔹 การประกาศ (สร้าง) ตัวแปร:"
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+
+            <TextView
+                android:id="@+id/variableInfo4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo3"
+                android:layout_centerHorizontal="true"
+                android:fontFamily="serif"
+                android:lineSpacingExtra="4dp"
+                android:text="• ในการสร้างตัวแปรต้องกำหนดประเภทของตัวแปรและให้ค่ากับมัน\n
+📌 ไวยากรณ์ (Syntax):\n   type variableName = value;\n\n
+✅ type คือ ประเภทข้อมูลของตัวแปร (เช่น int หรือ String)\n
+✅ variableName คือ ชื่อตัวแปร (เช่น x หรือ name)\n
+✅ เครื่องหมาย = ใช้สำหรับกำหนดค่าให้กับตัวแปร"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/variableInfo6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo4"
+                android:layout_marginTop="8dp"
+                android:background="#ECEFF1"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:gravity="start"
+                android:lineSpacingExtra="6sp"
+                android:padding="8dp"
+                android:text="📌 ตัวอย่างการสร้างตัวแปร:\n
+• สร้างตัวแปร name ประเภท String และกำหนดค่าเป็น &quot;John&quot;\n
+• จากนั้นพิมพ์ค่าออกมา:\n
+\n
+String name = &quot;John&quot;;\n
+System.out.println(name);"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/variableInfo7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo6"
+                android:layout_marginTop="8dp"
+                android:background="#ECEFF1"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:gravity="start"
+                android:lineSpacingExtra="6sp"
+                android:padding="8dp"
+                android:text="📌 ตัวอย่างการสร้างตัวแปร:\n
+• สร้างตัวแปร myNum ประเภท int และกำหนดค่าเป็น 15\n
+• จากนั้นพิมพ์ค่าออกมา:\n
+\n
+int myNum = 15;\n
+System.out.println(myNum);"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/variableInfo8"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo7"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:paddingTop="8dp"
+                android:text="🔹 การประกาศตัวแปรก่อน กำหนดค่าทีหลัง:"
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/variableInfo9"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo8"
+                android:fontFamily="serif"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="• เราสามารถประกาศตัวแปรโดยไม่ต้องกำหนดค่าในตอนแรก แล้วค่อยกำหนดค่าภายหลังได้"
+                android:textAlignment="viewStart"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/variableInfo11"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo9"
+                android:layout_marginTop="8dp"
+                android:background="#ECEFF1"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:gravity="start"
+                android:lineSpacingExtra="6sp"
+                android:padding="8dp"
+                android:text="📌 ตัวอย่างการสร้างตัวแปร กำหนดค่าทีหลัง:\n
+• ประกาศตัวแปร num1 ประเภท int\n
+• กำหนดค่าให้ภายหลังเป็น 15 และพิมพ์ค่าออกมา:\n
+\n
+int num1;\n
+num1 = 15;\n
+System.out.println(num1);"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/variableInfo12"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo11"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:paddingTop="8dp"
+                android:text="🔹 การเปลี่ยนค่าของตัวแปร:"
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/variableInfo13"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo12"
+                android:fontFamily="serif"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="• การกำหนดค่าใหม่ให้กับตัวแปรที่ได้ประกาศไว้ก่อนหน้า ซึ่งจะทำให้ค่าก่อนหน้าถูกแทนที่ด้วยค่าล่าสุด"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/variableInfo15"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo13"
+                android:layout_marginTop="8dp"
+                android:background="#ECEFF1"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:gravity="start"
+                android:lineSpacingExtra="6sp"
+                android:padding="8dp"
+                android:text="📌 ตัวอย่างการเปลี่ยนค่าของตัวแปร:\n
+• ประกาศตัวแปร myNum เป็น int และกำหนดค่าเริ่มต้นเป็น 15\n
+• เปลี่ยนค่า myNum เป็น 20 และพิมพ์ค่าออกมา:\n
+\n
+int myNum = 15;\n
+myNum = 20;  // myNum ตอนนี้มีค่าเป็น 20\n
+System.out.println(myNum);"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+
+            <TextView
+                android:id="@+id/variableInfo16"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo15"
+                android:layout_marginTop="12dp"
+                android:fontFamily="serif"
+                android:paddingTop="8dp"
+                android:text="🔹 ตัวแปรแบบคงที่: "
+                android:textColor="#0033cc"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/variableInfo17"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo16"
+                android:fontFamily="serif"
+                android:paddingStart="16dp"
+                android:paddingEnd="16dp"
+                android:text="• หากไม่ต้องการให้ค่าของตัวแปรถูกเปลี่ยนแปลง สามารถใช้ final เพื่อทำให้ตัวแปรเป็นค่าคงที่ (constant) หรือเป็นแบบอ่านอย่างเดียว (read-only)"
+                android:textAlignment="viewStart"
+                android:textColor="#333333"
+                android:textSize="18sp" />
+
+            <TextView
+                android:id="@+id/variableInfo18"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo17"
+                android:layout_marginTop="8dp"
+                android:background="#ECEFF1"
+                android:elevation="4dp"
+                android:fontFamily="monospace"
+                android:gravity="start"
+                android:lineSpacingExtra="6sp"
+                android:padding="8dp"
+                android:text="📌 ตัวอย่างตัวแปรแบบคงที่:\n
+• ใช้ final กำหนดค่าตัวแปรให้เปลี่ยนแปลงไม่ได้\n
+\n
+final int myNum = 15;\n
+myNum = 20;  // ❌ จะเกิดข้อผิดพลาด: ไม่สามารถเปลี่ยนค่าของตัวแปรที่เป็น final ได้"
+                android:textAlignment="viewStart"
+                android:textColor="#000000"
+                android:textSize="18sp" />
+
+            <Button
+                android:id="@+id/btnQuiz2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/variableInfo18"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#ffc43c"
+                android:fontFamily="serif"
+                android:text="Start Quiz"
+                android:textAlignment="center"
+                android:textSize="18sp"
+                android:textStyle="bold"
+                android:elevation="8dp"
+                android:outlineProvider="none"/>
+
+
+        </RelativeLayout>
+    </ScrollView>
+</RelativeLayout>
