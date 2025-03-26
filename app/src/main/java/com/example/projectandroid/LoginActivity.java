@@ -48,7 +48,6 @@ public class LoginActivity extends AppCompatActivity implements
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-
         btnRegister = findViewById(R.id.LoginbtnRegister);
         btnSignUp = findViewById(R.id.LoginbtnSignup);
         btnSignUp.setOnClickListener(this);
@@ -61,6 +60,8 @@ public class LoginActivity extends AppCompatActivity implements
         editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
         editPass.setSelection(editPass.getText().length());
         togglePass.setImageResource(R.drawable.visibility);
+        editName.setText("");
+        editPass.setText("");
 
     }
     @Override
@@ -85,7 +86,6 @@ public class LoginActivity extends AppCompatActivity implements
             if(checkName(name) && checkPass(pass)) {
                 readFile(name, pass);
                 if (valid) {
-                    Toast.makeText(this, "Compleate", Toast.LENGTH_SHORT).show();
                     SendData();
                 }
             }

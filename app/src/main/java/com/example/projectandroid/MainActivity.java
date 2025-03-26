@@ -85,7 +85,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this , ReportActivity.class );
             startActivity(i);
         } else if (view.getId() == R.id.home_logout) {
-            finish();
+            Intent i = new Intent(this , LoginActivity.class );
+            startActivity(i);
         }
    }
 
