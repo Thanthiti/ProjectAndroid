@@ -33,6 +33,10 @@ public class LoginActivity extends AppCompatActivity implements
     final String filename = "User.txt";
     boolean valid = false;
     userData user;
+
+    String PicProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
+    //    int Pic [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
+//    ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +62,6 @@ public class LoginActivity extends AppCompatActivity implements
         togglePass.setImageResource(R.drawable.visibility);
 
     }
-
     @Override
     public void onClick(View view) {
         int id = view.getId();
@@ -100,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements
                 if(part[0].equals(name)){
                     if(part[2].equals(pass)){
                         int Progress = Integer.parseInt(part[3]);
-                        user = new userData(part[0],part[1],part[2],Progress);
+                        user = new userData(part[0],part[1],part[2],Progress,part[4]);
                         valid = true;
                     }
                     else {
