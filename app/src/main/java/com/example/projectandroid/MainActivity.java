@@ -18,15 +18,23 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ProgressBar progressBar;
     //Button btnProgress;
     LinearLayout menu_data , menu_edit;
     ConstraintLayout reportExp;
-    ImageView logout ;
+    ImageView logout ,ImageProfile;
     int exp = 0;
     TextView textExp;
+    String Name,Profile,Progress;
+
+    String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
+        int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
+    ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
+
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,6 +45,14 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent i = getIntent();
+        userData user = (userData) i.getSerializableExtra("user");
+        String part [] = user.toString().split(" ");
+        Name = part[0];
+        Progress = part[3];
+        Profile = part[4];
+
         progressBar = findViewById(R.id.home_progressbar);
         reportExp = findViewById(R.id.home_report_exp);
         reportExp.setOnClickListener(this);
@@ -47,6 +63,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu_edit.setOnClickListener(this);
         logout = findViewById(R.id.home_logout);
         logout.setOnClickListener(this);
+        ImageProfile = findViewById(R.id.HomeImageProfile);
+
+        int index = Arrays.asList(nameProfile).indexOf(Profile);
+        ImageProfile.setImageResource(picId[index]);
+
 
     }
 
@@ -64,4 +85,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             finish();
         }
    }
+
+
+
 }
