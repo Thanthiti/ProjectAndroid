@@ -126,7 +126,6 @@ public class LoginActivity extends AppCompatActivity implements
         Intent launch = new Intent(LoginActivity.this, MainActivity.class);
 ////        user = new userData("Palm","asd@gmail","12345678",0,"black");
         launch.putExtra("user",user);
-
         startActivity(launch);
     }
 

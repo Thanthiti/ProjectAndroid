@@ -2,13 +2,11 @@ package com.example.projectandroid;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.service.autofill.UserData;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,23 +15,21 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ProgressBar progressBar;
-    //Button btnProgress;
     LinearLayout menu_data , menu_edit;
     ConstraintLayout reportExp;
     ImageView logout ,ImageProfile;
-    int exp = 0;
     TextView textExp,textUsername;
-    String Name,Profile,Progress;
+    String Name,Profile;
+    int Progress;
+    userData Edituser;
 
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
         int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
     ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,9 +45,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         Intent i = getIntent();
         userData user = (userData) i.getSerializableExtra("user");
         String part [] = user.toString().split(" ");
+
         Name = part[0];
-        Progress = part[3];
+        Progress = Integer.parseInt(part[3]);
         Profile = part[4];
+
+        Edituser = new userData(part[0],part[1],part[2],Progress,part[4]);
 
         progressBar = findViewById(R.id.home_progressbar);
         reportExp = findViewById(R.id.home_report_exp);
@@ -63,23 +62,27 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         menu_edit.setOnClickListener(this);
         logout = findViewById(R.id.home_logout);
         logout.setOnClickListener(this);
-        ImageProfile = findViewById(R.id.HomeImageProfile);
+        ImageProfile = findViewById(R.id.EditImageProfile);
         textUsername = findViewById(R.id.HomeTextUsername);
 
         int index = Arrays.asList(nameProfile).indexOf(Profile);
         ImageProfile.setImageResource(picId[index]);
+
         textUsername.setText(part[0]);
 
-        progressBar.incrementProgressBy(10);
+        textExp.setText("Your experience is : " + Progress +" %");
+        progressBar.incrementProgressBy(Progress);
     }
 
     @Override
     public void onClick(View view) {
         if (view.getId() == R.id.home_menu_data){
-            Toast.makeText(this, "test" , Toast.LENGTH_SHORT).show();
+            Intent i = new Intent(this,ContentActivity1.class);
+            startActivity(i);
         }
         else if (view.getId() == R.id.home_menu_edit) {
             Intent i = new Intent(this , EditActivity.class);
+            i.putExtra("user",Edituser);
             startActivity(i);
         } else if (view.getId() == R.id.home_report_exp) {
             Intent i = new Intent(this , ReportActivity.class );
