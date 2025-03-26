@@ -1,0 +1,20 @@
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <!-- พื้นหลังของ ProgressBar -->
+    <item android:id="@android:id/background">
+        <shape android:shape="rectangle">
+            <solid android:color="#D3D3D3"/>  <!-- สีพื้นหลัง -->
+            <corners android:radius="0dp"/>  <!-- ปรับให้เป็นมุมเหลี่ยม -->
+        </shape>
+    </item>
+
+    <!-- แถบ Progress ที่แสดงผล -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape android:shape="rectangle">
+                <solid android:color="#3DDA83"/> <!-- สีของ Progress -->
+                <corners android:radius="0dp"/> <!-- ปรับให้เป็นมุมเหลี่ยม -->
+            </shape>
+        </clip>
+    </item>
+</layer-list>
