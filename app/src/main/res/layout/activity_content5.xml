@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".ContentActivity5">
+
+    <!-- Header Bar -->
+    <RelativeLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#E0E0E0"
+        android:padding="10dp">
+
+        <!-- ปุ่ม Back -->
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:text="◀ Back"
+            android:textColor="#000"
+            android:textSize="16sp" />
+
+        <!-- รูปโปรไฟล์ -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <!-- ปุ่ม Next -->
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:text="Next ▶"
+            android:textColor="#000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@id/headerBar"
+        android:max="100"
+        android:progressDrawable="@android:drawable/progress_horizontal" />
+
+    <!-- ScrollView -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/progressBar"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="บทที่5 ฟังก์ชันใน Java"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dataInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleText"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="1. ฟังก์ชันคืออะไร?\n
+ฟังก์ชัน (Function) หรือ เมธอด (Method) ใน Java คือ กลุ่มของโค้ดที่ทำงานเฉพาะอย่าง ซึ่งสามารถเรียกใช้ซ้ำได้ ทำให้โค้ดสะอาดและจัดการง่ายขึ้น"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                 />
+
+            <TextView
+                android:id="@+id/dataInfo2"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo1"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:text="2. โครงสร้างของฟังก์ชันใน Java
+returnType \nfunctionName(พารามิเตอร์) {\n
+    // โค้ดที่ทำงาน\n
+    return ค่าที่ส่งกลับ; // (ถ้ามี)\n
+}\n
+อธิบาย\n
+- returnType → ชนิดข้อมูลที่ฟังก์ชันส่งกลับ (int, String, void ฯลฯ)\n
+- functionName → ชื่อของฟังก์ชัน\n
+- (พารามิเตอร์) → ค่าที่ส่งเข้าไปให้ฟังก์ชันทำงาน (ถ้ามี)\n
+- {} → ส่วนที่ฟังก์ชันทำงาน\n
+- return → ค่าที่ฟังก์ชันส่งกลับ (ถ้ามี)"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dataInfo3"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo2"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:text="3. ฟังก์ชันแบบไม่มีค่าที่ส่งกลับ (void)\n
+ตัวอย่าง: พิมพ์ข้อความ &quot;Hello, Java!&quot;\n
+public class Main {\n
+    // ฟังก์ชันไม่มีค่าที่ส่งกลับ\n
+    static void sayHello() {\n
+    System.out.println(&quot;Hello, Java!&quot;);\n
+    }\n
+
+public static void main(String[] args) {\n
+    sayHello(); // เรียกใช้ฟังก์ชัน\n
+    }\n
+}\n
+ผลลัพธ์ : Hello, Java!\n
+ใช้เมื่อเราต้องการให้ฟังก์ชันทำงานโดยไม่ต้องส่งค่ากลับมา"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dataInfo4"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo3"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:text="4. ฟังก์ชันที่มีค่าที่ส่งกลับ\n
+ตัวอย่าง: ฟังก์ชันบวกเลขสองตัว\n
+public class Main {\n
+    // ฟังก์ชันส่งค่ากลับเป็น int\n
+    static int addNumbers(int a, int b) {\n
+        return a + b;\n
+    }\n
+
+    public static void main(String[] args) {\n
+        int result = addNumbers(10, 20); //เรียกใช้ฟังก์ชัน\n
+        System.out.println(&quot;ผลรวม: &quot; + result);//ผลรวม:30\n
+    }\n
+}\n
+ใช้เมื่อเราต้องการให้ฟังก์ชันคำนวณค่าและส่งค่ากลับมาใช้งานต่อ"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dataInfo5"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo4"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:text="5. ฟังก์ชันรับค่าพารามิเตอร์และส่งค่ากลับ\n
+ตัวอย่าง: ฟังก์ชันตรวจสอบเลขคู่หรือเลขคี่\n
+public class Main {\n
+    static String checkEvenOdd(int number) {\n
+        if (number % 2 == 0) {\n
+            return &quot;เลขคู่&quot;;\n
+        } else {\n
+            return &quot;เลขคี่&quot;;\n
+        }\n
+    }\n
+
+    public static void main(String[] args) {\n
+        System.out.println(checkEvenOdd(7));  // เลขคี่\n
+        System.out.println(checkEvenOdd(10)); // เลขคู่\n
+    }\n
+}\n
+ใช้เมื่อเราต้องการตรวจสอบค่าที่รับเข้ามา และส่งผลลัพธ์กลับ"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dataInfo6"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo5"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:text="6. ฟังก์ชันแบบ Overloading (ชื่อเดียวกันแต่พารามิเตอร์ต่างกัน)\n
+ตัวอย่าง: ฟังก์ชัน addNumbers() ที่รองรับทั้ง int และ double\n
+public class Main {\n
+    static int addNumbers(int a, int b) {\n
+        return a + b;\n
+    }\n
+
+    static double addNumbers(double a, double b) {\n
+        return a + b;\n
+    }\n
+
+    public static void main(String[] args) {\n
+        System.out.println(addNumbers(10, 20));  //30(int)\n
+        System.out.println(addNumbers(5.5, 4.5));//10.0 (double)\n
+    }\n
+}\n
+ใช้เมื่อเราต้องการให้ฟังก์ชันเดียวกันรองรับหลายรูปแบบของข้อมูล"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dataInfo7"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo6"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:text="7. ฟังก์ชันแบบ Recursive (เรียกตัวเองซ้ำ)\n
+ตัวอย่าง: หาผลรวมของตัวเลข 1 ถึง n\n
+public class Main {\n
+    static int sumNumbers(int n) {\n
+        if (n == 1) {\n
+            return 1; // จุดสิ้นสุดของการเรียกซ้ำ\n
+        }\n
+        return n + sumNumbers(n - 1);\n
+    }\n
+
+    public static void main(String[] args) {\n
+        System.out.println(sumNumbers(5)); // 1+2+3+4+5 = 15\n
+    }\n
+}\n
+ใช้เมื่อเราต้องการให้ฟังก์ชันทำงานซ้ำ ๆ จนกว่าจะถึงเงื่อนไขหยุด"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+            <TextView
+                android:id="@+id/dataInfo8"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo7"
+                android:layout_centerHorizontal="true"
+                android:layout_margin="16dp"
+                android:text="8. ฟังก์ชันในคลาส (Method in Class)\n
+ตัวอย่าง: ฟังก์ชันที่อยู่ในคลาสอื่น\n
+class MathUtils {\n
+    int square(int x) {\n
+        return x * x;\n
+    }\n
+}\n
+
+public class Main {\n
+    public static void main(String[] args) {\n
+        MathUtils math = new MathUtils();\n
+        System.out.println(math.square(4)); // 16\n
+    }\n
+}\n
+ใช้เมื่อเราต้องการสร้างฟังก์ชันแยกในคลาสเพื่อให้โค้ดเป็นระเบียบ"
+                android:textAlignment="viewStart"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>
