@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.service.autofill.UserData;
 import android.text.Html;
+import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
@@ -81,9 +82,12 @@ public class LoginActivity extends AppCompatActivity implements
         }
 
         if(id == R.id.LoginbtnSignup){
-            readFile(name,pass);
-            if(valid){
-                SendData();
+            if(checkName(name) && checkPass(pass)) {
+                readFile(name, pass);
+                if (valid) {
+                    Toast.makeText(this, "Compleate", Toast.LENGTH_SHORT).show();
+                    SendData();
+                }
             }
         }
         else if(id == R.id.LoginbtnRegister){
@@ -99,7 +103,7 @@ public class LoginActivity extends AppCompatActivity implements
             String line;
 
             while ((line = reader.readLine()) != null){
-                String [] part  = line.split("\\s+",4);
+                String [] part  = line.split("\\s+",5);
                 if(part[0].equals(name)){
                     if(part[2].equals(pass)){
                         int Progress = Integer.parseInt(part[3]);
@@ -120,7 +124,24 @@ public class LoginActivity extends AppCompatActivity implements
     }
     public void  SendData(){
         Intent launch = new Intent(LoginActivity.this, MainActivity.class);
+////        user = new userData("Palm","asd@gmail","12345678",0,"black");
         launch.putExtra("user",user);
+
         startActivity(launch);
+    }
+
+    public boolean checkName(String name){
+        if(TextUtils.isEmpty(name)){
+            editName.setError("กรุณากรอกชื่อผู้ใข้");
+            return  false;
+        }
+        return true;
+    }
+    public boolean checkPass(String pass){
+        if(TextUtils.isEmpty(pass)){
+            editPass.setError("กรุณากรอกรหัสผ่าน");
+            return  false;
+        }
+        return true;
     }
 }

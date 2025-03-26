@@ -45,7 +45,7 @@
                 app:srcCompat="@drawable/back" />
 
             <ImageView
-                android:id="@+id/image"
+                android:id="@+id/HomeImageProfile"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="80dp"
