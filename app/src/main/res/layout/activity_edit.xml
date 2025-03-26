@@ -142,6 +142,7 @@
                 android:layout_width="51dp"
                 android:layout_height="49dp"
                 android:layout_gravity="center_vertical"
+                android:elevation="10dp"
                 app:srcCompat="@drawable/emaill" />
 
             <EditText
