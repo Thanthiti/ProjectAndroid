@@ -7,12 +7,14 @@ public class userData implements Serializable {
     private String email = "";
     private String password = "";
     private int progress = 0;
+    private String image = "";
 
-    public userData(String name, String email, String password,int progress){
+    public userData(String name, String email, String password,int progress,String image){
         this.name = name;
         this.email = email;
         this.password = password;
         this.progress = progress;
+        this.image = image;
     }
     public String getName(){
         return this.name;
@@ -26,7 +28,11 @@ public class userData implements Serializable {
     public int getProgress() {
         return this.progress;
     }
+    public String getImage() {
+        return this.image;
+    }
+
     public String toString(){
-        return (getName() + " " + getEmail() + " " + getPassword() + " " + getProgress());
+        return (getName() + " " + getEmail() + " " + getPassword() + " " + getProgress() + " " + getImage());
     }
 }

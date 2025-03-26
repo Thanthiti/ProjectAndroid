@@ -26,6 +26,7 @@ import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStreamWriter;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity implements
         View.OnClickListener {
@@ -35,6 +36,10 @@ public class RegisterActivity extends AppCompatActivity implements
     final String filename = "User.txt";
     String Path ;
     ArrayList<String> Username = new ArrayList<>();
+    boolean Statusfile = false;
+    String PicProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
+//    int Pic [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
+//    ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,11 +52,14 @@ public class RegisterActivity extends AppCompatActivity implements
             return insets;
         });
 
-////        clear file
-//        File file = new File(getFilesDir(),filename);
-//        file.delete();
+        File file = new File(getFilesDir(),filename);
 
-        
+//        file.delete();
+        if(file.exists()){
+            Toast.makeText(this, "file", Toast.LENGTH_SHORT).show(); // have file
+            Statusfile = true;
+        }
+
         editName = findViewById(R.id.RegiseditName);
         editEmail = findViewById(R.id.RegiseditEmail);
         editPass = findViewById(R.id.RegiseditPass);
@@ -83,18 +91,20 @@ public class RegisterActivity extends AppCompatActivity implements
             editPass.setSelection(editPass.getText().length());
         }
         if (id == R.id.RegisbtnRegister) {
+
             String name,email,pass;
             name = editName.getText().toString().trim();
             email = editEmail.getText().toString().trim().toLowerCase();
             pass = editPass.getText().toString().trim();
             boolean status = false;
             if(checkName(name) && checkEmail(email) && checkPass(pass) ){
-                readFile(name);
-
-                for (String user: Username) {
-                    if (user.equals(name)) {
-                        editName.setError("ชื่อผู้ใช้ซ่ำกรุณาเปลี่ยนชื่อผู้ใช้");
-                        status = true;
+                if(Statusfile) {
+                    readFile();
+                    for (String user: Username) {
+                        if (user.equals(name)) {
+                            editName.setError("ชื่อผู้ใช้ซ่ำกรุณาเปลี่ยนชื่อผู้ใช้");
+                            status = true;
+                        }
                     }
                 }
                 if(!status){
@@ -155,7 +165,8 @@ public class RegisterActivity extends AppCompatActivity implements
         try {
             FileOutputStream fout = openFileOutput(filename, MODE_APPEND);
             OutputStreamWriter writer = new OutputStreamWriter(fout);
-            writer.write(Name + " " + Email + " " + Pass + " 0\n");
+            Random rand = new Random();
+            writer.write(Name + " " + Email + " " + Pass + " 0 "+PicProfile[rand.nextInt(PicProfile.length-1)]);
             writer.flush();
             writer.close();
             Toast.makeText(this, "บันทึกเรียบร้อย", Toast.LENGTH_SHORT).show();
@@ -163,20 +174,21 @@ public class RegisterActivity extends AppCompatActivity implements
             Toast.makeText(this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
         }
         }
-    public  void readFile(String name){
-                 try {
+    public  void readFile(){
+                  try {
                 FileInputStream fin = openFileInput(filename);
                 BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
                 String line;
 
-                while ((line = reader.readLine()) != null){
-                    String [] part  = line.split("\\s+",4);
+                while ((line = reader.readLine()) != null) {
+                    String[] part = line.split("\\s+", 4);
                     Username.add(part[0]);
                 }
                 reader.close();
-            }catch (IOException e){
+            } catch (IOException e) {
                 Toast.makeText(this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
             }
         }
-    }
+        }
+
 
