@@ -12,6 +12,7 @@ import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
@@ -22,6 +23,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ProgressBar progressBar;
     //Button btnProgress;
     LinearLayout menu_data , menu_edit;
+    ConstraintLayout reportExp;
     ImageView logout ;
     int exp = 0;
     TextView textExp;
@@ -36,8 +38,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             return insets;
         });
         progressBar = findViewById(R.id.home_progressbar);
-        //btnProgress = findViewById(R.id.home_btnProgress);
-        //btnProgress.setOnClickListener(this);
+        reportExp = findViewById(R.id.home_report_exp);
+        reportExp.setOnClickListener(this);
         textExp = findViewById(R.id.home_textExp);
         menu_data = findViewById(R.id.home_menu_data);
         menu_data.setOnClickListener(this);
@@ -50,19 +52,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.home_menu_data) Toast.makeText(this, "test" , Toast.LENGTH_SHORT).show();
+        if (view.getId() == R.id.home_menu_data)
+            Toast.makeText(this, "test" , Toast.LENGTH_SHORT).show();
         else if (view.getId() == R.id.home_menu_edit) {
             Intent i = new Intent(this , EditActivity.class);
             startActivity(i);
+        } else if (view.getId() == R.id.home_report_exp) {
+            Intent i = new Intent(this , ReportActivity.class );
+            startActivity(i);
         } else if (view.getId() == R.id.home_logout) {
-            
+            finish();
         }
-        //if (view.getId() == R.id.home_btnProgress) {
-            //if (exp >= 0 && exp < 100) {
-               // progressBar.incrementProgressBy(20);
-               // exp += 20;
-               // textExp.setText("Your experience is : " + exp + " %");
-           // } else Toast.makeText(this , "MAX" , Toast.LENGTH_SHORT).show();
-       // }
    }
 }

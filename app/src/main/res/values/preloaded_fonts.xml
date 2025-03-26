@@ -1,9 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <array name="preloaded_fonts" translatable="false">
+        <item>@font/</item>
         <item>@font/acme</item>
         <item>@font/anton</item>
         <item>@font/fjalla_one</item>
+        <item>@font/neuton_extralight</item>
+        <item>@font/prompt_bold</item>
+        <item>@font/prompt_light</item>
+        <item>@font/prompt_medium</item>
+        <item>@font/protest_strike</item>
         <item>@font/thasadith</item>
         <item>@font/yusei_magic</item>
     </array>
