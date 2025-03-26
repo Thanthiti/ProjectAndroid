@@ -34,7 +34,16 @@
             android:name=".ContentActivity1"
             android:exported="false" />
 
+        <activity
+            android:name=".ContentActivity4"
+            android:exported="false" />
 
+        <activity
+            android:name=".ContentActivity5"
+            android:exported="false" />
+        <activity
+            android:name=".EditActivity"
+            android:exported="false" />
 
     </application>
 

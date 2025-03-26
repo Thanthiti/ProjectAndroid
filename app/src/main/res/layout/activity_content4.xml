@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    tools:context=".ContentActivity4">
+
+    <!-- Header Bar -->
+    <RelativeLayout
+        android:id="@+id/headerBar"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:background="#E0E0E0"
+        android:padding="10dp">
+
+        <!-- ปุ่ม Back -->
+        <TextView
+            android:id="@+id/btnBack"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:text="◀ Back"
+            android:textColor="#000"
+            android:textSize="16sp" />
+
+        <!-- รูปโปรไฟล์ -->
+        <ImageView
+            android:id="@+id/profileImage"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_centerInParent="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher_round" />
+
+        <!-- ปุ่ม Next -->
+        <TextView
+            android:id="@+id/btnNext"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:padding="8dp"
+            android:text="Next ▶"
+            android:textColor="#000"
+            android:textSize="16sp" />
+    </RelativeLayout>
+
+    <!-- Progress Bar -->
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="@android:style/Widget.ProgressBar.Horizontal"
+        android:layout_width="match_parent"
+        android:layout_height="8dp"
+        android:layout_below="@id/headerBar"
+        android:max="100"
+        android:progressDrawable="@android:drawable/progress_horizontal" />
+
+    <!-- ScrollView -->
+    <ScrollView
+        android:id="@+id/scrollView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/progressBar"
+        android:fillViewport="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/titleText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:text="บทที่4 คำสั่งควบคุมใน Java"
+                android:textColor="#000000"
+                android:textSize="28sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/dataInfo1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/titleText"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="คำสั่งควบคุมใน Java ใช้เพื่อควบคุมการไหลของโปรแกรม
+โดยทำให้โปรแกรมสามารถตัดสินใจหรือทำซ้ำการทำงานตามเงื่อนไขต่าง ๆ
+ซึ่งคำสั่งควบคุมหลักใน Java ได้แก่:\n
+1. คำสั่งเงื่อนไข (Conditional Statements)\n
+2. คำสั่งวนซ้ำ (Looping Statements)\n
+3. คำสั่งเลือก (Switch Statement)\n--------------------------------------------------------------------------------------"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                 />
+            <TextView
+                android:id="@+id/dataInfo2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo1"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text=" 1. คำสั่งเงื่อนไข (Conditional Statements)\n คำสั่งเงื่อนไขช่วยให้โปรแกรมสามารถทำการตัดสินใจตามเงื่อนไขที่กำหนด โดยจะมี if,else และ else if เป็นตัวดำเนินการหลักในการควบคุมการตัดสินใจ\n\n・คำสั่ง if\nคำสั่ง if ใช้เพื่อทำงานเมื่อเงื่อนไขเป็นจริง\nตัวอย่างเช่น :\nint x = 10;\nif (x > 5) {\n    System.out.println(&quot;x มากกว่า 5&quot;);\n} \n\n・คำสั่ง else\nคำสั่ง else ใช้เมื่อเงื่อนไขใน if เป็นเท็จ\nตัวอย่างเช่น :\nint x = 3;\nif (x > 5) {\n    System.out.println(&quot;x มากกว่า 5&quot;);\n } else {\n    System.out.println(&quot;x น้อยกว่าหรือเท่ากับ 5&quot;);\n }\n \n・คำสั่ง else if ใช้หลายเงื่อนไขร่วมกัน โดยคำสั่ง else if ใช้เมื่อเงื่อนไขแรกไม่เป็นจริง แต่มีเงื่อนไขอื่น ๆ ที่ต้องการตรวจสอบ\nตัวอย่างเช่น : \n int x = 10;\n if (x > 15) {\n     System.out.println(&quot;x มากกว่า 15&quot;);\n } else if (x == 10) {\n     System.out.println(&quot;x เท่ากับ 10&quot;);\n } else {\n     System.out.println(&quot;x น้อยกว่า 10&quot;);\n }\n "
+                android:textColor="#000000"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/dataInfo3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo2"
+                android:layout_marginLeft="16dp"
+                android:layout_marginTop="16dp"
+                android:text="2. คำสั่งวนซ้ำ (Looping Statements)\nคำสั่งวนซ้ำใช้เพื่อให้โปรแกรมทำงานซ้ำ ๆ จนกว่าเงื่อนไขจะเป็นเท็จ โดยมี 3 รูปแบบหลัก ได้แก่ for, while, และ do-while\n\n・คำสั่ง for
+ใช้เมื่อต้องการให้โปรแกรมทำซ้ำจำนวนครั้งที่กำหนด\nตัวอย่างเช่น : \nfor (int i = 0; i &lt; 5; i++) {\n
+    System.out.println(&quot;i = &quot; + i);
+\n}\n\n
+・คำสั่ง while\n
+ใช้เมื่อต้องการให้โปรแกรมทำซ้ำจนกว่าเงื่อนไขจะเป็นเท็จ\n
+ตัวอย่างเช่น : \n
+int i = 0;\n
+while (i &lt; 5) {\n
+    System.out.println(&quot;i = &quot; + i);\n
+    i++;\n
+}\n\n
+・คำสั่ง do-while\nใช้เมื่อต้องการให้โปรแกรมทำซ้ำอย่างน้อย 1 ครั้ง และตรวจสอบเงื่อนไขหลังจากการทำงานเสร็จ\n
+ตัวอย่างเช่น : \n
+int i = 0;\n
+do {\n
+    System.out.println(&quot;i = &quot; + i);\n
+    i++;\n
+} while (i &lt; 5);
+"
+                android:textColor="#000000"
+                android:textSize="16sp"
+                />
+
+            <TextView
+                android:id="@+id/dataInfo4"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/dataInfo3"
+                android:layout_margin="16dp"
+                android:layout_marginBottom="16dp"
+                android:text="3. คำสั่งเลือก (Switch Statement)\nคำสั่ง switch ใช้ในการเลือกทำงานจากหลาย ๆ ตัวเลือก โดยการใช้เงื่อนไขในการตรวจสอบค่า\n
+ตัวอย่างเช่น : \n
+int day = 3;\n
+switch (day) {\n
+    case 1:\n
+        System.out.println(&quot;วันจันทร์&quot;);\n
+            break;\n
+            case 2:\n
+            System.out.println(&quot;วันอังคาร&quot;);\n
+            break;\n
+            case 3:\n
+            System.out.println(&quot;วันพุธ&quot;);\n
+            break;\n
+            default:\n
+            System.out.println(&quot;วันอื่นๆ&quot;);\n
+            }\n
+สรุป : \n
+    case: ใช้เพื่อระบุค่าที่จะเปรียบเทียบ\n
+    break: ใช้เพื่อออกจากคำสั่ง `switch` หลังจากทำงานเสร็จ\n
+"
+                android:textColor="#000"
+                android:textSize="16sp" />
+
+
+
+
+        </RelativeLayout>
+    </ScrollView>
+
+</RelativeLayout>

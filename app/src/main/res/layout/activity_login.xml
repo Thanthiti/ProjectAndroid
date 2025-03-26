@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/main"
@@ -9,8 +9,11 @@
     tools:context=".LoginActivity">
 
     <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/textInputLayout4"
         android:layout_width="409dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/LogineditName"
@@ -21,7 +24,10 @@
 
     <com.google.android.material.textfield.TextInputLayout
         android:layout_width="409dp"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="150dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/LogineditPass"
@@ -34,11 +40,31 @@
         android:id="@+id/LoginbtnSignup"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="sign up" />
+        android:layout_marginStart="51dp"
+        android:layout_marginTop="311dp"
+        android:text="sign up"
+        app:layout_constraintStart_toEndOf="@+id/LoginbtnRegister"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
 
     <Button
         android:id="@+id/LoginbtnRegister"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Register" />
-</LinearLayout>
+        android:layout_marginStart="37dp"
+        android:layout_marginTop="372dp"
+        android:text="Register"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <ImageView
+        android:id="@+id/LogintogglePassword"
+        android:layout_width="44dp"
+        android:layout_height="51dp"
+        android:layout_marginTop="38dp"
+        android:layout_marginEnd="28dp"
+        android:contentDescription="Toggle password visibility"
+        android:src="@drawable/unvisibility"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textInputLayout4" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
