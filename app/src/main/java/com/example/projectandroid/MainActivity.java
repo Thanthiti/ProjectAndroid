@@ -27,7 +27,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ConstraintLayout reportExp;
     ImageView logout ,ImageProfile;
     int exp = 0;
-    TextView textExp;
+    TextView textExp,textUsername;
     String Name,Profile,Progress;
 
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
@@ -64,17 +64,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logout = findViewById(R.id.home_logout);
         logout.setOnClickListener(this);
         ImageProfile = findViewById(R.id.HomeImageProfile);
+        textUsername = findViewById(R.id.HomeTextUsername);
 
         int index = Arrays.asList(nameProfile).indexOf(Profile);
         ImageProfile.setImageResource(picId[index]);
+        textUsername.setText(part[0]);
 
-
+        progressBar.incrementProgressBy(10);
     }
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.home_menu_data)
+        if (view.getId() == R.id.home_menu_data){
             Toast.makeText(this, "test" , Toast.LENGTH_SHORT).show();
+        }
         else if (view.getId() == R.id.home_menu_edit) {
             Intent i = new Intent(this , EditActivity.class);
             startActivity(i);
