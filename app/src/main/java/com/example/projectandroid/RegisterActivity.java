@@ -61,6 +61,10 @@ public class RegisterActivity extends AppCompatActivity implements
         togglePassword.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
 
+        editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
+        editPass.setSelection(editPass.getText().length());
+        togglePassword.setImageResource(R.drawable.visibility);
+
         Path = "/data/data/"+getPackageName() +"/files/";
 
     }
@@ -70,11 +74,9 @@ public class RegisterActivity extends AppCompatActivity implements
         int id = view.getId();
         if(id == R.id.RegistogglePassword){
             if (editPass.getTransformationMethod() instanceof PasswordTransformationMethod) {
-
                 editPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
                 togglePassword.setImageResource(R.drawable.unvisibility);
             } else {
-
                 editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
                 togglePassword.setImageResource(R.drawable.visibility);
             }
