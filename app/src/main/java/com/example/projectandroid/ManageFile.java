@@ -39,52 +39,58 @@ public class ManageFile implements Serializable {
         this.fileName = fileName;
     }
 
-    public boolean UpdateData(String Newname, String Newemail, String Newpass){
+    public boolean UpdateData(String Newname, String Newemail, String Newpass) {
         ArrayList<String> Alldata = new ArrayList<>();
         boolean status = true;
+
         try {
             FileInputStream fin = ctx.openFileInput(fileName);
             BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
             String line;
-//            Check ชื่อซ่ำในฐานข้อมูล
-            while((line = reader.readLine())!=null){
-                String [] part = line.split("\\s+",5);
-                if(part[0].equals(Newname)){
+
+            while ((line = reader.readLine()) != null) {
+                String[] part = line.split("\\s+", 5);
+
+                if (part[0].equals(Newname)) {
                     status = false;
-                    return false;
                 }
-            }
-//           Read all data
-            while((line = reader.readLine())!= null && status){
-                String [] part = line.split("\\s+",5);
-//            find old data to change to new data
-                if(part.length >=2 && part[0].equals(name) && part[1].equals(email)){
-                    Alldata.add(Newname + " " + Newemail + " " + Newpass + " " + part[3] + " " + part[4] );
-                }else {
+
+                if (part.length >= 2 && part[0].equals(name) && part[1].equals(email)) {
+                    Alldata.add(Newname + " " + Newemail + " " + Newpass + " " + part[3] + " " + part[4]);
+                } else {
                     Alldata.add(line);
                 }
             }
-            System.out.println(Alldata);
+
             reader.close();
             fin.close();
 
-        }catch (IOException e){
-            e.printStackTrace();
-        }
-        try {
-            FileOutputStream fout = ctx.openFileOutput(fileName,Context.MODE_PRIVATE);
-            OutputStreamWriter writer = new OutputStreamWriter(fout);
-            for(String User : Alldata){
-                writer.write(User + "\n");
+            if (!status) {
+                return false;
             }
-            writer.flush();
-            writer.close();
-        }catch (IOException e){
+
+        } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return status ;
+        // เขียนข้อมูลใหม่ลงไฟล์
+        try {
+            FileOutputStream fout = ctx.openFileOutput(fileName, Context.MODE_PRIVATE);
+            OutputStreamWriter writer = new OutputStreamWriter(fout);
+
+            for (String User : Alldata) {
+                writer.write(User + "\n");
+            }
+
+            writer.flush();
+            writer.close();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+        return status;
     }
+
 
     public void saveFile(String Name,String Email, String Pass){
         try {
