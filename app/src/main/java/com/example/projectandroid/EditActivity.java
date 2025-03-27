@@ -73,7 +73,6 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         editPass.setText(Password);
         editEmail.setText(Email);
 
-
     }
 
     @Override
@@ -98,17 +97,17 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 Toast.makeText(this, "ข้อมูลไม่มีการเปลี่ยนแปลง", Toast.LENGTH_SHORT).show();
             }else {
                 if(checkName(textName)&&checkEmail(textEmail)&& checkPass(textPass)){
-                    Toast.makeText(this, "เปลี่ยน", Toast.LENGTH_SHORT).show();
 //                  Old Data
                     editData = new ManageFile(this,Name,Email,Password,Progress,profile,filename);
 //                  New Data
-                    editData.UpdateData(textName,textEmail,textPass);
-                    status = true;
+                    Boolean valid = editData.UpdateData(textName,textEmail,textPass);
+                    if(valid){
+                        status = true;
+                    }
+                    else{
+                        editName.setError("ชื่อผู้ใช้ซ่ำกัน");
+                    }
                 }
-                else{
-                    Toast.makeText(this, "การกรอกข้อมูลไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
-                }
-
             }
         }
     }
@@ -129,22 +128,33 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             editEmail.setError("กรุณากรอกอีเมล");
             return false;
         }
-        if (!Email.contains("@")) {
+
+
+        if (Email.indexOf("@") == -1 || Email.indexOf("@") != Email.lastIndexOf("@")) {
             editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
             return false;
         }
+
+        String Emailsplit[] = Email.split("@");
+
+        if (Emailsplit.length != 2 || Emailsplit[1].isEmpty()) {
+            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
+            return false;
+        }
+
+        String formatEmail[] = {"gmail.com", "email.com", "email.kmutnb.ac.th", "hotmail.com"};
         boolean isvalid = false;
-        String Emailsplit []= Email.split("@");
-        String formatEmail [] = {"gmail.com","email.com","email.kmutnb.ac.th","hotmail.com"};
-        for (String domain: formatEmail) {
-            if(domain.equals(Emailsplit[1])){
+
+        for (String domain : formatEmail) {
+            if (domain.equals(Emailsplit[1])) {
                 isvalid = true;
                 break;
             }
         }
-        if(!isvalid){
-            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
-            return  false;
+
+        if (!isvalid) {
+            editEmail.setError("โดเมนอีเมลไม่ถูกต้อง");
+            return false;
         }
 
         return true;

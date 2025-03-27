@@ -32,18 +32,16 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity implements
-        View.OnClickListener{
-    TextInputEditText editName,editEmail,editPass;
-    TextInputLayout layout_pass , layout_username;
+        View.OnClickListener {
+    TextInputEditText editName, editEmail, editPass;
+    TextInputLayout layout_pass, layout_username;
     //ImageView togglePassword;
     Button btnRegister;
     final String filename = "User.txt";
-    String Path ;
-    ArrayList<String> Username = new ArrayList<>();
+    String Path;
+    ArrayList<String> Alldata = new ArrayList<>();
     boolean Statusfile = false;
-    String PicProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
-//    int Pic [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
-//    ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
+    ManageFile saveFile, readFile;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -56,10 +54,10 @@ public class RegisterActivity extends AppCompatActivity implements
             return insets;
         });
 
-        File file = new File(getFilesDir(),filename);
+        File file = new File(getFilesDir(), filename);
 
         //file.delete();
-        if(file.exists()){
+        if (file.exists()) {
             Toast.makeText(this, "file", Toast.LENGTH_SHORT).show(); // have file
             Statusfile = true;
         }
@@ -79,9 +77,9 @@ public class RegisterActivity extends AppCompatActivity implements
 
         editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
         editPass.setSelection(editPass.getText().length());
-       // togglePassword.setImageResource(R.drawable.unvisibility);
+        // togglePassword.setImageResource(R.drawable.unvisibility);
 
-        Path = "/data/data/"+getPackageName() +"/files/";
+        Path = "/data/data/" + getPackageName() + "/files/";
 
     }
 
@@ -100,118 +98,119 @@ public class RegisterActivity extends AppCompatActivity implements
         }*/
         if (id == R.id.RegisbtnRegister) {
 
-            String name,email,pass;
+            String name, email, pass;
             name = editName.getText().toString().trim();
             email = editEmail.getText().toString().trim().toLowerCase();
             pass = editPass.getText().toString().trim();
             boolean status = false;
-            if(checkName(name) && checkEmail(email) && checkPass(pass) ){
-                if(Statusfile) {
-                    readFile();
-                    for (String user: Username) {
+
+
+            if (checkName(name) && checkEmail(email) && checkPass(pass)) {
+                if (Statusfile) {
+                    readFile = new ManageFile(this, filename);
+                    Alldata = readFile.readFile();
+                    System.out.println(Alldata);
+
+                    ArrayList<String> Username = new ArrayList<>();
+
+                    for (String data : Alldata) {
+                        String[] parts = data.split(" ");
+                        if (parts.length > 0) {
+                            Username.add(parts[0]);
+                        }
+                    }
+                    for (String user : Username) {
                         if (user.equals(name)) {
                             layout_username.setHelperTextEnabled(true);
                             layout_username.setHelperText("Username already taken. Try another.");
-                            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
+                            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));
+                            ;
                             status = true;
                         }
                     }
                 }
-                if(!status){
+                if (!status) {
                     Toast.makeText(this, "สำเร็จ", Toast.LENGTH_SHORT).show();
-                        saveFile(name,email,pass);
-                        Intent launch = new Intent(RegisterActivity.this, LoginActivity.class);
-                        startActivity(launch);
+                    saveFile = new ManageFile(this, filename);
+                    saveFile.saveFile(name, email, pass);
+
+                    Intent launch = new Intent(RegisterActivity.this, LoginActivity.class);
+                    startActivity(launch);
                 }
             }
         }
     }
-    public boolean checkName(String Name){
-        if(TextUtils.isEmpty(Name)){
+
+    public boolean checkName(String Name) {
+        if (TextUtils.isEmpty(Name)) {
             layout_username.setHelperTextEnabled(true);
             layout_username.setHelperText("Oops! You forgot to enter a username.");
-            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
+            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));
+            ;
             return false;
         }
         if (Name.length() < 8 || Name.length() > 20) {
             layout_username.setHelperTextEnabled(true);
             layout_username.setHelperText("Must be between 8-20 characters.");
-            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
+            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));
+            ;
             return false;
         }
         layout_username.setHelperTextEnabled(false);
         return true;
     }
-    public boolean checkEmail(String Email){
+
+    public boolean checkEmail(String Email) {
 
         if (TextUtils.isEmpty(Email)) {
             editEmail.setError("กรุณากรอกอีเมล");
             return false;
         }
-        if (!Email.contains("@")) {  // ตรวจสอบว่าอีเมลมีเครื่องหมาย "@" หรือไม่
+
+        if (Email.indexOf("@") == -1 || Email.indexOf("@") != Email.lastIndexOf("@")) {
             editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
             return false;
         }
+        String Emailsplit[] = Email.split("@");
+
+        if (Emailsplit.length != 2 || Emailsplit[0].isEmpty() || Emailsplit[1].isEmpty() ) {
+            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
+            return false;
+        }
+
+        String formatEmail[] = {"gmail.com", "email.com", "email.kmutnb.ac.th", "hotmail.com"};
         boolean isvalid = false;
-        String Emailsplit []= Email.split("@");
-        String formatEmail [] = {"gmail.com","email.com","email.kmutnb.ac.th","hotmail.com"};
-        for (String domain: formatEmail) {
-            if(domain.equals(Emailsplit[1])){
+        for (String domain : formatEmail) {
+            if (domain.equals(Emailsplit[1])) {
                 isvalid = true;
                 break;
             }
         }
-        if(!isvalid){
-            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
-            return  false;
+        if (!isvalid) {
+            editEmail.setError("โดเมนอีเมลไม่ถูกต้อง");
+            return false;
         }
-
         return true;
     }
-    public boolean checkPass(String Pass){
-        if(TextUtils.isEmpty(Pass)) {
+
+    public boolean checkPass(String Pass) {
+        if (TextUtils.isEmpty(Pass)) {
             layout_pass.setHelperTextEnabled(true);
             layout_pass.setHelperText("Oops! You forgot to enter a password.");
-            layout_pass.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
+            layout_pass.setHelperTextColor(ColorStateList.valueOf(Color.RED));
+            ;
             return false;
         }
         if (Pass.length() < 8 || Pass.length() > 20) {
             layout_pass.setHelperTextEnabled(true);
             layout_pass.setHelperText("Must be between 8-20 characters");
-            layout_pass.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
+            layout_pass.setHelperTextColor(ColorStateList.valueOf(Color.RED));
+            ;
             return false;
         }
         return true;
     }
-    public void saveFile(String Name,String Email, String Pass){
-        try {
-            FileOutputStream fout = openFileOutput(filename, MODE_APPEND);
-            OutputStreamWriter writer = new OutputStreamWriter(fout);
-            Random rand = new Random();
-            writer.write(Name + " " + Email + " " + Pass + " 0 "+PicProfile[rand.nextInt(PicProfile.length-1)] + "\n");
 
-            writer.flush();
-            writer.close();
-            Toast.makeText(this, "บันทึกเรียบร้อย", Toast.LENGTH_SHORT).show();
-        }catch (IOException e){
-            Toast.makeText(this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
-        }
-        }
-    public  void readFile(){
-                  try {
-                FileInputStream fin = openFileInput(filename);
-                BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
-                String line;
-
-                while ((line = reader.readLine()) != null) {
-                    String[] part = line.split("\\s+", 5);
-                    Username.add(part[0]);
-                }
-                reader.close();
-            } catch (IOException e) {
-                Toast.makeText(this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
-            }
-        }
-        }
+}
 
 
