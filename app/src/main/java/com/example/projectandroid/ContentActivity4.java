@@ -21,7 +21,7 @@ public class ContentActivity4 extends AppCompatActivity implements View.OnClickL
     private ProgressBar progressBar4;
     private ScrollView scrollView;
     private Button btnQuiz4;
-    private ImageButton btnScrollToTop;
+    private ImageButton btnScrollToTop,btnBackHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,7 @@ public class ContentActivity4 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
+        btnBackHome = findViewById(R.id.btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar4 = findViewById(R.id.progressBar4);
@@ -52,6 +53,7 @@ public class ContentActivity4 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz4.setOnClickListener(this);
+        btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -91,6 +93,10 @@ public class ContentActivity4 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
+        } else if (v == btnBackHome) {
+            Intent intent = new Intent(ContentActivity4.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         } else {
             //Intent intent = new Intent(ContentActivity4.this, Quiz4Activity.class);
             //startActivity(intent);
