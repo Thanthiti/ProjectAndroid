@@ -36,10 +36,9 @@ public class LoginActivity extends AppCompatActivity implements
     final String filename = "User.txt";
     boolean valid = false;
     userData user;
+    ManageFile readFile;
+    ArrayList<String> Alldata = new ArrayList<>();
 
-    String PicProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
-    //    int Pic [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
-//    ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,7 +82,9 @@ public class LoginActivity extends AppCompatActivity implements
 
         if(id == R.id.LoginbtnSignup){
             if(checkName(name) && checkPass(pass)) {
-                readFile(name, pass);
+                readFile = new ManageFile(this,filename);
+                Alldata = readFile.readFile();
+                Checklogin(name, pass);
                 if (valid) {
                     SendData();
                 }
@@ -91,32 +92,28 @@ public class LoginActivity extends AppCompatActivity implements
         }
     }
 
-    public  void readFile(String name, String pass){
-        try {
-            FileInputStream fin = openFileInput(filename);
-            BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
-            String line;
+    public void Checklogin(String name , String pass){
 
-            while ((line = reader.readLine()) != null){
-                String [] part  = line.split("\\s+",5);
-                if(part[0].equals(name)){
-                    if(part[2].equals(pass)){
-                        int Progress = Integer.parseInt(part[3]);
-                        user = new userData(part[0],part[1],part[2],Progress,part[4]);
-                        valid = true;
-                    }
-                    else {
-                        Toast.makeText(this, "รหัสผ่านไม่ถูกต้องหริอชื่อผู้ใช้ไม่ถูกต้อง", Toast.LENGTH_SHORT).show();
-                        editPass.setError("รหัสผ่านไม่ถูกต้อง");
-                        editName.setError("ชื่อผู้ใช้ไม่ถูกต้อง");
-                    }
+        for (String users : Alldata) {
+            String[] part = users.split("\\s+",5);
+            if (part[0].equals(name)) {
+                if (part[2].equals(pass)) {
+                    int Progress = Integer.parseInt(part[3]);
+                    user = new userData(part[0], part[1], part[2], Progress, part[4]);
+                    valid = true;
+                    break;
+                } else {
+                    editPass.setError("รหัสผ่านไม่ถูกต้อง");
+                    return;
                 }
             }
-            reader.close();
-        }catch (IOException e){
-            Toast.makeText(this, "เกิดข้อผิดพลาด", Toast.LENGTH_SHORT).show();
+        }
+        if (!valid) {
+            Toast.makeText(this, "ไม่พบบัญชีผู้ใช้นี้", Toast.LENGTH_SHORT).show();
+            editName.setError("ชื่อผู้ใช้ไม่ถูกต้อง");
         }
     }
+
     public void  SendData(){
         Intent launch = new Intent(LoginActivity.this, MainActivity.class);
 ////        user = new userData("Palm","asd@gmail","12345678",0,"black");
