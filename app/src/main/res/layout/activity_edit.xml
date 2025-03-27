@@ -45,21 +45,21 @@
                 app:srcCompat="@drawable/back" />
 
             <ImageView
-                android:id="@+id/HomeImageProfile"
+                android:id="@+id/EditImageProfile"
                 android:layout_width="150dp"
                 android:layout_height="150dp"
                 android:layout_marginTop="80dp"
                 android:background="@drawable/circle_shape"
                 android:clipToOutline="true"
-                android:scaleType="centerCrop"
-                android:src="@drawable/profile"
+                android:scaleType="fitCenter"
+                android:src="@drawable/green"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.498"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/imageView9"
+                android:id="@+id/EditeditProfile"
                 android:layout_width="32dp"
                 android:layout_height="33dp"
                 android:layout_marginTop="188dp"
@@ -110,7 +110,7 @@
                     app:srcCompat="@drawable/bottom_btn2" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/EdittextUsername"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
@@ -118,7 +118,7 @@
                     android:drawableRight="@android:drawable/ic_menu_edit"
                     android:elevation="5dp"
                     android:ems="10"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:inputType="text"
                     android:padding="15dp"
                     android:text="Username" />
@@ -140,7 +140,7 @@
                     app:srcCompat="@drawable/password" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/EdittextPassword"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
@@ -148,7 +148,7 @@
                     android:drawableRight="@android:drawable/ic_menu_edit"
                     android:elevation="5dp"
                     android:ems="10"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:inputType="text"
                     android:padding="15dp"
                     android:text="Password" />
@@ -171,7 +171,7 @@
                     app:srcCompat="@drawable/emaill" />
 
                 <EditText
-                    android:id="@+id/editTextText"
+                    android:id="@+id/EdittextEmail"
                     android:layout_width="250dp"
                     android:layout_height="50dp"
                     android:layout_margin="10dp"
@@ -179,7 +179,7 @@
                     android:drawableRight="@android:drawable/ic_menu_edit"
                     android:elevation="5dp"
                     android:ems="10"
-                    android:enabled="false"
+                    android:enabled="true"
                     android:inputType="text"
                     android:padding="15dp"
                     android:text="Email" />
@@ -189,7 +189,7 @@
         </LinearLayout>
 
         <Button
-            android:id="@+id/button"
+            android:id="@+id/EditbtnUpdate"
             android:layout_width="200dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_horizontal"

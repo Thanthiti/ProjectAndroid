@@ -1,6 +1,8 @@
 package com.example.projectandroid;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.text.method.HideReturnsTransformationMethod;
@@ -17,6 +19,7 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -29,9 +32,10 @@ import java.util.ArrayList;
 import java.util.Random;
 
 public class RegisterActivity extends AppCompatActivity implements
-        View.OnClickListener {
+        View.OnClickListener{
     TextInputEditText editName,editEmail,editPass;
-    ImageView togglePassword;
+    TextInputLayout layout_pass , layout_username;
+    //ImageView togglePassword;
     Button btnRegister;
     final String filename = "User.txt";
     String Path ;
@@ -54,24 +58,28 @@ public class RegisterActivity extends AppCompatActivity implements
 
         File file = new File(getFilesDir(),filename);
 
-//        file.delete();
+        //file.delete();
         if(file.exists()){
             Toast.makeText(this, "file", Toast.LENGTH_SHORT).show(); // have file
             Statusfile = true;
         }
+        layout_pass = findViewById(R.id.regis_layout_pass);
+        layout_pass.setHelperTextEnabled(false);
+        layout_username = findViewById(R.id.regis_layout_username);
+        layout_username.setHelperTextEnabled(false);
 
         editName = findViewById(R.id.RegiseditName);
         editEmail = findViewById(R.id.RegiseditEmail);
         editPass = findViewById(R.id.RegiseditPass);
 
         btnRegister = findViewById(R.id.RegisbtnRegister);
-        togglePassword = findViewById(R.id.RegistogglePassword);
-        togglePassword.setOnClickListener(this);
+        //togglePassword = findViewById(R.id.RegistogglePassword);
+        //togglePassword.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
 
         editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
         editPass.setSelection(editPass.getText().length());
-        togglePassword.setImageResource(R.drawable.visibility);
+       // togglePassword.setImageResource(R.drawable.unvisibility);
 
         Path = "/data/data/"+getPackageName() +"/files/";
 
@@ -80,16 +88,16 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        if(id == R.id.RegistogglePassword){
+       /* if(id == R.id.RegistogglePassword){
             if (editPass.getTransformationMethod() instanceof PasswordTransformationMethod) {
                 editPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                togglePassword.setImageResource(R.drawable.unvisibility);
+                togglePassword.setImageResource(R.drawable.visibility);
             } else {
                 editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                togglePassword.setImageResource(R.drawable.visibility);
+                togglePassword.setImageResource(R.drawable.unvisibility);
             }
             editPass.setSelection(editPass.getText().length());
-        }
+        }*/
         if (id == R.id.RegisbtnRegister) {
 
             String name,email,pass;
@@ -102,7 +110,9 @@ public class RegisterActivity extends AppCompatActivity implements
                     readFile();
                     for (String user: Username) {
                         if (user.equals(name)) {
-                            editName.setError("ชื่อผู้ใช้ซ่ำกรุณาเปลี่ยนชื่อผู้ใช้");
+                            layout_username.setHelperTextEnabled(true);
+                            layout_username.setHelperText("Username already taken. Try another.");
+                            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
                             status = true;
                         }
                     }
@@ -118,13 +128,18 @@ public class RegisterActivity extends AppCompatActivity implements
     }
     public boolean checkName(String Name){
         if(TextUtils.isEmpty(Name)){
-            editName.setError("กรุณากรอกชื่อผู้ใช้");
+            layout_username.setHelperTextEnabled(true);
+            layout_username.setHelperText("Oops! You forgot to enter a username.");
+            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
             return false;
         }
-        if (Name.length() < 8 || Name.length() > 12) {
-            editName.setError("กรุณากรอกชื่อผู้ใช้ 8 - 12 ตัว");
+        if (Name.length() < 8 || Name.length() > 20) {
+            layout_username.setHelperTextEnabled(true);
+            layout_username.setHelperText("Must be between 8-20 characters.");
+            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
             return false;
         }
+        layout_username.setHelperTextEnabled(false);
         return true;
     }
     public boolean checkEmail(String Email){
@@ -133,7 +148,10 @@ public class RegisterActivity extends AppCompatActivity implements
             editEmail.setError("กรุณากรอกอีเมล");
             return false;
         }
-
+        if (!Email.contains("@")) {  // ตรวจสอบว่าอีเมลมีเครื่องหมาย "@" หรือไม่
+            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
+            return false;
+        }
         boolean isvalid = false;
         String Emailsplit []= Email.split("@");
         String formatEmail [] = {"gmail.com","email.com","email.kmutnb.ac.th","hotmail.com"};
@@ -152,11 +170,15 @@ public class RegisterActivity extends AppCompatActivity implements
     }
     public boolean checkPass(String Pass){
         if(TextUtils.isEmpty(Pass)) {
-            editPass.setError("กรุณากรอกรหัสผ่าน");
+            layout_pass.setHelperTextEnabled(true);
+            layout_pass.setHelperText("Oops! You forgot to enter a password.");
+            layout_pass.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
             return false;
         }
-        if (Pass.length() < 8 || Pass.length() > 12) {
-            editPass.setError("กรอกรหัสผ่านอย่างน้อย 8 - 12 ตัว");
+        if (Pass.length() < 8 || Pass.length() > 20) {
+            layout_pass.setHelperTextEnabled(true);
+            layout_pass.setHelperText("Must be between 8-20 characters");
+            layout_pass.setHelperTextColor(ColorStateList.valueOf(Color.RED));;
             return false;
         }
         return true;
@@ -166,7 +188,8 @@ public class RegisterActivity extends AppCompatActivity implements
             FileOutputStream fout = openFileOutput(filename, MODE_APPEND);
             OutputStreamWriter writer = new OutputStreamWriter(fout);
             Random rand = new Random();
-            writer.write(Name + " " + Email + " " + Pass + " 0 "+PicProfile[rand.nextInt(PicProfile.length-1)]);
+            writer.write(Name + " " + Email + " " + Pass + " 0 "+PicProfile[rand.nextInt(PicProfile.length-1)] + "\n");
+
             writer.flush();
             writer.close();
             Toast.makeText(this, "บันทึกเรียบร้อย", Toast.LENGTH_SHORT).show();
@@ -181,7 +204,7 @@ public class RegisterActivity extends AppCompatActivity implements
                 String line;
 
                 while ((line = reader.readLine()) != null) {
-                    String[] part = line.split("\\s+", 4);
+                    String[] part = line.split("\\s+", 5);
                     Username.add(part[0]);
                 }
                 reader.close();
