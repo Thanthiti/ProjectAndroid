@@ -72,7 +72,6 @@ public class ManageFile implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         // เขียนข้อมูลใหม่ลงไฟล์
         try {
             FileOutputStream fout = ctx.openFileOutput(fileName, Context.MODE_PRIVATE);
@@ -90,7 +89,6 @@ public class ManageFile implements Serializable {
 
         return status;
     }
-
 
     public void saveFile(String Name,String Email, String Pass){
         try {
