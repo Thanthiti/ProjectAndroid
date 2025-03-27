@@ -13,6 +13,19 @@
         android:theme="@style/Theme.ProjectAndroid"
         tools:targetApi="31">
         <activity
+            android:name=".Example1Activity"
+            android:exported="false" />
+
+        <activity
+            android:name=".StartActivity"
+            android:exported="true" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
             android:name=".ReportActivity"
             android:exported="false" />
         <activity
@@ -33,13 +46,8 @@
             android:exported="false" />
         <activity
             android:name=".ContentActivity1"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
+            android:exported="false"/>
 
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
         <activity
             android:name=".ContentActivity4"
             android:exported="false" />
