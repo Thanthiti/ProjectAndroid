@@ -129,7 +129,6 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             return false;
         }
 
-
         if (Email.indexOf("@") == -1 || Email.indexOf("@") != Email.lastIndexOf("@")) {
             editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
             return false;
