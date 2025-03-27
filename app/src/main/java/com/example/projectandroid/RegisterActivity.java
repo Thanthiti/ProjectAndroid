@@ -148,7 +148,10 @@ public class RegisterActivity extends AppCompatActivity implements
             editEmail.setError("กรุณากรอกอีเมล");
             return false;
         }
-
+        if (!Email.contains("@")) {  // ตรวจสอบว่าอีเมลมีเครื่องหมาย "@" หรือไม่
+            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
+            return false;
+        }
         boolean isvalid = false;
         String Emailsplit []= Email.split("@");
         String formatEmail [] = {"gmail.com","email.com","email.kmutnb.ac.th","hotmail.com"};
@@ -186,6 +189,7 @@ public class RegisterActivity extends AppCompatActivity implements
             OutputStreamWriter writer = new OutputStreamWriter(fout);
             Random rand = new Random();
             writer.write(Name + " " + Email + " " + Pass + " 0 "+PicProfile[rand.nextInt(PicProfile.length-1)] + "\n");
+
             writer.flush();
             writer.close();
             Toast.makeText(this, "บันทึกเรียบร้อย", Toast.LENGTH_SHORT).show();
@@ -200,7 +204,7 @@ public class RegisterActivity extends AppCompatActivity implements
                 String line;
 
                 while ((line = reader.readLine()) != null) {
-                    String[] part = line.split("\\s+", 4);
+                    String[] part = line.split("\\s+", 5);
                     Username.add(part[0]);
                 }
                 reader.close();
