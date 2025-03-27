@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -16,10 +17,11 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 public class ContentActivity1 extends AppCompatActivity implements View.OnClickListener{
-    private TextView btnBack, btnNext;
+    private TextView pagePrev, pageNext, page1, page2, page3, page4, page5;
     private ProgressBar progressBar;
     private ScrollView scrollView;
     private Button btnQuiz1;
+    private ImageButton btnScrollToTop;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,16 +34,26 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
-        btnBack = findViewById(R.id.btnBack);
-        btnNext = findViewById(R.id.btnNext);
+        pagePrev = findViewById(R.id.pagePrev);
+        pageNext = findViewById(R.id.pageNext);
         progressBar = findViewById(R.id.progressBar);
         scrollView = findViewById(R.id.scrollView);
         btnQuiz1 = findViewById(R.id.btnQuiz1);
+        btnScrollToTop = findViewById(R.id.btnScrollToTop);
+        btnScrollToTop.setVisibility(View.GONE);
+        page1 = findViewById(R.id.page1);
+        page2 = findViewById(R.id.page2);
+        page3 = findViewById(R.id.page3);
+        page4 = findViewById(R.id.page4);
+        page5 = findViewById(R.id.page5);
+
+        setupPagination();
 
         // ตั้งค่าคลิก listener ให้ activity นี้จัดการเอง
-        btnBack.setOnClickListener(this);
-        btnNext.setOnClickListener(this);
+        pagePrev.setOnClickListener(this);
+        pageNext.setOnClickListener(this);
         btnQuiz1.setOnClickListener(this);
+        btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
             View view = scrollView.getChildAt(0);
@@ -53,22 +65,80 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
                 int progress = (int) (((float) scrollY / maxScroll) * 20);
                 progressBar.setProgress(progress);
             }
+
+            if (scrollY >= maxScroll) { // ถ้าเลื่อนลงสุด
+                btnScrollToTop.setVisibility(View.VISIBLE);
+                showButtonSmoothly();
+            } else {
+                btnScrollToTop.setVisibility(View.GONE);
+                hideButtonSmoothly();
+            }
         });
     }
     @Override
     public void onClick(View v) {
-        if (v == btnBack) {
-            Intent intent = new Intent(ContentActivity1.this, MainActivity.class);
-            startActivity(intent);
-            finish(); // ปิดหน้านี้เพื่อไม่ให้ย้อนกลับมา
-        } else if (v == btnNext) {
+        if (v == pagePrev) {
+            finish();
+        } else if (v == pageNext) {
             Intent intent = new Intent(ContentActivity1.this, ContentActivity2.class);
             startActivity(intent);
-            finish();
+        } else if (v == page1) {
+            openPage(1);
+        } else if (v == page2) {
+            openPage(2);
+        } else if (v == page3) {
+            openPage(3);
+        } else if (v == page4) {
+            openPage(4);
+        } else if (v == page5) {
+            openPage(5);
         } else {
             //Intent intent = new Intent(ContentActivity1.this, Quiz1.class);
             //startActivity(intent);
             //finish();
         }
+    }
+    //show smooth btn
+    private void showButtonSmoothly() {
+        btnScrollToTop.animate().alpha(1f).setDuration(300).start();
+        btnScrollToTop.setVisibility(View.VISIBLE);
+    }
+
+    private void hideButtonSmoothly() {
+        btnScrollToTop.animate().alpha(0f).setDuration(300).withEndAction(() -> btnScrollToTop.setVisibility(View.GONE)).start();
+    }
+
+    private void setupPagination() {
+        page1.setOnClickListener(view -> openPage(1));
+        page2.setOnClickListener(view -> openPage(2));
+        page3.setOnClickListener(view -> openPage(3));
+        page4.setOnClickListener(view -> openPage(4));
+        page5.setOnClickListener(view -> openPage(5));
+    }
+
+    private void openPage(int pageNumber) {
+        Intent intent;
+        switch (pageNumber) {
+            case 1:
+                intent = new Intent(ContentActivity1.this, ContentActivity1.class); // เปิดหน้า 1
+                break;
+            case 2:
+                intent = new Intent(ContentActivity1.this, ContentActivity2.class); // เปิดหน้า 2
+                break;
+            case 3:
+                intent = new Intent(ContentActivity1.this, ContentActivity3.class); // เปิดหน้า 3
+                break;
+            case 4:
+                intent = new Intent(ContentActivity1.this, ContentActivity4.class); // เปิดหน้า 4
+                break;
+            case 5:
+                intent = new Intent(ContentActivity1.this, ContentActivity5.class); // เปิดหน้า 5
+                break;
+            default:
+                // ถ้า pageNumber เกินขอบเขต ก็เปิดหน้าแรก
+                intent = new Intent(ContentActivity1.this, ContentActivity1.class);
+                break;
+        }
+        startActivity(intent);
     }
 }

@@ -11,48 +11,22 @@
     <RelativeLayout
         android:id="@+id/headerBar"
         android:layout_width="match_parent"
-        android:layout_height="100dp"
+        android:layout_height="150dp"
         android:background="@drawable/header_background"
         android:elevation="6dp"
         android:padding="10dp">
 
-        <!-- ปุ่ม Back -->
-        <TextView
-            android:id="@+id/btnBack"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/roundbtn_back"
-            android:padding="8dp"
-            android:text="◀ Back"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
 
         <!-- รูปโปรไฟล์ -->
         <ImageView
             android:id="@+id/profileImage"
-            android:layout_width="60dp"
-            android:layout_height="60dp"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
             android:layout_centerInParent="true"
             android:elevation="4dp"
             android:scaleType="centerCrop"
             android:src="@mipmap/ic_launcher_round" />
 
-        <!-- ปุ่ม Next -->
-        <TextView
-            android:id="@+id/btnNext"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentEnd="true"
-            android:layout_centerVertical="true"
-            android:background="@drawable/roundbtn_next"
-            android:padding="8dp"
-            android:text="Next ▶"
-            android:textColor="#FFFFFF"
-            android:textSize="16sp"
-            android:textStyle="bold" />
     </RelativeLayout>
 
     <!-- Progress Bar -->
@@ -220,7 +194,7 @@
                 android:layout_below="@id/operatorTypesList"
                 android:layout_marginTop="12dp"
                 android:fontFamily="serif"
-                android:text="🔹 ตัวดำเนินการทางคณิตศาสตร์: "
+                android:text="🔹 ตัวดำเนินการทางคณิตศาสตร์"
                 android:textColor="#0033CC"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -262,7 +236,7 @@
                 android:layout_below="@id/arithmeticTable"
                 android:layout_marginTop="12dp"
                 android:fontFamily="serif"
-                android:text="🔹 ตัวดำเนินการกำหนดค่า: "
+                android:text="🔹 ตัวดำเนินการกำหนดค่า"
                 android:textColor="#0033cc"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -310,6 +284,7 @@
                         android:padding="8dp"
                         android:text="ตัวดำเนินการ"
                         android:textColor="@android:color/white"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -318,6 +293,7 @@
                         android:padding="8dp"
                         android:text="ตัวอย่าง"
                         android:textColor="@android:color/white"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
 
                     <TextView
@@ -326,6 +302,7 @@
                         android:padding="8dp"
                         android:text="เหมือนกับ"
                         android:textColor="@android:color/white"
+                        android:textSize="16sp"
                         android:textStyle="bold" />
                 </TableRow>
 
@@ -336,19 +313,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="=" />
+                        android:text="="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = 5" />
+                        android:text="x = 5"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = 5" />
+                        android:text="x = 5"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow android:background="@android:color/darker_gray">
@@ -357,19 +337,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="+=" />
+                        android:text="+="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x += 3" />
+                        android:text="x += 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x + 3" />
+                        android:text="x = x + 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow>
@@ -378,19 +361,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="-=" />
+                        android:text="-="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x -= 3" />
+                        android:text="x -= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x - 3" />
+                        android:text="x = x - 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow android:background="@android:color/darker_gray">
@@ -399,19 +385,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="*=" />
+                        android:text="*="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x *= 3" />
+                        android:text="x *= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x * 3" />
+                        android:text="x = x * 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow>
@@ -420,19 +409,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="/=" />
+                        android:text="/="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x /= 3" />
+                        android:text="x /= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x / 3" />
+                        android:text="x = x / 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow android:background="@android:color/darker_gray">
@@ -441,19 +433,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="%=" />
+                        android:text="%="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x %= 3" />
+                        android:text="x %= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x % 3" />
+                        android:text="x = x % 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow>
@@ -462,19 +457,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="&amp;=" />
+                        android:text="&amp;="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x &amp;= 3" />
+                        android:text="x &amp;= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x &amp; 3" />
+                        android:text="x = x &amp; 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow android:background="@android:color/darker_gray">
@@ -483,19 +481,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="|=" />
+                        android:text="|="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x |= 3" />
+                        android:text="x |= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x | 3" />
+                        android:text="x = x | 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow>
@@ -504,19 +505,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="^=" />
+                        android:text="^="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x ^= 3" />
+                        android:text="x ^= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x ^ 3" />
+                        android:text="x = x ^ 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow android:background="@android:color/darker_gray">
@@ -525,19 +529,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text=">>=" />
+                        android:text=">>="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x >>= 3" />
+                        android:text="x >>= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x >> 3" />
+                        android:text="x = x >> 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
                 <TableRow>
@@ -546,19 +553,22 @@
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="&lt;&lt;=" />
+                        android:text="&lt;&lt;="
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x &lt;&lt;= 3" />
+                        android:text="x &lt;&lt;= 3"
+                        android:textSize="16sp" />
 
                     <TextView
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x = x &lt;&lt; 3" />
+                        android:text="x = x &lt;&lt; 3"
+                        android:textSize="16sp" />
                 </TableRow>
 
             </TableLayout>
@@ -570,7 +580,7 @@
                 android:layout_below="@id/tabOperator"
                 android:layout_marginTop="12dp"
                 android:fontFamily="serif"
-                android:text="🔹ตัวดำเนินการตรรกศาสตร์: "
+                android:text="🔹ตัวดำเนินการตรรกศาสตร์"
                 android:textColor="#0033cc"
                 android:textSize="20sp"
                 android:textStyle="bold" />
@@ -596,87 +606,101 @@
                 android:padding="8dp"
                 android:stretchColumns="1">
 
+                <!-- AND Operator -->
                 <TableRow android:background="#f5f5f5">
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="&amp;&amp;" />
+                        android:text="&amp;&amp;"
+                        android:textSize="16sp" />
 
                     <TextView
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Logical and" />
-
-                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="คืนค่า true ถ้าทั้งสองเงื่อนไขเป็น true" />
+                        android:text="คืนค่า true ถ้าทั้งสองเงื่อนไขเป็น true"
+                        android:textSize="16sp" />
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x &lt; 5 &amp;&amp; x &lt; 10" />
+                        android:text="x &lt; 5 &amp;&amp; x &lt; 10"
+                        android:textSize="16sp" />
                 </TableRow>
 
+                <!-- OR Operator -->
+                <TableRow android:background="#ffffff">
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="&#124;&#124;"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="2"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="คืนค่า true ถ้าเงื่อนไขอย่างน้อยหนึ่งเป็น true"
+                        android:textSize="16sp" />
+
+                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:padding="8dp"
+                        android:text="x &lt; 5 &#124;&#124; x &lt; 4"
+                        android:textSize="16sp" />
+                </TableRow>
+
+                <!-- NOT Operator -->
                 <TableRow android:background="#f5f5f5">
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="||" />
+                        android:text="!"
+                        android:textSize="16sp" />
 
                     <TextView
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Logical or" />
-
-                    <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="2"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="คืนค่า true ถ้าเงื่อนไขอย่างน้อยหนึ่งเป็น true" />
+                        android:text="กลับค่าความจริง (ถ้า true เปลี่ยนเป็น false)"
+                        android:textSize="16sp" />
 
                     <TextView
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:padding="8dp"
-                        android:text="x &lt; 5 || x &lt; 4" />
+                        android:text="!(x &lt; 5 &amp;&amp; x &lt; 10)"
+                        android:textSize="16sp" />
                 </TableRow>
 
-                <TableRow android:background="#f5f5f5">
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="!" />
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="Logical not" />
-
-                    <TextView
-                        android:layout_weight="2"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="กลับค่าความจริง (ถ้า true เปลี่ยนเป็น false)" />
-
-                    <TextView
-                        android:layout_weight="1"
-                        android:gravity="center"
-                        android:padding="8dp"
-                        android:text="!(x &lt; 5 &amp;&amp; x &lt; 10)" />
-                </TableRow>
             </TableLayout>
+
 
             <TextView
                 android:id="@+id/exampleLogicOp"
@@ -701,14 +725,116 @@
                 android:layout_marginTop="12dp"
                 android:backgroundTint="#ffc43c"
                 android:fontFamily="serif"
-                android:text="Start Quiz"
+                android:text="Quiz บทที่ 3"
                 android:textAlignment="center"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 android:elevation="8dp"
                 android:outlineProvider="none"/>
 
+            <ImageButton
+                android:id="@+id/btnScrollToTop"
+                android:layout_width="45dp"
+                android:layout_height="45dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_margin="10dp"
+                android:background="@android:color/transparent"
+                android:contentDescription="Scroll to top"
+                android:scaleType="centerCrop"
+                android:src="@drawable/topscrollbtn" />
 
+            <LinearLayout
+                android:id="@+id/paginationLayout"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/btnQuiz3"
+                android:layout_alignParentBottom="true"
+                android:layout_centerHorizontal="true"
+                android:layout_marginTop="16dp"
+                android:gravity="center"
+                android:orientation="horizontal"
+                android:padding="8dp">
+
+                <TextView
+                    android:id="@+id/pagePrev"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="◀"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/page1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="1"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/page2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="2"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/page3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:enabled="false"
+                    android:text="3"
+                    android:textColor="#0033cc"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/page4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="4"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/page5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="5"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+                <TextView
+                    android:id="@+id/pageNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_margin="8dp"
+                    android:clickable="true"
+                    android:focusable="true"
+                    android:text="▶"
+                    android:textColor="@color/black"
+                    android:textSize="18sp" />
+
+            </LinearLayout>
         </RelativeLayout>
     </ScrollView>
 </RelativeLayout>
