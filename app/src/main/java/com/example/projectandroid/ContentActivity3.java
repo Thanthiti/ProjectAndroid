@@ -58,12 +58,8 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
             int scrollY = scrollView.getScrollY(); // ตำแหน่งที่ Scroll อยู่
             int maxScroll = view.getBottom() - scrollView.getHeight(); // ความยาวเลื่อนสูงสุด
 
-            if (maxScroll > 40) {
-                // แปลงค่า Scroll เป็นเปอร์เซ็นต์ของ 60%
-                int progress = 40 + (int) (((float) scrollY / maxScroll) * 20);
-                if (scrollY >= maxScroll) {
-                    progress = 60;
-                }
+            if (maxScroll > 0) {
+                int progress = (int) (((float) scrollY / maxScroll) * 100);
                 progressBar3.setProgress(progress);
             }
 
