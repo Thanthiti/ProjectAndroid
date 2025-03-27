@@ -20,7 +20,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
     private ProgressBar progressBar2;
     private ScrollView scrollView;
     private Button btnQuiz2;
-    private ImageButton btnScrollToTop;
+    private ImageButton btnScrollToTop,btnBackHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +32,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             return insets;
         });
         // ผูก UI กับตัวแปร
+        btnBackHome = findViewById(R.id.btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar2 = findViewById(R.id.progressBar2);
@@ -50,6 +51,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz2.setOnClickListener(this);
+        btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -57,12 +59,8 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             int scrollY = scrollView.getScrollY(); // ตำแหน่งที่ Scroll อยู่
             int maxScroll = view.getBottom() - scrollView.getHeight(); // ความยาวเลื่อนสูงสุด
 
-            if (maxScroll > 20) {
-                // แปลงค่า Scroll เป็นเปอร์เซ็นต์ของ 40%
-                int progress = 20 + (int) (((float) scrollY / maxScroll) * 20);
-                if (scrollY >= maxScroll) {
-                    progress = 40;
-                }
+            if (maxScroll > 0) {
+                int progress = (int) (((float) scrollY / maxScroll) * 100);
                 progressBar2.setProgress(progress);
             }
 
@@ -94,8 +92,12 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
+        } else if (v == btnBackHome) {
+            Intent intent = new Intent(ContentActivity2.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         } else {
-            //Intent intent = new Intent(ContentActivity1.this, Quiz2.class);
+            //Intent intent = new Intent(ContentActivity1.this, Quiz2Activity.class);
             //startActivity(intent);
             //finish();
         }

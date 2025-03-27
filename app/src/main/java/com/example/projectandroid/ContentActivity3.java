@@ -20,7 +20,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
     private ProgressBar progressBar3;
     private ScrollView scrollView;
     private Button btnQuiz3;
-    private ImageButton btnScrollToTop;
+    private ImageButton btnScrollToTop,btnBackHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -33,6 +33,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
+        btnBackHome = findViewById(R.id.btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar3 = findViewById(R.id.progressBar3);
@@ -51,6 +52,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz3.setOnClickListener(this);
+        btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -58,12 +60,8 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
             int scrollY = scrollView.getScrollY(); // ตำแหน่งที่ Scroll อยู่
             int maxScroll = view.getBottom() - scrollView.getHeight(); // ความยาวเลื่อนสูงสุด
 
-            if (maxScroll > 40) {
-                // แปลงค่า Scroll เป็นเปอร์เซ็นต์ของ 60%
-                int progress = 40 + (int) (((float) scrollY / maxScroll) * 20);
-                if (scrollY >= maxScroll) {
-                    progress = 60;
-                }
+            if (maxScroll > 0) {
+                int progress = (int) (((float) scrollY / maxScroll) * 100);
                 progressBar3.setProgress(progress);
             }
 
@@ -95,6 +93,10 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
+        } else if (v == btnBackHome) {
+            Intent intent = new Intent(ContentActivity3.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         } else {
             //Intent intent = new Intent(ContentActivity3.this, Quiz3Activity.class);
             //startActivity(intent);

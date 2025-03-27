@@ -16,6 +16,18 @@
         android:elevation="6dp"
         android:padding="10dp">
 
+        <!-- ปุ่ม Back Home -->
+        <ImageButton
+            android:id="@+id/btnBackHome"
+            android:layout_width="25dp"
+            android:layout_height="25dp"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/transparent"
+            android:contentDescription="Back to Home"
+            android:scaleType="fitCenter"
+            android:src="@drawable/back" />
 
         <!-- รูปโปรไฟล์ -->
         <ImageView
@@ -39,7 +51,6 @@
         android:layout_centerHorizontal="true"
         android:elevation="4dp"
         android:max="100"
-        android:progress="40"
         android:progressDrawable="@drawable/custom_progress2" />
 
 

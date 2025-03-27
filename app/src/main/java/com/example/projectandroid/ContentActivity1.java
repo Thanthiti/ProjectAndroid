@@ -21,7 +21,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
     private ProgressBar progressBar;
     private ScrollView scrollView;
     private Button btnQuiz1;
-    private ImageButton btnScrollToTop;
+    private ImageButton btnScrollToTop,btnBackHome;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,6 +34,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
+        btnBackHome = findViewById(R.id.btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar = findViewById(R.id.progressBar);
@@ -53,6 +54,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz1.setOnClickListener(this);
+        btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -61,8 +63,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
             int maxScroll = view.getBottom() - scrollView.getHeight(); // ความยาวเลื่อนสูงสุด
 
             if (maxScroll > 0) {
-                // แปลงค่า Scroll เป็นเปอร์เซ็นต์ของ 20%
-                int progress = (int) (((float) scrollY / maxScroll) * 20);
+                int progress = (int) (((float) scrollY / maxScroll) * 100);
                 progressBar.setProgress(progress);
             }
 
@@ -92,10 +93,14 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
+        } else if (v == btnBackHome) {
+            Intent intent = new Intent(ContentActivity1.this, MainActivity.class);
+            startActivity(intent);
+            finish();
         } else {
-            //Intent intent = new Intent(ContentActivity1.this, Quiz1.class);
-            //startActivity(intent);
-            //finish();
+            Intent intent = new Intent(ContentActivity1.this, Quiz1Activity.class);
+            startActivity(intent);
+            finish();
         }
     }
     //show smooth btn
