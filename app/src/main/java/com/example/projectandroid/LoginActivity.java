@@ -1,15 +1,13 @@
 package com.example.projectandroid;
 
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
 import android.os.Bundle;
-import android.service.autofill.UserData;
-import android.text.Html;
 import android.text.TextUtils;
-import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,11 +18,8 @@ import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.android.material.textfield.TextInputLayout;
 
-import java.io.BufferedReader;
-import java.io.FileInputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
 import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements
@@ -32,6 +27,7 @@ public class LoginActivity extends AppCompatActivity implements
     Button btnSignUp;
     TextInputEditText editName,editPass;
     TextView textSignUp;
+    TextInputLayout layout_username , layout_password ;
     //ImageView togglePass;
     final String filename = "User.txt";
     boolean valid = false;
@@ -50,7 +46,14 @@ public class LoginActivity extends AppCompatActivity implements
             return insets;
         });
 
-        textSignUp = findViewById(R.id.login_btn_signup);
+        layout_username = findViewById(R.id.login_layout_username);
+        layout_password = findViewById(R.id.login_layout_pass);
+
+        layout_username.setHelperTextEnabled(false);
+        layout_password.setHelperTextEnabled(false);
+
+
+        textSignUp = findViewById(R.id.login_text_signup);
         textSignUp.setOnClickListener(this);
 
         btnSignUp = findViewById(R.id.LoginbtnSignup);
@@ -75,7 +78,7 @@ public class LoginActivity extends AppCompatActivity implements
         name = editName.getText().toString().trim();
         pass = editPass.getText().toString().trim();
 
-       if (id == R.id.login_btn_signup) {
+       if (id == R.id.login_text_signup) {
            Intent i = new Intent(this , RegisterActivity.class);
            startActivity(i);
        }
@@ -101,16 +104,23 @@ public class LoginActivity extends AppCompatActivity implements
                     int Progress = Integer.parseInt(part[3]);
                     user = new userData(part[0], part[1], part[2], Progress, part[4]);
                     valid = true;
+                    layout_password.setHelperTextEnabled(false);
                     break;
                 } else {
-                    editPass.setError("รหัสผ่านไม่ถูกต้อง");
+                    layout_password.setHelperTextEnabled(true);
+                    layout_password.setHelperText("Incorrect username or password. Please try again.");
+                    layout_password.setHelperTextColor(ColorStateList.valueOf(Color.RED));
                     return;
                 }
+            } else {
+                layout_password.setHelperTextEnabled(true);
+                layout_password.setHelperText("Incorrect username or password. Please try again.");
+                layout_password.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             }
+
         }
         if (!valid) {
-            Toast.makeText(this, "ไม่พบบัญชีผู้ใช้นี้", Toast.LENGTH_SHORT).show();
-            editName.setError("ชื่อผู้ใช้ไม่ถูกต้อง");
+            //Toast.makeText(this, "ไม่พบบัญชีผู้ใช้นี้", Toast.LENGTH_SHORT).show();
         }
     }
 
@@ -123,16 +133,22 @@ public class LoginActivity extends AppCompatActivity implements
 
     public boolean checkName(String name){
         if(TextUtils.isEmpty(name)){
-            editName.setError("กรุณากรอกชื่อผู้ใข้");
+            layout_username.setHelperTextEnabled(true);
+            layout_username.setHelperText("Oops! You forgot to enter a username.");
+            layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             return  false;
         }
+        layout_username.setHelperTextEnabled(false);
         return true;
     }
     public boolean checkPass(String pass){
         if(TextUtils.isEmpty(pass)){
-            editPass.setError("กรุณากรอกรหัสผ่าน");
+            layout_password.setHelperTextEnabled(true);
+            layout_password.setHelperText("Oops! You forgot to enter a password.");
+            layout_password.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             return  false;
         }
+        layout_password.setHelperTextEnabled(false);
         return true;
     }
 }

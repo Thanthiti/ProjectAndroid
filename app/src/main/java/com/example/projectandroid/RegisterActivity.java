@@ -35,7 +35,7 @@ import java.util.Random;
 public class RegisterActivity extends AppCompatActivity implements
         View.OnClickListener {
     TextInputEditText editName, editEmail, editPass;
-    TextInputLayout layout_pass, layout_username;
+    TextInputLayout layout_pass, layout_username , layout_email;
     //ImageView togglePassword;
     TextView textSignIn;
     Button btnRegister;
@@ -70,6 +70,8 @@ public class RegisterActivity extends AppCompatActivity implements
         layout_pass.setHelperTextEnabled(false);
         layout_username = findViewById(R.id.regis_layout_username);
         layout_username.setHelperTextEnabled(false);
+        layout_email = findViewById(R.id.regis_layout_email);
+        layout_email.setHelperTextEnabled(false);
 
         editName = findViewById(R.id.RegiseditName);
         editEmail = findViewById(R.id.RegiseditEmail);
@@ -172,18 +174,24 @@ public class RegisterActivity extends AppCompatActivity implements
     public boolean checkEmail(String Email) {
 
         if (TextUtils.isEmpty(Email)) {
-            editEmail.setError("กรุณากรอกอีเมล");
+            layout_email.setHelperTextEnabled(true);
+            layout_email.setHelperText("Oops! You forgot to enter a email.");
+            layout_email.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             return false;
         }
 
         if (Email.indexOf("@") == -1 || Email.indexOf("@") != Email.lastIndexOf("@")) {
-            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
+            layout_email.setHelperTextEnabled(true);
+            layout_email.setHelperText("Invalid email. Try again.");
+            layout_email.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             return false;
         }
         String Emailsplit[] = Email.split("@");
 
         if (Emailsplit.length != 2 || Emailsplit[0].isEmpty() || Emailsplit[1].isEmpty() ) {
-            editEmail.setError("รูปแบบอีเมลไม่ถูกต้อง");
+            layout_email.setHelperTextEnabled(true);
+            layout_email.setHelperText("IInvalid email. Try again.");
+            layout_email.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             return false;
         }
 
@@ -196,9 +204,12 @@ public class RegisterActivity extends AppCompatActivity implements
             }
         }
         if (!isvalid) {
-            editEmail.setError("โดเมนอีเมลไม่ถูกต้อง");
+            layout_email.setHelperTextEnabled(true);
+            layout_email.setHelperText("Invalid email. Try again.");
+            layout_email.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             return false;
         }
+        layout_email.setHelperTextEnabled(false);
         return true;
     }
 
@@ -207,7 +218,6 @@ public class RegisterActivity extends AppCompatActivity implements
             layout_pass.setHelperTextEnabled(true);
             layout_pass.setHelperText("Oops! You forgot to enter a password.");
             layout_pass.setHelperTextColor(ColorStateList.valueOf(Color.RED));
-            ;
             return false;
         }
         if (Pass.length() < 8 || Pass.length() > 20) {

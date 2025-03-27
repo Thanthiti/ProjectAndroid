@@ -28,7 +28,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
 
         btnGetStart = findViewById(R.id.Start_btn_start);
         btnGetStart.setOnClickListener(this);
-        textSignIn = findViewById(R.id.Start_btn_signin);
+        textSignIn = findViewById(R.id.start_text_signin);
         textSignIn.setOnClickListener(this);
     }
 
@@ -37,7 +37,7 @@ public class StartActivity extends AppCompatActivity implements View.OnClickList
         if (view.getId() == R.id.Start_btn_start) {
             Intent i = new Intent(this , RegisterActivity.class);
             startActivity(i);
-        } else if (view.getId() == R.id.Start_btn_signin) {
+        } else if (view.getId() == R.id.start_text_signin) {
             Intent i = new Intent(this , LoginActivity.class);
             startActivity(i);
         }
