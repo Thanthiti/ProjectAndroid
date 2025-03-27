@@ -10,6 +10,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -28,9 +29,10 @@ import java.util.ArrayList;
 
 public class LoginActivity extends AppCompatActivity implements
         View.OnClickListener {
-    Button btnSignUp, btnRegister;
+    Button btnSignUp;
     TextInputEditText editName,editPass;
-    ImageView togglePass;
+    TextView textSignUp;
+    //ImageView togglePass;
     final String filename = "User.txt";
     boolean valid = false;
     userData user;
@@ -48,18 +50,21 @@ public class LoginActivity extends AppCompatActivity implements
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
-        btnRegister = findViewById(R.id.LoginbtnRegister);
+
+        textSignUp = findViewById(R.id.login_btn_signup);
+        textSignUp.setOnClickListener(this);
+
         btnSignUp = findViewById(R.id.LoginbtnSignup);
         btnSignUp.setOnClickListener(this);
-        btnRegister.setOnClickListener(this);
+
         editName = findViewById(R.id.LogineditName);
         editPass = findViewById(R.id.LogineditPass);
-        togglePass = findViewById(R.id.LogintogglePassword);
-        togglePass.setOnClickListener(this);
+        //togglePass = findViewById(R.id.LogintogglePassword);
+        //togglePass.setOnClickListener(this);
 
         editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
         editPass.setSelection(editPass.getText().length());
-        togglePass.setImageResource(R.drawable.visibility);
+        //togglePass.setImageResource(R.drawable.visibility);
         editName.setText("");
         editPass.setText("");
 
@@ -71,16 +76,10 @@ public class LoginActivity extends AppCompatActivity implements
         name = editName.getText().toString().trim();
         pass = editPass.getText().toString().trim();
 
-        if(id == R.id.LogintogglePassword){
-            if (editPass.getTransformationMethod() instanceof PasswordTransformationMethod) {
-                editPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                togglePass.setImageResource(R.drawable.unvisibility);
-            } else {
-                editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                togglePass.setImageResource(R.drawable.visibility);
-            }
-            editPass.setSelection(editPass.getText().length());
-        }
+       if (id == R.id.login_btn_signup) {
+           Intent i = new Intent(this , RegisterActivity.class);
+           startActivity(i);
+       }
 
         if(id == R.id.LoginbtnSignup){
             if(checkName(name) && checkPass(pass)) {
@@ -89,10 +88,6 @@ public class LoginActivity extends AppCompatActivity implements
                     SendData();
                 }
             }
-        }
-        else if(id == R.id.LoginbtnRegister){
-            Intent launch = new Intent(LoginActivity.this, RegisterActivity.class);
-            startActivity(launch);
         }
     }
 

@@ -10,6 +10,7 @@ import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -36,6 +37,7 @@ public class RegisterActivity extends AppCompatActivity implements
     TextInputEditText editName,editEmail,editPass;
     TextInputLayout layout_pass , layout_username;
     //ImageView togglePassword;
+    TextView textSignIn;
     Button btnRegister;
     final String filename = "User.txt";
     String Path ;
@@ -63,6 +65,9 @@ public class RegisterActivity extends AppCompatActivity implements
             Toast.makeText(this, "file", Toast.LENGTH_SHORT).show(); // have file
             Statusfile = true;
         }
+        textSignIn = findViewById(R.id.regis_btn_signin);
+        textSignIn.setOnClickListener(this);
+
         layout_pass = findViewById(R.id.regis_layout_pass);
         layout_pass.setHelperTextEnabled(false);
         layout_username = findViewById(R.id.regis_layout_username);
@@ -88,6 +93,10 @@ public class RegisterActivity extends AppCompatActivity implements
     @Override
     public void onClick(View view) {
         int id = view.getId();
+        if (id == R.id.regis_btn_signin) {
+            Intent i = new Intent(this , LoginActivity.class) ;
+            startActivity(i);
+        }
        /* if(id == R.id.RegistogglePassword){
             if (editPass.getTransformationMethod() instanceof PasswordTransformationMethod) {
                 editPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
