@@ -1,9 +1,11 @@
 package com.example.projectandroid;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.Adapter;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -28,6 +30,10 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     String Name,Email,Password,profile;
     EditText editName,editPass,editEmail;
     Button btnUpdate;
+    String textName,textEmail,textPass;
+    // Dialog
+    Dialog dialog;
+    Button btnAlertCancel , btnAlertConfirm;
     int btnID [] = {R.id.EditimagePurple,R.id.EditimageBlack,R.id.EditimageRed,R.id.EditimageBrown,R.id.EditimageGreen
             ,R.id.EditimageOrange,R.id.EditimageYellow,R.id.EditimageCyan,R.id.EditimagePink};
     ImageButton btns[] = new ImageButton[btnID.length];
@@ -52,6 +58,29 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+           // Dialog Alert
+           dialog = new Dialog(EditActivity.this);
+           dialog.setContentView(R.layout.alertbox_update);
+           dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+           dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+           dialog.setCancelable(false);
+
+           btnAlertCancel = dialog.findViewById(R.id.edit_alert_cancel);
+           btnAlertConfirm = dialog.findViewById(R.id.edit_alert_confirm);
+           btnAlertCancel.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   dialog.dismiss();
+               }
+           });
+           btnAlertConfirm.setOnClickListener(new View.OnClickListener() {
+               @Override
+               public void onClick(View view) {
+                   upDate(textName , textEmail , textPass);
+               }
+           });
+           //
 
         Intent launch = getIntent();
         userData user = (userData) launch.getSerializableExtra("user");
@@ -93,7 +122,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         int id = view.getId();
-        String textName,textEmail,textPass;
+
 
         textName = editName.getText().toString();
         textEmail = editEmail.getText().toString();
@@ -115,27 +144,37 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(id == R.id.EditbtnUpdate){
-            if(textName.equals(Name) && textEmail.equals(Email) && textPass.equals(Password) && profile.equals(textProfile)){
-                Toast.makeText(this, "ข้อมูลไม่มีการเปลี่ยนแปลง", Toast.LENGTH_SHORT).show();
-            }
-            else {
-                if(checkName(textName)&&checkEmail(textEmail)&& checkPass(textPass)){
-//                  Old Data
-                    editData = new ManageFile(this,Name,Email,Password,Progress,profile,filename);
-//                  New Data
-                    Boolean valid = editData.UpdateData(textName,textEmail,textPass,textProfile);
-                    System.out.println("Status " + valid);
-                    if(valid){
-                        status = true;
-                    }
-                    else {
-                        editName.setError("asdasd");
-                    }
-                }
+
+            if(checkName(textName)&&checkEmail(textEmail)&& checkPass(textPass)) {
+                dialog.show();
             }
         }
         }
     }
+
+    public void upDate(String textName , String textEmail , String textPass) {
+        if(textName.equals(Name) && textEmail.equals(Email) && textPass.equals(Password) && profile.equals(textProfile)){
+            Toast.makeText(this, "ข้อมูลไม่มีการเปลี่ยนแปลง", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            if(checkName(textName)&&checkEmail(textEmail)&& checkPass(textPass)){
+//                  Old Data
+                editData = new ManageFile(this,Name,Email,Password,Progress,profile,filename);
+//                  New Data
+                Boolean valid = editData.UpdateData(textName,textEmail,textPass,textProfile);
+                dialog.dismiss();
+                System.out.println("Status " + valid);
+                if(valid){
+                    status = true;
+                }else {
+                    editName.setError("ชื่อผู้ใชซ้ำ");
+                }
+            }
+        }
+    }
+
+
+
     public boolean checkName(String Name){
         if(TextUtils.isEmpty(Name)){
             editName.setError("กรุณากรอกชื่อผู้ใช้");
