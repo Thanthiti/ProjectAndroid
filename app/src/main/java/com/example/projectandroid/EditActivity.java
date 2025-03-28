@@ -4,8 +4,12 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.Adapter;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.Toast;
 
@@ -24,15 +28,19 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     String Name,Email,Password,profile;
     EditText editName,editPass,editEmail;
     Button btnUpdate;
-    String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
-    int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
-            ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
+    int btnID [] = {R.id.EditimagePurple,R.id.EditimageBlack,R.id.EditimageRed,R.id.EditimageBrown,R.id.EditimageGreen
+            ,R.id.EditimageOrange,R.id.EditimageYellow,R.id.EditimageCyan,R.id.EditimagePink};
+    ImageButton btns[] = new ImageButton[btnID.length];
+
+    String nameProfile [] = {"purple","black","red","brown","green","orange","yellow","cyan","pink"};
+    int picId [] = {R.drawable.purple,R.drawable.black,R.drawable.red,R.drawable.brown,R.drawable.green
+            ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.pink};
 
     ManageFile editData;
     userData updateUser;
     int Progress;
     final String filename = "User.txt";
-
+    String textProfile = "";
     Boolean status = false;
        @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,8 +53,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             return insets;
         });
 
-        Intent i = getIntent();
-        userData user = (userData) i.getSerializableExtra("user");
+        Intent launch = getIntent();
+        userData user = (userData) launch.getSerializableExtra("user");
 
         String [] part = user.toString().split(" ");
 
@@ -66,8 +74,15 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         btnUpdate = findViewById(R.id.EditbtnUpdate);
         btnUpdate.setOnClickListener(this);
 
+        for(int i = 0 ; i < btnID.length;i++){
+            btns[i] = findViewById(btnID[i]);
+            btns[i].setOnClickListener(this);
+
+        }
+
         int index = Arrays.asList(nameProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
+        textProfile = nameProfile[index];
 
         editName.setText(Name);
         editPass.setText(Password);
@@ -79,36 +94,45 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         int id = view.getId();
         String textName,textEmail,textPass;
+
         textName = editName.getText().toString();
         textEmail = editEmail.getText().toString();
         textPass = editPass.getText().toString();
+        for(int i = 0 ; i < btns.length;i++){
+            if(id == btnID[i]){
+                textProfile = nameProfile[i];
+                Profile.setImageResource(picId[i]);
+                break;
+            }
+
         if (id == R.id.edit_btn_back) {
 
-            Intent i = new Intent(EditActivity.this,MainActivity.class);
-            if(status)updateUser = new userData(textName,textEmail,textPass,Progress,profile);
+            Intent launch = new Intent(EditActivity.this,MainActivity.class);
+            if(status)updateUser = new userData(textName,textEmail,textPass,Progress,textProfile);
             else updateUser = new userData(Name,Email,Password,Progress,profile);
-            i.putExtra("user",updateUser);
-            startActivity(i);
+            launch.putExtra("user",updateUser);
+            startActivity(launch);
 
         }
         else if(id == R.id.EditbtnUpdate){
-
-            if(textName.equals(Name) && textEmail.equals(Email) && textPass.equals(Password)){
+            if(textName.equals(Name) && textEmail.equals(Email) && textPass.equals(Password) && profile.equals(textProfile)){
                 Toast.makeText(this, "ข้อมูลไม่มีการเปลี่ยนแปลง", Toast.LENGTH_SHORT).show();
-            }else {
+            }
+            else {
                 if(checkName(textName)&&checkEmail(textEmail)&& checkPass(textPass)){
 //                  Old Data
                     editData = new ManageFile(this,Name,Email,Password,Progress,profile,filename);
 //                  New Data
-                    Boolean valid = editData.UpdateData(textName,textEmail,textPass);
+                    Boolean valid = editData.UpdateData(textName,textEmail,textPass,textProfile);
+                    System.out.println("Status " + valid);
                     if(valid){
                         status = true;
-                    }
-                    else{
-                        editName.setError("ชื่อผู้ใช้ซ่ำกัน");
-                    }
+                    }else {
+                        editName.setError("ชื่อผู้ใชซ้ำ");
+                }
                 }
             }
+        }
         }
     }
     public boolean checkName(String Name){
@@ -169,4 +193,5 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         }
         return true;
     }
+
 }

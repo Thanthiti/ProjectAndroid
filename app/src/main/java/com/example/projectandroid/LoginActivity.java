@@ -88,23 +88,32 @@ public class LoginActivity extends AppCompatActivity implements
                 readFile = new ManageFile(this,filename);
                 Alldata = readFile.readFile();
                 Checklogin(name, pass);
-                SendData();
-                if (valid) {
 
+                if (valid) {
+                    SendData();
                 }
             }
         }
     }
 
-    public void Checklogin(String name , String pass){
+    public void Checklogin(String name , String pass) {
+
 
         for (String users : Alldata) {
-            String[] part = users.split("\\s+",5);
+            String[] part = users.split("\\s+", 5);
+
+            if (part.length < 4) {  // ตรวจสอบให้แน่ใจว่ามีข้อมูลเพียงพอ
+                continue;
+            }
+
             if (part[0].equals(name)) {
                 if (part[2].equals(pass)) {
-                    int Progress = Integer.parseInt(part[3]);
-                    user = new userData(part[0], part[1], part[2], Progress, part[4]);
+                    int progress = Integer.parseInt(part[3]);
+
+
+                    user = new userData(part[0], part[1], part[2], progress, part[4]);
                     valid = true;
+
                     layout_password.setHelperTextEnabled(false);
                     break;
                 } else {
@@ -113,15 +122,13 @@ public class LoginActivity extends AppCompatActivity implements
                     layout_password.setHelperTextColor(ColorStateList.valueOf(Color.RED));
                     return;
                 }
-            } else {
-                layout_password.setHelperTextEnabled(true);
-                layout_password.setHelperText("Incorrect username or password. Please try again.");
-                layout_password.setHelperTextColor(ColorStateList.valueOf(Color.RED));
             }
-
         }
+
         if (!valid) {
-            //Toast.makeText(this, "ไม่พบบัญชีผู้ใช้นี้", Toast.LENGTH_SHORT).show();
+            layout_password.setHelperTextEnabled(true);
+            layout_password.setHelperText("Incorrect username or password. Please try again.");
+            layout_password.setHelperTextColor(ColorStateList.valueOf(Color.RED));
         }
     }
 
