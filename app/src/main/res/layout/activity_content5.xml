@@ -12,7 +12,7 @@
         android:id="@+id/headerBar"
         android:layout_width="match_parent"
         android:layout_height="150dp"
-        android:background="@drawable/header_background"
+        android:background="@drawable/header5_background"
         android:elevation="6dp"
         android:padding="10dp">
 
@@ -72,7 +72,7 @@
                 android:layout_height="wrap_content"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/title_background"
+                android:background="@drawable/title5_background"
                 android:elevation="8dp"
                 android:fontFamily="serif"
                 android:gravity="center"

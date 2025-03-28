@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -15,6 +16,8 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
+
+import java.util.Arrays;
 
 public class ContentActivity1 extends AppCompatActivity implements View.OnClickListener{
     private TextView pagePrev, pageNext, page1, page2, page3, page4, page5;
@@ -47,8 +50,8 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         page3 = findViewById(R.id.page3);
         page4 = findViewById(R.id.page4);
         page5 = findViewById(R.id.page5);
-
         setupPagination();
+
 
         // ตั้งค่าคลิก listener ให้ activity นี้จัดการเอง
         pagePrev.setOnClickListener(this);
@@ -79,7 +82,6 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
     @Override
     public void onClick(View v) {
         if (v == pagePrev) {
-            finish();
         } else if (v == pageNext) {
             Intent intent = new Intent(ContentActivity1.this, ContentActivity2.class);
             startActivity(intent);
@@ -94,13 +96,11 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         } else if (v == page5) {
             openPage(5);
         } else if (v == btnBackHome) {
-            Intent intent = new Intent(ContentActivity1.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            //Intent intent = new Intent(ContentActivity1.this, MainActivity.class);
+            //startActivity(intent);
         } else {
             Intent intent = new Intent(ContentActivity1.this, Quiz1Activity.class);
             startActivity(intent);
-            finish();
         }
     }
     //show smooth btn
