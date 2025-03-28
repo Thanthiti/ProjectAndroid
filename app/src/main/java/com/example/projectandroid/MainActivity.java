@@ -1,8 +1,11 @@
 package com.example.projectandroid;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ProgressBar;
@@ -26,6 +29,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     String Name,Profile;
     int Progress;
     userData Edituser;
+    Dialog dialog;
+    Button btnDiaCancel , btnDiaConfirm;
+
 
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
         int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
@@ -41,6 +47,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        // Dialog Alert
+        dialog = new Dialog(MainActivity.this);
+        dialog.setContentView(R.layout.alertbox_logout);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialog.setCancelable(false);
+
+        btnDiaCancel = dialog.findViewById(R.id.btnAlertCancel);
+        btnDiaConfirm = dialog.findViewById(R.id.btnAlertConfirm);
+        btnDiaCancel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                dialog.dismiss();
+            }
+        });
+        btnDiaConfirm.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+               Intent i = new Intent(MainActivity.this , LoginActivity.class);
+               startActivity(i);
+            }
+        });
+        //
+
 
         Intent i = getIntent();
         userData user = (userData) i.getSerializableExtra("user");
@@ -78,6 +109,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view.getId() == R.id.home_menu_data){
             Intent i = new Intent(this,ContentActivity1.class);
+            i.putExtra("user",Edituser);
             startActivity(i);
         }
         else if (view.getId() == R.id.home_menu_edit) {
@@ -88,11 +120,8 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             Intent i = new Intent(this , ReportActivity.class );
             startActivity(i);
         } else if (view.getId() == R.id.home_logout) {
-            Intent i = new Intent(this , LoginActivity.class );
-            startActivity(i);
+            dialog.show();
         }
    }
-
-
 
 }

@@ -8,7 +8,6 @@ import android.widget.ImageButton;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -34,7 +33,7 @@ public class ContentActivity4 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.btnBackHome);
+        btnBackHome = findViewById(R.id.Content4btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar4 = findViewById(R.id.progressBar4);

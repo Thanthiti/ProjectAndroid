@@ -33,7 +33,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.btnBackHome);
+        btnBackHome = findViewById(R.id.Content3btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar3 = findViewById(R.id.progressBar3);

@@ -48,7 +48,7 @@
                     app:layout_constraintHorizontal_bias="0.957"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent"
-                    app:srcCompat="@drawable/logout" />
+                    app:srcCompat="@drawable/icon_logout" />
 
                 <TextView
                     android:id="@+id/textView3"
@@ -69,12 +69,13 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="4dp"
+                    android:fontFamily="@font/prompt_medium"
                     android:text="Logout"
-                    android:textColor="#000000"
+                    android:textColor="#3F50B4"
                     android:textSize="14sp"
                     android:textStyle="bold"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.94"
+                    app:layout_constraintHorizontal_bias="0.941"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@+id/home_logout" />
 
