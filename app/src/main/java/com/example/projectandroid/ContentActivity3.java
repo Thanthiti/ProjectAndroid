@@ -94,13 +94,11 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         } else if (v == page5) {
             openPage(5);
         } else if (v == btnBackHome) {
-            Intent intent = new Intent(ContentActivity3.this, MainActivity.class);
-            startActivity(intent);
-            finish();
-        } else {
-            //Intent intent = new Intent(ContentActivity3.this, Quiz3Activity.class);
+            //Intent intent = new Intent(ContentActivity3.this, MainActivity.class);
             //startActivity(intent);
-            //finish();
+        } else if (v == btnQuiz3){
+            Intent intent = new Intent(ContentActivity3.this, Quiz3Activity.class);
+            startActivity(intent);
         }
     }
     private void showButtonSmoothly() {
