@@ -33,7 +33,7 @@ public class ContentActivity5 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.Content5btnBackHome);
+     //   btnBackHome = findViewById(R.id.Content5btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar5 = findViewById(R.id.progressBar5);
@@ -53,7 +53,7 @@ public class ContentActivity5 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz5.setOnClickListener(this);
-        btnBackHome.setOnClickListener(this);
+      //  btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -93,11 +93,12 @@ public class ContentActivity5 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
-        } else if (v == btnBackHome) {
+        } //else if (v == btnBackHome) {
             //Intent intent = new Intent(ContentActivity5.this, MainActivity.class);
             //startActivity(intent);
-            finish();
-        } else {
+            //finish();
+        //}
+        else {
             //Intent intent = new Intent(Content1Activity.this, Quiz5Activity.class);
             //startActivity(intent);
         }

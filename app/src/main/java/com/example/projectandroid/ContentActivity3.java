@@ -33,7 +33,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.Content3btnBackHome);
+       // btnBackHome = findViewById(R.id.Content3btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar3 = findViewById(R.id.progressBar3);
@@ -93,10 +93,11 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
-        } else if (v == btnBackHome) {
+        } //else if (v == btnBackHome) {
             //Intent intent = new Intent(ContentActivity3.this, MainActivity.class);
             //startActivity(intent);
-        } else if (v == btnQuiz3){
+        //}
+        else if (v == btnQuiz3){
             Intent intent = new Intent(ContentActivity3.this, Quiz3Activity.class);
             startActivity(intent);
         }
