@@ -39,7 +39,7 @@ public class ManageFile implements Serializable {
         this.fileName = fileName;
     }
 
-    public boolean UpdateData(String Newname, String Newemail, String Newpass) {
+    public boolean UpdateData(String Newname, String Newemail, String Newpass, String NewProfile) {
         ArrayList<String> Alldata = new ArrayList<>();
         boolean status = true;
 
@@ -47,21 +47,20 @@ public class ManageFile implements Serializable {
             FileInputStream fin = ctx.openFileInput(fileName);
             BufferedReader reader = new BufferedReader(new InputStreamReader(fin));
             String line;
-
             while ((line = reader.readLine()) != null) {
                 String[] part = line.split("\\s+", 5);
 
-                if (part[0].equals(Newname)) {
+                if (part[0].equals(Newname) && !name.equals(Newname)) {
                     status = false;
                 }
 
                 if (part.length >= 2 && part[0].equals(name) && part[1].equals(email)) {
-                    Alldata.add(Newname + " " + Newemail + " " + Newpass + " " + part[3] + " " + part[4]);
+                    Alldata.add(Newname + " " + Newemail + " " + Newpass + " " + part[3] + " " + NewProfile);
                 } else {
                     Alldata.add(line);
                 }
             }
-
+            System.out.println(Alldata);
             reader.close();
             fin.close();
 
@@ -73,7 +72,6 @@ public class ManageFile implements Serializable {
             e.printStackTrace();
         }
 
-        // เขียนข้อมูลใหม่ลงไฟล์
         try {
             FileOutputStream fout = ctx.openFileOutput(fileName, Context.MODE_PRIVATE);
             OutputStreamWriter writer = new OutputStreamWriter(fout);
@@ -90,7 +88,6 @@ public class ManageFile implements Serializable {
 
         return status;
     }
-
 
     public void saveFile(String Name,String Email, String Pass){
         try {

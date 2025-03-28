@@ -79,6 +79,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Name = part[0];
         Progress = Integer.parseInt(part[3]);
+        System.out.println("thasd "+ part[4]);
         Profile = part[4];
 
         Edituser = new userData(part[0],part[1],part[2],Progress,part[4]);

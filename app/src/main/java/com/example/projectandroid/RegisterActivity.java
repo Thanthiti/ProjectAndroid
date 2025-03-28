@@ -5,11 +5,10 @@ import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
-import android.text.method.HideReturnsTransformationMethod;
 import android.text.method.PasswordTransformationMethod;
 import android.view.View;
 import android.widget.Button;
-import android.widget.ImageView;
+
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,15 +21,10 @@ import androidx.core.view.WindowInsetsCompat;
 import com.google.android.material.textfield.TextInputEditText;
 import com.google.android.material.textfield.TextInputLayout;
 
-import java.io.BufferedReader;
 import java.io.File;
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import java.io.IOException;
-import java.io.InputStreamReader;
-import java.io.OutputStreamWriter;
+
 import java.util.ArrayList;
-import java.util.Random;
+
 
 public class RegisterActivity extends AppCompatActivity implements
         View.OnClickListener {
@@ -58,7 +52,7 @@ public class RegisterActivity extends AppCompatActivity implements
 
         File file = new File(getFilesDir(), filename);
 
-        //file.delete();
+//        file.delete();
         if (file.exists()) {
             Toast.makeText(this, "file", Toast.LENGTH_SHORT).show(); // have file
             Statusfile = true;
@@ -78,13 +72,11 @@ public class RegisterActivity extends AppCompatActivity implements
         editPass = findViewById(R.id.RegiseditPass);
 
         btnRegister = findViewById(R.id.RegisbtnRegister);
-        //togglePassword = findViewById(R.id.RegistogglePassword);
-        //togglePassword.setOnClickListener(this);
         btnRegister.setOnClickListener(this);
 
         editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
         editPass.setSelection(editPass.getText().length());
-        // togglePassword.setImageResource(R.drawable.unvisibility);
+
 
         Path = "/data/data/" + getPackageName() + "/files/";
 
@@ -97,16 +89,7 @@ public class RegisterActivity extends AppCompatActivity implements
             Intent i = new Intent(this , LoginActivity.class) ;
             startActivity(i);
         }
-       /* if(id == R.id.RegistogglePassword){
-            if (editPass.getTransformationMethod() instanceof PasswordTransformationMethod) {
-                editPass.setTransformationMethod(HideReturnsTransformationMethod.getInstance());
-                togglePassword.setImageResource(R.drawable.visibility);
-            } else {
-                editPass.setTransformationMethod(PasswordTransformationMethod.getInstance());
-                togglePassword.setImageResource(R.drawable.unvisibility);
-            }
-            editPass.setSelection(editPass.getText().length());
-        }*/
+
         if (id == R.id.RegisbtnRegister) {
 
             String name, email, pass;
