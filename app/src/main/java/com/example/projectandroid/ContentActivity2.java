@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -15,12 +16,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Arrays;
+
 public class ContentActivity2 extends AppCompatActivity implements View.OnClickListener {
     private TextView pagePrev, pageNext, page1, page2, page3, page4, page5;
     private ProgressBar progressBar2;
     private ScrollView scrollView;
     private Button btnQuiz2;
     private ImageButton btnScrollToTop,btnBackHome;
+    private TextView Username;
+    private ImageView Profile;
+    String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
+    int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
+            ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -31,8 +39,19 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+        Intent i = getIntent();
+        userData user = (userData) i.getSerializableExtra("user");
+        String part [] = user.toString().split(" ");
+
+        Username = findViewById(R.id.Content2Username);
+        Profile = findViewById(R.id.Content2profileImage);
+        int index = Arrays.asList(nameProfile).indexOf(part[4]);
+        Profile.setImageResource(picId[index]);
+        Username.setText(""+part[0]);
+
         // ผูก UI กับตัวแปร
-        //btnBackHome = findViewById(R.id.Content2btnBackHome);
+        btnBackHome = findViewById(R.id.Content2btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar2 = findViewById(R.id.progressBar2);
@@ -51,7 +70,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz2.setOnClickListener(this);
-       // btnBackHome.setOnClickListener(this);
+        btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -92,9 +111,9 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
-        }// else if (v == btnBackHome) {
-            //finish();
-        //}
+        } else if (v == btnBackHome) {
+            finish();
+        }
         else {
             Intent intent = new Intent(ContentActivity2.this, Quiz2Activity.class);
             startActivity(intent);

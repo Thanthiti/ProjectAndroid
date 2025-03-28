@@ -22,7 +22,10 @@ import java.util.Arrays;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ProgressBar progressBar;
-    LinearLayout menu_data , menu_edit;
+    int linearID []  = {R.id.home_menu_data,R.id.home_menu_variables,R.id.home_menu_operator,R.id.home_menu_control,
+    R.id.home_menu_function,R.id.home_menu_edit};
+    LinearLayout linears [] = new LinearLayout[linearID.length];
+
     ConstraintLayout reportExp;
     ImageView logout ,ImageProfile;
     TextView textExp,textUsername;
@@ -70,11 +73,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
                startActivity(i);
             }
         });
-        //
 
-
-        Intent i = getIntent();
-        userData user = (userData) i.getSerializableExtra("user");
+        Intent launch = getIntent();
+        userData user = (userData) launch.getSerializableExtra("user");
         String part [] = user.toString().split(" ");
 
         Name = part[0];
@@ -87,10 +88,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         reportExp = findViewById(R.id.home_report_exp);
         reportExp.setOnClickListener(this);
         textExp = findViewById(R.id.home_textExp);
-        menu_data = findViewById(R.id.home_menu_data);
-        menu_data.setOnClickListener(this);
-        menu_edit = findViewById(R.id.home_menu_edit);
-        menu_edit.setOnClickListener(this);
+
+        for(int i = 0 ; i < linearID.length;i++){
+            linears[i] = findViewById(linearID[i]);
+            linears[i].setOnClickListener(this);
+        }
         logout = findViewById(R.id.home_logout);
         logout.setOnClickListener(this);
         ImageProfile = findViewById(R.id.EditImageProfile);
@@ -107,12 +109,18 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
     @Override
     public void onClick(View view) {
-        if (view.getId() == R.id.home_menu_data){
-            Intent i = new Intent(this,ContentActivity1.class);
-            i.putExtra("user",Edituser);
-            startActivity(i);
+        int id = view.getId();
+        Class classes [] = {ContentActivity1.class, ContentActivity2.class, ContentActivity3.class,
+        ContentActivity4.class, ContentActivity5.class, EditActivity.class};
+        for(int i = 0 ; i < linearID.length;i++){
+            if (id == linearID[i]){
+                Intent launch = new Intent(this,classes[i]);
+                launch.putExtra("user",Edituser);
+                startActivity(launch);
+            }
         }
-        else if (view.getId() == R.id.home_menu_edit) {
+
+        if (view.getId() == R.id.home_menu_edit) {
             Intent i = new Intent(this , EditActivity.class);
             i.putExtra("user",Edituser);
             startActivity(i);

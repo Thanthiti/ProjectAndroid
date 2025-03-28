@@ -24,6 +24,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
     private ScrollView scrollView;
     private Button btnQuiz1;
     private ImageButton btnScrollToTop,btnBackHome;
+    private TextView Username;
     private ImageView Profile;
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
@@ -44,10 +45,11 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         userData user = (userData) i.getSerializableExtra("user");
         String part [] = user.toString().split(" ");
 
-
+        Username = findViewById(R.id.Content1Username);
         Profile = findViewById(R.id.Content1profileImage);
         int index = Arrays.asList(nameProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
+        Username.setText(""+part[0]);
 
         btnBackHome = findViewById(R.id.Content1btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);

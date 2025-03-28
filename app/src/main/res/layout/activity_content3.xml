@@ -22,7 +22,7 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/textView20"
+                android:id="@+id/Content3Username"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="92dp"
@@ -30,10 +30,10 @@
                 android:text="Username"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
-                app:layout_constraintEnd_toEndOf="@+id/Content1profileImage"
+                app:layout_constraintEnd_toEndOf="@+id/Content3profileImage"
                 app:layout_constraintHorizontal_bias="0.55"
-                app:layout_constraintStart_toStartOf="@+id/Content1profileImage"
-                app:layout_constraintTop_toTopOf="@+id/Content1profileImage" />
+                app:layout_constraintStart_toStartOf="@+id/Content3profileImage"
+                app:layout_constraintTop_toTopOf="@+id/Content3profileImage" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -58,13 +58,13 @@
                 android:text="Course Activity"
                 android:textColor="#FFFFFF"
                 android:textSize="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/Content1profileImage"
+                app:layout_constraintEnd_toStartOf="@+id/Content3profileImage"
                 app:layout_constraintHorizontal_bias="0.395"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
-                android:id="@+id/Content1profileImage"
+                android:id="@+id/Content3profileImage"
                 android:layout_width="92dp"
                 android:layout_height="85dp"
                 android:layout_marginEnd="16dp"
@@ -78,7 +78,7 @@
                 app:layout_constraintVertical_bias="0.266" />
 
             <ImageButton
-                android:id="@+id/Content1btnBackHome"
+                android:id="@+id/Content3btnBackHome"
                 android:layout_width="30dp"
                 android:layout_height="30dp"
                 android:layout_marginTop="16dp"
