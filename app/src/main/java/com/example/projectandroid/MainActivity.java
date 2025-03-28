@@ -48,7 +48,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Name = part[0];
         Progress = Integer.parseInt(part[3]);
-        System.out.println("thasd "+ part[4]);
         Profile = part[4];
 
         Edituser = new userData(part[0],part[1],part[2],Progress,part[4]);
@@ -79,6 +78,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     public void onClick(View view) {
         if (view.getId() == R.id.home_menu_data){
             Intent i = new Intent(this,ContentActivity1.class);
+            i.putExtra("user",Edituser);
             startActivity(i);
         }
         else if (view.getId() == R.id.home_menu_edit) {

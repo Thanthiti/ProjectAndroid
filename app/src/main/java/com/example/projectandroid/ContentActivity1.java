@@ -5,10 +5,10 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -16,12 +16,18 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Arrays;
+
 public class ContentActivity1 extends AppCompatActivity implements View.OnClickListener{
     private TextView pagePrev, pageNext, page1, page2, page3, page4, page5;
     private ProgressBar progressBar;
     private ScrollView scrollView;
     private Button btnQuiz1;
     private ImageButton btnScrollToTop,btnBackHome;
+    private ImageView Profile;
+    String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
+    int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
+            ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -34,7 +40,16 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.btnBackHome);
+        Intent i = getIntent();
+        userData user = (userData) i.getSerializableExtra("user");
+        String part [] = user.toString().split(" ");
+
+
+        Profile = findViewById(R.id.Content1profileImage);
+        int index = Arrays.asList(nameProfile).indexOf(part[4]);
+        Profile.setImageResource(picId[index]);
+
+        btnBackHome = findViewById(R.id.Content1btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar = findViewById(R.id.progressBar);
@@ -94,13 +109,13 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         } else if (v == page5) {
             openPage(5);
         } else if (v == btnBackHome) {
-            Intent intent = new Intent(ContentActivity1.this, MainActivity.class);
-            startActivity(intent);
+//            Intent intent = new Intent(ContentActivity1.this, MainActivity.class);
+//            startActivity(intent);
             finish();
         } else {
             Intent intent = new Intent(ContentActivity1.this, Quiz1Activity.class);
             startActivity(intent);
-            finish();
+
         }
     }
     //show smooth btn

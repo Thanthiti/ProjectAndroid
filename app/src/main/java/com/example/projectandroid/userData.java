@@ -1,5 +1,7 @@
 package com.example.projectandroid;
 
+import android.content.Context;
+
 import java.io.Serializable;
 
 public class userData implements Serializable {
@@ -8,6 +10,7 @@ public class userData implements Serializable {
     private String password = "";
     private int progress = 0;
     private String image = "";
+    private Context ctx;
 
     public userData(String name, String email, String password,int progress,String image){
         this.name = name;
@@ -15,6 +18,9 @@ public class userData implements Serializable {
         this.password = password;
         this.progress = progress;
         this.image = image;
+    }
+    public  userData(Context ctx){
+        this.ctx = ctx;
     }
     public String getName(){
         return this.name;

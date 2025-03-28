@@ -127,9 +127,10 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                     System.out.println("Status " + valid);
                     if(valid){
                         status = true;
-                    }else {
-                        editName.setError("ชื่อผู้ใชซ้ำ");
-                }
+                    }
+                    else {
+                        editName.setError("asdasd");
+                    }
                 }
             }
         }

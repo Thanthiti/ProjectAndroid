@@ -50,11 +50,12 @@ public class ManageFile implements Serializable {
             while ((line = reader.readLine()) != null) {
                 String[] part = line.split("\\s+", 5);
 
-                if (part[0].equals(Newname) && !name.equals(Newname)) {
+                if (part[0].equals(Newname) && !part[0].equals(name)) {
                     status = false;
+                    return false;
                 }
 
-                if (part.length >= 2 && part[0].equals(name) && part[1].equals(email)) {
+                if ( part[0].equals(name) && part[1].equals(email)) {
                     Alldata.add(Newname + " " + Newemail + " " + Newpass + " " + part[3] + " " + NewProfile);
                 } else {
                     Alldata.add(line);

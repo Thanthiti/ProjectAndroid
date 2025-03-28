@@ -32,7 +32,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             return insets;
         });
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.btnBackHome);
+        btnBackHome = findViewById(R.id.Content2btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar2 = findViewById(R.id.progressBar2);
@@ -95,7 +95,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         } else if (v == btnBackHome) {
             Intent intent = new Intent(ContentActivity2.this, MainActivity.class);
             startActivity(intent);
-            finish();
+
         } else {
             //Intent intent = new Intent(ContentActivity1.this, Quiz2Activity.class);
             //startActivity(intent);
