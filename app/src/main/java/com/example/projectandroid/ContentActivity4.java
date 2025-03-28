@@ -33,7 +33,7 @@ public class ContentActivity4 extends AppCompatActivity implements View.OnClickL
         });
 
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.Content4btnBackHome);
+       // btnBackHome = findViewById(R.id.Content4btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar4 = findViewById(R.id.progressBar4);
@@ -52,7 +52,7 @@ public class ContentActivity4 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz4.setOnClickListener(this);
-        btnBackHome.setOnClickListener(this);
+       // btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {

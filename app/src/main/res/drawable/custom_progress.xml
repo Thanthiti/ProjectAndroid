@@ -1,15 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
-
-    <item>
-        <shape android:shape="rectangle">
-            <corners android:radius="100dp"/>
-            <gradient android:startColor="@android:color/white"
-                android:centerColor="@color/cyan"
-            android:endColor="#FFFFFF"
-            android:useLevel="true"/>
-            <stroke android:width="2dp" android:color="#005594"/>
+    <!-- พื้นหลัง (สีขาวเมื่อ progress=0) -->
+    <item android:id="@android:id/background">
+        <shape>
+            <corners android:radius="10dp" /> <!-- มุมมน -->
+            <solid android:color="#FFFFFF" /> <!-- สีขาว -->
         </shape>
     </item>
 
+    <!-- หลอดความคืบหน้า (สีฟ้าเมื่อมี progress) -->
+    <item android:id="@android:id/progress">
+        <clip>
+            <shape>
+                <corners android:radius="10dp" />
+                <stroke android:width="3dp" android:color="@color/white"></stroke>
+                <gradient android:startColor="@color/cyan" android:centerColor="#0892D1" android:endColor="#3F51B5"></gradient>
+            </shape>
+        </clip>
+    </item>
 </layer-list>

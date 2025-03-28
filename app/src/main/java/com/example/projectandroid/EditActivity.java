@@ -4,6 +4,8 @@ import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Adapter;
@@ -13,6 +15,7 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -144,7 +147,6 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
         }
         else if(id == R.id.EditbtnUpdate){
-
             if(checkName(textName)&&checkEmail(textEmail)&& checkPass(textPass)) {
                 dialog.show();
             }
@@ -165,6 +167,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 dialog.dismiss();
                 System.out.println("Status " + valid);
                 if(valid){
+                    showSuccessToast("Success");
                     status = true;
                 }else {
                     editName.setError("ชื่อผู้ใชซ้ำ");
@@ -172,6 +175,25 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             }
         }
     }
+// TOAST SUCCESS
+    public void showSuccessToast(String message) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(
+                R.layout.custom_toast,
+                findViewById(R.id.custom_toast_container)
+        );
+
+        TextView text = layout.findViewById(R.id.toast_text);
+        text.setText(message);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 100);
+        toast.setView(layout);
+        toast.show();
+    }
+    //
+
 
 
 
