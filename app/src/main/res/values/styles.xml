@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <style name="WhiteExpProgressBar" parent="Widget.AppCompat.ProgressBar.Horizontal">
+        <item name="android:progressDrawable">@drawable/custom_progress</item>
+        <item name="android:indeterminateOnly">false</item> <!-- ปิด indeterminate mode -->
+        <item name="android:max">100</item> <!-- ค่าสูงสุดของ EXP -->
+    </style>
+</resources>

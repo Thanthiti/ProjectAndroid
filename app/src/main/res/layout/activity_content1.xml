@@ -13,31 +13,86 @@
         android:layout_width="match_parent"
         android:layout_height="150dp"
         android:background="@drawable/header_background"
-        android:elevation="6dp"
+        android:elevation="10dp"
         android:padding="10dp">
 
         <!-- ปุ่ม Back Home -->
-        <ImageButton
-            android:id="@+id/Content1btnBackHome"
-            android:layout_width="25dp"
-            android:layout_height="25dp"
-            android:layout_alignParentStart="true"
-            android:layout_marginStart="5dp"
-            android:layout_marginTop="5dp"
-            android:background="@android:color/transparent"
-            android:contentDescription="Back to Home"
-            android:scaleType="fitCenter"
-            android:src="@drawable/back" />
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/textView20"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="92dp"
+                android:fontFamily="@font/prompt_medium"
+                android:text="Username"
+                android:textColor="#FFFFFF"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toEndOf="@+id/Content1profileImage"
+                app:layout_constraintHorizontal_bias="0.55"
+                app:layout_constraintStart_toStartOf="@+id/Content1profileImage"
+                app:layout_constraintTop_toTopOf="@+id/Content1profileImage" />
+
+            <TextView
+                android:id="@+id/textView18"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/prompt_medium"
+                android:text="Data Types"
+                android:textColor="#9FEEFB"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toEndOf="@+id/textView17"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="@+id/textView17"
+                app:layout_constraintTop_toTopOf="@+id/textView17" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/prompt_bold"
+                android:text="Course Activity"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/Content1profileImage"
+                app:layout_constraintHorizontal_bias="0.395"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+
+            <ImageView
+                android:id="@+id/Content1profileImage"
+                android:layout_width="92dp"
+                android:layout_height="85dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/circle_shape"
+                android:elevation="4dp"
+                android:scaleType="fitCenter"
+                android:src="@drawable/black"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintVertical_bias="0.266" />
+
+            <ImageButton
+                android:id="@+id/Content1btnBackHome"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:layout_marginTop="16dp"
+                android:background="@drawable/circle_back_1"
+                android:contentDescription="Back to Home"
+                android:scaleType="fitCenter"
+                android:src="@drawable/back"
+                app:layout_constraintEnd_toStartOf="@+id/textView17"
+                app:layout_constraintHorizontal_bias="0.277"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
         <!-- รูปโปรไฟล์ -->
-        <ImageView
-            android:id="@+id/Content1profileImage"
-            android:layout_width="100dp"
-            android:layout_height="100dp"
-            android:layout_centerInParent="true"
-            android:elevation="4dp"
-            android:scaleType="fitCenter"
-            android:src="@mipmap/ic_launcher_round" />
 
     </RelativeLayout>
 
@@ -110,7 +165,6 @@
 • boolean myBool = true;  // เก็บค่า true หรือ false\n
 • String myText = &quot;Hello&quot;;  // เก็บข้อความ"
                 android:textAlignment="viewStart"
-                android:textColor="#000000"
                 android:textSize="18sp" />
 
 
@@ -413,8 +467,8 @@
                 android:id="@+id/btnScrollToTop"
                 android:layout_width="45dp"
                 android:layout_height="45dp"
-                android:layout_alignParentBottom="true"
                 android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
                 android:layout_margin="10dp"
                 android:background="@android:color/transparent"
                 android:contentDescription="Scroll to top"
@@ -439,8 +493,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:clickable="true"
-                    android:focusable="true"
                     android:enabled="false"
+                    android:focusable="true"
                     android:text="◀"
                     android:textColor="@color/dark_gray"
                     android:textSize="18sp" />
@@ -451,8 +505,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:clickable="true"
-                    android:focusable="true"
                     android:enabled="false"
+                    android:focusable="true"
                     android:text="1"
                     android:textColor="#0033cc"
                     android:textSize="18sp" />

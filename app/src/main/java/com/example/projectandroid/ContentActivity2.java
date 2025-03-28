@@ -32,7 +32,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             return insets;
         });
         // ผูก UI กับตัวแปร
-        btnBackHome = findViewById(R.id.Content2btnBackHome);
+        //btnBackHome = findViewById(R.id.Content2btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar2 = findViewById(R.id.progressBar2);
@@ -51,7 +51,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz2.setOnClickListener(this);
-        btnBackHome.setOnClickListener(this);
+       // btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -92,9 +92,10 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
-        } else if (v == btnBackHome) {
-            finish();
-        } else {
+        }// else if (v == btnBackHome) {
+            //finish();
+        //}
+        else {
             Intent intent = new Intent(ContentActivity2.this, Quiz2Activity.class);
             startActivity(intent);
             finish();
