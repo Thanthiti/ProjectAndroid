@@ -52,7 +52,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz3.setOnClickListener(this);
-        btnBackHome.setOnClickListener(this);
+        //btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
