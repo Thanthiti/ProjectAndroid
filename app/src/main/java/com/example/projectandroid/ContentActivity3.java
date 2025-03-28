@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.ProgressBar;
 import android.widget.ScrollView;
 import android.widget.TextView;
@@ -15,12 +16,19 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.Arrays;
+
 public class ContentActivity3 extends AppCompatActivity implements View.OnClickListener {
     private TextView pagePrev, pageNext, page1, page2, page3, page4, page5;
     private ProgressBar progressBar3;
     private ScrollView scrollView;
     private Button btnQuiz3;
     private ImageButton btnScrollToTop,btnBackHome;
+    private TextView Username;
+    private ImageView Profile;
+    String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
+    int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
+            ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,8 +40,18 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
             return insets;
         });
 
+        Intent i = getIntent();
+        userData user = (userData) i.getSerializableExtra("user");
+        String part [] = user.toString().split(" ");
+
+        Username = findViewById(R.id.Content3Username);
+        Profile = findViewById(R.id.Content3profileImage);
+        int index = Arrays.asList(nameProfile).indexOf(part[4]);
+        Profile.setImageResource(picId[index]);
+        Username.setText(""+part[0]);
+
         // ผูก UI กับตัวแปร
-       // btnBackHome = findViewById(R.id.Content3btnBackHome);
+        btnBackHome = findViewById(R.id.Content3btnBackHome);
         pagePrev = findViewById(R.id.pagePrev);
         pageNext = findViewById(R.id.pageNext);
         progressBar3 = findViewById(R.id.progressBar3);
@@ -52,7 +70,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         pagePrev.setOnClickListener(this);
         pageNext.setOnClickListener(this);
         btnQuiz3.setOnClickListener(this);
-        //btnBackHome.setOnClickListener(this);
+        btnBackHome.setOnClickListener(this);
         btnScrollToTop.setOnClickListener(v -> scrollView.smoothScrollTo(0, 0));
 
         scrollView.getViewTreeObserver().addOnScrollChangedListener(() -> {
@@ -93,10 +111,10 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
             openPage(4);
         } else if (v == page5) {
             openPage(5);
-        } //else if (v == btnBackHome) {
-            //Intent intent = new Intent(ContentActivity3.this, MainActivity.class);
-            //startActivity(intent);
-        //}
+        }
+        else if (v == btnBackHome) {
+            finish();
+        }
         else if (v == btnQuiz3){
             Intent intent = new Intent(ContentActivity3.this, Quiz3Activity.class);
             startActivity(intent);
