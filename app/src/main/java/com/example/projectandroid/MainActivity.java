@@ -35,7 +35,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     Dialog dialog;
     Button btnDiaCancel , btnDiaConfirm;
 
-
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
         int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
     ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};

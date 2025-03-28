@@ -29,6 +29,8 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
+    userData user;
+    int Progress;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +43,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         });
 
         Intent i = getIntent();
-        userData user = (userData) i.getSerializableExtra("user");
+         user = (userData) i.getSerializableExtra("user");
         String part [] = user.toString().split(" ");
 
         Username = findViewById(R.id.Content3Username);
@@ -49,6 +51,9 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         int index = Arrays.asList(nameProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
         Username.setText(""+part[0]);
+
+        Progress = Integer.parseInt(part[3]);
+        user = new userData(part[0],part[1],part[2],Progress,part[4]);
 
         // ผูก UI กับตัวแปร
         btnBackHome = findViewById(R.id.Content3btnBackHome);
@@ -97,9 +102,11 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v == pagePrev) {
             Intent intent = new Intent(ContentActivity3.this, ContentActivity2.class);
+            intent.putExtra("user",user);
             startActivity(intent);
         } else if (v == pageNext) {
             Intent intent = new Intent(ContentActivity3.this, ContentActivity4.class);
+            intent.putExtra("user",user);
             startActivity(intent);
         } else if (v == page1) {
             openPage(1);
@@ -117,6 +124,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
         }
         else if (v == btnQuiz3){
             Intent intent = new Intent(ContentActivity3.this, Quiz3Activity.class);
+            intent.putExtra("user",user);
             startActivity(intent);
         }
     }
@@ -160,6 +168,7 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
                 intent = new Intent(ContentActivity3.this, ContentActivity3.class);
                 break;
         }
+        intent.putExtra("user",user);
         startActivity(intent);
     }
 }
