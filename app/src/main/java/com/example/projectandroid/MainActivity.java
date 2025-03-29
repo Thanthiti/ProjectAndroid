@@ -2,6 +2,7 @@ package com.example.projectandroid;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.view.ViewGroup;
@@ -30,16 +31,17 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     LinearLayout linears [] = new LinearLayout[linearID.length];
 
     ConstraintLayout reportExp;
-    ImageView logout ,ImageProfile;
+    ImageView logout ,ImageProfile,imageColor;
     TextView textExp,textUsername;
     String Name,Profile;
     userData Edituser;
     Dialog dialog;
     Button btnDiaCancel , btnDiaConfirm;
     ArrayList<Integer> showProgress = new ArrayList<>();
-    String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
-        int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
-    ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
+    String TagColor [] = {"#3C177B","#1E1F25","#790838","#5D2615","#0A4C2E","#B33E15","#C18722","#24A8BD","#AB2BAD"};
+    String ColorProfile [] = {"purple","black","red","brown","green","orange","yellow","cyan","pink"};
+    int picId [] = {R.drawable.purple,R.drawable.black,R.drawable.red,R.drawable.brown,R.drawable.green
+            ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.pink};
 
     Set<Integer> unique;
 
@@ -100,8 +102,15 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         logout.setOnClickListener(this);
         ImageProfile = findViewById(R.id.EditImageProfile);
         textUsername = findViewById(R.id.HomeTextUsername);
+        imageColor = findViewById(R.id.imageView2);
+        for(int i = 0 ;i< ColorProfile.length;i++){
+            if(part[4].equals(ColorProfile[i])){
+                textUsername.setTextColor(Color.parseColor(TagColor[i]));
+                imageColor.setColorFilter(Color.parseColor(TagColor[i]));
+            }
+        }
 
-        int index = Arrays.asList(nameProfile).indexOf(Profile);
+        int index = Arrays.asList(ColorProfile).indexOf(Profile);
         ImageProfile.setImageResource(picId[index]);
 
         textUsername.setText(part[0]);

@@ -62,13 +62,13 @@ public class Quiz4Activity extends AppCompatActivity implements View.OnClickList
 
     int index = 0;
     int life = 2;
-    userData user;
+    userData user,oldUser;
     // Alert Dialog
     Dialog dialogWin , dialogLose;
     Button btnOkWinner , btnYes , btnNo;
     // icon toast
     int iconAlerttoast[] = {R.drawable.report_check, R.drawable.report_incorrect};
-    String name, email, password, progress, profile;
+    String name, email, password, progress, profile,oldProgress;
     ManageFile edtProgress;
     final String filename = "User.txt";
 
@@ -93,6 +93,7 @@ public class Quiz4Activity extends AppCompatActivity implements View.OnClickList
         name = part[0];
         email = part[1];
         password = part[2];
+        oldProgress = part[3];
         progress = part[3] + "4";
         profile = part[4];
         textUsername.setText(name+"");
@@ -145,10 +146,11 @@ public class Quiz4Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         int id = view.getId();
         boolean status = false;
-        if (id == R.id.btnquiz4_BackHome) {
+        if (id == R.id.btnquiz4_BackHome || id == R.id.example_alert_no) {
+            oldUser = new userData(name, email, password, oldProgress, profile);
             status = true;
             Intent launch = new Intent(this, ContentActivity4.class);
-            launch.putExtra("user",user);
+            launch.putExtra("user",oldUser);
             startActivity(launch);
         } else if (id == R.id.example_alert_ok) {
             edtProgress = new ManageFile(this, name, email, password, progress, profile, filename);
@@ -157,12 +159,6 @@ public class Quiz4Activity extends AppCompatActivity implements View.OnClickList
             status = true;
             Intent launch = new Intent(this, MainActivity.class);
             launch.putExtra("user", user);
-            startActivity(launch);
-        }else if(id == R.id.example_alert_no){
-            user = new userData(name,email,password,progress,profile);
-            status = true;
-            Intent launch = new Intent(this, ContentActivity4.class);
-            launch.putExtra("user",user);
             startActivity(launch);
         }
 
