@@ -67,8 +67,8 @@ View.OnClickListener{
     int life = 2;
     userData user;
     // Alert Dialog
-    Dialog dialog;
-    Button btnOkWinner;
+    Dialog dialogWin , dialogLose;
+    Button btnOkWinner , btnYes , btnNo;
     // icon toast
     int iconAlerttoast [] = {R.drawable.report_check , R.drawable.report_incorrect};
     String name,email,password,progress,profile;
@@ -97,15 +97,34 @@ View.OnClickListener{
         progress = part[3]+"1";
         profile = part[4];
 
-        // Dialog Alert
-        dialog = new Dialog(Quiz1Activity.this);
-        dialog.setContentView(R.layout.alertbox_winner);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
-        dialog.setCancelable(false);
-
-        btnOkWinner = dialog.findViewById(R.id.example_alert_ok);
+        // Dialog Alert When User Win
+        dialogWin = new Dialog(Quiz1Activity.this);
+        dialogWin.setContentView(R.layout.alertbox_winner);
+        dialogWin.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogWin.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialogWin.setCancelable(false);
+        btnOkWinner = dialogWin.findViewById(R.id.example_alert_ok);
         btnOkWinner.setOnClickListener(this);
+
+        // Dialog Alert When User Lose
+        dialogLose = new Dialog(Quiz1Activity.this);
+        dialogLose.setContentView(R.layout.alertbox_lose);
+        dialogLose.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogLose.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialogLose.setCancelable(false);
+
+        btnNo = dialogLose.findViewById(R.id.example_alert_no);
+        btnYes = dialogLose.findViewById(R.id.example_alert_yes);
+        btnNo.setOnClickListener(this);
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // ถ้ากด yes
+                ResetQuize();
+            }
+        });
+
+        //
         question = findViewById(R.id.quiz1_question);
         questionNumber = findViewById(R.id.titleQuestion1);
         btnBack = findViewById(R.id.btnquiz1_BackHome);
@@ -139,6 +158,13 @@ View.OnClickListener{
             launch.putExtra("user",user);
             startActivity(launch);
         }
+        else if(id == R.id.example_alert_no){
+            user = new userData(name,email,password,progress,profile);
+            status = true;
+            Intent launch = new Intent(this, ContentActivity1.class);
+            launch.putExtra("user",user);
+            startActivity(launch);
+        }
 
         for (int i = 0; i < cardId.length; i++) {
             if (id == cardId[i]) {
@@ -146,10 +172,8 @@ View.OnClickListener{
                     showToast("Correct!" , 0);
                     index++;
                     if (index == questions.length) {
-
-                        Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
                         status = true;
-                        dialog.show();
+                        dialogWin.show();
                         break;
                     }
                     question.setText(questions[index]);
@@ -168,8 +192,7 @@ View.OnClickListener{
             }
             life--;
             if (life < 0) {
-                Toast.makeText(this, "คุณแพ้แล้ว! ลองใหม่อีกครั้ง", Toast.LENGTH_LONG).show();
-                ResetQuize();
+                dialogLose.show();
             }
         }
     }
@@ -199,6 +222,7 @@ View.OnClickListener{
         }
     }
     public void ResetQuize(){
+        dialogLose.dismiss();
         index = 0;
         life = 2;
         question.setText(questions[0]+"");
@@ -210,4 +234,5 @@ View.OnClickListener{
             heartImage[i].setImageResource(R.drawable.heart_1);
         }
     }
+
 }

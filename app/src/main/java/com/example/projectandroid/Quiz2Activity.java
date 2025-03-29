@@ -106,6 +106,7 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
 
         btnOkWinner = dialog.findViewById(R.id.example_alert_ok);
         btnOkWinner.setOnClickListener(this);
+
         question = findViewById(R.id.quiz2_question);
         questionNumber = findViewById(R.id.titleQuestion2);
         btnBack = findViewById(R.id.btnquiz2_BackHome);
