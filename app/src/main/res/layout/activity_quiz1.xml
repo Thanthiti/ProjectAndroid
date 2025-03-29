@@ -20,11 +20,13 @@
         <!-- back home -->
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/imgProfile1"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginLeft="275dp"
             android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="21dp"
             android:background="@drawable/circle_shape"
             android:elevation="5dp"
             android:scaleType="fitCenter"
@@ -54,7 +56,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvTitle2"
+            android:id="@+id/titleQuiz1"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -114,7 +116,7 @@
 
             <!-- ส่วนแสดงคำถาม -->
             <TextView
-                android:id="@+id/tvQuestion"
+                android:id="@+id/titleQuestion1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/prompt_bold"
@@ -329,8 +331,4 @@
             </GridLayout>
         </LinearLayout>
     </androidx.cardview.widget.CardView>
-
-    <!-- Question Image -->
-
-
 </LinearLayout>

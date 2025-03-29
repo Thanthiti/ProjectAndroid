@@ -8,7 +8,7 @@
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="16dp"
-    tools:context=".Quiz1Activity">
+    tools:context=".Quiz5Activity">
     <!-- Toolbar -->
     <RelativeLayout
         android:layout_width="match_parent"
@@ -19,18 +19,20 @@
         <!-- back home -->
 
         <ImageView
-            android:id="@+id/imageView11"
+            android:id="@+id/imgProfile5"
             android:layout_width="80dp"
             android:layout_height="80dp"
             android:layout_marginLeft="275dp"
             android:layout_marginTop="10dp"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="21dp"
             android:background="@drawable/circle_shape"
             android:elevation="5dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/black" />
 
         <ImageButton
-            android:id="@+id/btnquiz1_BackHome"
+            android:id="@+id/btnquiz5_BackHome"
             android:layout_width="30dp"
             android:layout_height="30dp"
             android:layout_alignParentStart="true"
@@ -53,7 +55,7 @@
             android:textStyle="bold" />
 
         <TextView
-            android:id="@+id/tvTitle2"
+            android:id="@+id/titleQuiz5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginLeft="50dp"
@@ -64,7 +66,7 @@
             android:textSize="20dp" />
 
         <ImageView
-            android:id="@+id/heart1_3"
+            android:id="@+id/heart5_3"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
@@ -74,24 +76,24 @@
 
         <!-- Menu Icon 2  -->
         <ImageView
-            android:id="@+id/heart1_2"
+            android:id="@+id/heart5_2"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
-            android:layout_toStartOf="@id/heart1_3"
+            android:layout_toStartOf="@id/heart5_3"
             app:srcCompat="@drawable/heart_1" />
 
         <!-- Menu Icon 1  -->
         <ImageView
-            android:id="@+id/heart1_1"
+            android:id="@+id/heart5_1"
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_marginTop="100dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
-            android:layout_toStartOf="@id/heart1_2"
+            android:layout_toStartOf="@id/heart5_2"
             app:srcCompat="@drawable/heart_1" />
 
     </RelativeLayout>
@@ -113,7 +115,7 @@
 
             <!-- ส่วนแสดงคำถาม -->
             <TextView
-                android:id="@+id/tvQuestion"
+                android:id="@+id/titleQuestion5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/prompt_bold"
@@ -124,7 +126,7 @@
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/quiz1_question"
+                android:id="@+id/quiz5_question"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-5dp"
@@ -153,7 +155,7 @@
             android:padding="16dp">
 
             <GridLayout
-                android:id="@+id/gridChoice1"
+                android:id="@+id/gridChoice5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:columnCount="2"
@@ -161,7 +163,7 @@
 
                 <!-- Card 1 -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/quiz1_card1"
+                    android:id="@+id/quiz5_card1"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -180,14 +182,14 @@
                         android:padding="16dp">
 
                         <ImageView
-                            android:id="@+id/img1_1"
+                            android:id="@+id/img5_1"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:paddingBottom="5dp"
                             app:srcCompat="@drawable/one" />
 
                         <TextView
-                            android:id="@+id/textView1_1"
+                            android:id="@+id/textView5_1"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/prompt_light"
@@ -202,7 +204,7 @@
                 </androidx.cardview.widget.CardView>
                 <!-- Card 2 -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/quiz1_card2"
+                    android:id="@+id/quiz5_card2"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -221,7 +223,7 @@
                         android:padding="16dp">
 
                         <ImageView
-                            android:id="@+id/img1_2"
+                            android:id="@+id/img5_2"
                             android:layout_width="55dp"
                             android:layout_height="50dp"
                             android:paddingBottom="5dp"
@@ -229,7 +231,7 @@
                             app:srcCompat="@drawable/two" />
 
                         <TextView
-                            android:id="@+id/textView1_2"
+                            android:id="@+id/textView5_2"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/prompt_light"
@@ -244,7 +246,7 @@
                 </androidx.cardview.widget.CardView>
                 <!-- Card 3 -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/quiz1_card3"
+                    android:id="@+id/quiz5_card3"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -263,7 +265,7 @@
                         android:padding="16dp">
 
                         <ImageView
-                            android:id="@+id/img1_3"
+                            android:id="@+id/img5_3"
                             android:layout_width="55dp"
                             android:layout_height="50dp"
                             android:paddingBottom="5dp"
@@ -271,7 +273,7 @@
                             app:srcCompat="@drawable/three" />
 
                         <TextView
-                            android:id="@+id/textView1_3"
+                            android:id="@+id/textView5_3"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/prompt_light"
@@ -286,7 +288,7 @@
                 </androidx.cardview.widget.CardView>
                 <!-- Card 4 -->
                 <androidx.cardview.widget.CardView
-                    android:id="@+id/quiz1_card4"
+                    android:id="@+id/quiz5_card4"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_columnWeight="1"
@@ -305,14 +307,14 @@
                         android:padding="16dp">
 
                         <ImageView
-                            android:id="@+id/img1_4"
+                            android:id="@+id/img5_4"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
                             android:paddingBottom="5dp"
                             app:srcCompat="@drawable/four" />
 
                         <TextView
-                            android:id="@+id/textView1_4"
+                            android:id="@+id/textView5_4"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/prompt_light"
