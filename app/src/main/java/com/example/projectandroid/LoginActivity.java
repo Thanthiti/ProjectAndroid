@@ -109,11 +109,8 @@ public class LoginActivity extends AppCompatActivity implements
             if (part[0].equals(name)) {
                 if (part[2].equals(pass)) {
                     int progress = Integer.parseInt(part[3]);
-
-
                     user = new userData(part[0], part[1], part[2], progress, part[4]);
                     valid = true;
-
                     layout_password.setHelperTextEnabled(false);
                     break;
                 } else {
