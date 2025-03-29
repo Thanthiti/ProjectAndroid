@@ -116,6 +116,7 @@ View.OnClickListener{
                     Toast.makeText(this, "ถูกต้อง!", Toast.LENGTH_SHORT).show();
                     index++;
                     questionNumber.setText("Question " + (index+1) + " : " );
+//                    All Done
                     if (index == questions.length) {
                         Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
                     }
