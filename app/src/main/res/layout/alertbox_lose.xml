@@ -1,17 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    app:cardElevation="10dp"
-    app:cardCornerRadius="16dp">
+    android:background="#FFFFFF"
+    app:cardCornerRadius="16dp"
+    app:cardElevation="10dp">
 
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp">
+        android:background="#FFFFFF">
 
         <TextView
             android:id="@+id/textView15"
@@ -45,6 +46,7 @@
             android:layout_marginTop="108dp"
             android:fontFamily="@font/prompt_light"
             android:text="You Lose! you want to try agian?"
+            android:textColor="#000000"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="@+id/textView15"
             app:layout_constraintStart_toStartOf="@+id/textView15"
@@ -62,7 +64,7 @@
             app:layout_constraintTop_toBottomOf="@+id/textView16">
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/edit_alert_confirm"
+                android:id="@+id/example_alert_yes"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
@@ -71,12 +73,13 @@
                 android:fontFamily="@font/prompt_medium"
                 android:padding="12dp"
                 android:text="YES"
+                android:textColor="#FFFFFF"
                 android:textSize="12sp">
 
             </com.google.android.material.button.MaterialButton>
 
             <com.google.android.material.button.MaterialButton
-                android:id="@+id/edit_alert_cancel"
+                android:id="@+id/example_alert_no"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_marginEnd="10dp"
