@@ -83,7 +83,6 @@ public class LoginActivity extends AppCompatActivity implements
         }
 
         if(id == R.id.LoginbtnSignup){
-<<<<<<< HEAD
 //            if(checkName(name) && checkPass(pass)) {
 ////                if(true) {
 //                readFile = new ManageFile(this,filename);
@@ -95,19 +94,6 @@ public class LoginActivity extends AppCompatActivity implements
             }
         }
 //        }
-=======
-            if(checkName(name) && checkPass(pass)) {
-//                if(true) {
-                readFile = new ManageFile(this,filename);
-                Alldata = readFile.readFile();
-                Checklogin(name, pass);
-//                SendData();
-                if (valid) {
-                    SendData();
-                }
-            }
-        }
->>>>>>> 266313c3350ab77adecdf5c046e8c4e3d7b21792
     }
 
     public void Checklogin(String name , String pass) {
@@ -146,7 +132,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     public void  SendData(){
         Intent launch = new Intent(LoginActivity.this, MainActivity.class);
-//        user = new userData("Palm","asd@gmail","12345678","0","black");
+        user = new userData("Palm","asd@gmail","12345678","0","black");
         launch.putExtra("user",user);
         startActivity(launch);
     }
