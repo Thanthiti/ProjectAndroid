@@ -6,14 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:gravity="center_vertical"
+    android:gravity="clip_vertical"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".Quiz3Activity">
     <!-- Toolbar -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">>
+
 
         <!-- back home -->
 

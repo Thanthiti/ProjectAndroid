@@ -6,14 +6,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:gravity="center_vertical"
+    android:gravity="clip_vertical"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".Quiz2Activity">
     <!-- Toolbar -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">>
+
 
         <!-- back home -->
 
@@ -138,12 +140,14 @@
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
                 android:textStyle="bold" />
+
             <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="1"
                 android:clipToPadding="false"
                 android:overScrollMode="always">
+
                 <TextView
                     android:id="@+id/quiz2_question"
                     android:layout_width="match_parent"

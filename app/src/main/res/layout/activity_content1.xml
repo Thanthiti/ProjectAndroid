@@ -27,7 +27,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="92dp"
-                android:fontFamily="@font/prompt_medium"
+                android:fontFamily="@font/protest_strike"
                 android:text="Username"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -60,7 +60,7 @@
                 android:textColor="#FFFFFF"
                 android:textSize="20dp"
                 app:layout_constraintEnd_toStartOf="@+id/Content1profileImage"
-                app:layout_constraintHorizontal_bias="0.395"
+                app:layout_constraintHorizontal_bias="0.542"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -80,8 +80,8 @@
 
             <ImageButton
                 android:id="@+id/Content1btnBackHome"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/circle_back_1"
                 android:contentDescription="Back to Home"
@@ -244,12 +244,13 @@
                 android:layout_below="@id/dataInfo7"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#ffc43c"
+                android:backgroundTint="#0071FD"
                 android:elevation="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/prompt_bold"
                 android:outlineProvider="none"
                 android:text="Quiz บทที่ 1"
                 android:textAlignment="center"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -540,9 +541,10 @@
                     android:clickable="true"
                     android:enabled="false"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="1"
                     android:textColor="#0033cc"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page2"
@@ -551,9 +553,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="2"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page3"
@@ -562,9 +565,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="3"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page4"
@@ -573,9 +577,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="4"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page5"
@@ -584,9 +589,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="5"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/pageNext"

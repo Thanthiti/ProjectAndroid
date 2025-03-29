@@ -6,7 +6,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:gravity="center_vertical"
+    android:gravity="clip_vertical"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".Quiz1Activity">
@@ -14,7 +14,8 @@
 
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">
 
         <!-- back home -->
 
@@ -97,8 +98,8 @@
             android:layout_marginTop="115dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
-            app:srcCompat="@drawable/heart_1"
-            android:layout_toStartOf="@id/heart1_3"/>
+            android:layout_toStartOf="@id/heart1_3"
+            app:srcCompat="@drawable/heart_1" />
 
         <!-- Menu Icon 1  -->
         <ImageView
@@ -108,8 +109,8 @@
             android:layout_marginTop="115dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
-            app:srcCompat="@drawable/heart_1"
-            android:layout_toStartOf="@id/heart1_2"/>
+            android:layout_toStartOf="@id/heart1_2"
+            app:srcCompat="@drawable/heart_1" />
 
     </RelativeLayout>
 

@@ -6,17 +6,18 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FFFFFF"
-    android:gravity="center_vertical"
+    android:gravity="clip_vertical"
     android:orientation="vertical"
     android:padding="16dp"
     tools:context=".Quiz5Activity">
     <!-- Toolbar -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp">>
 
 
-    <!-- back home -->
+        <!-- back home -->
 
         <TextView
             android:id="@+id/quiz5textUsername"
@@ -185,7 +186,7 @@
                 android:padding="2dp">
 
 
-            <!-- Card 1 -->
+                <!-- Card 1 -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/quiz5_card1"
                     android:layout_width="0dp"
@@ -198,13 +199,13 @@
                     app:cardElevation="2dp">
 
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:background="#673AB7"
-                    android:gravity="clip_horizontal"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:background="#673AB7"
+                        android:gravity="clip_horizontal"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/img5_1"
@@ -213,6 +214,7 @@
                             android:layout_gravity="center_horizontal"
                             android:paddingBottom="5dp"
                             app:srcCompat="@drawable/one" />
+
                         <TextView
                             android:id="@+id/textView5_1"
                             android:layout_width="wrap_content"
@@ -284,13 +286,13 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="2dp">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="140dp"
-                    android:background="#FF9800"
-                    android:gravity="clip_horizontal"
-                    android:orientation="vertical"
-                    android:padding="10dp">
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="140dp"
+                        android:background="#FF9800"
+                        android:gravity="clip_horizontal"
+                        android:orientation="vertical"
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/img5_3"

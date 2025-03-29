@@ -26,7 +26,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="92dp"
-                android:fontFamily="@font/prompt_medium"
+                android:fontFamily="@font/protest_strike"
                 android:text="Username"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -34,6 +34,20 @@
                 app:layout_constraintHorizontal_bias="0.55"
                 app:layout_constraintStart_toStartOf="@+id/Content2profileImage"
                 app:layout_constraintTop_toTopOf="@+id/Content2profileImage" />
+
+            <TextView
+                android:id="@+id/textView17"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="12dp"
+                android:fontFamily="@font/prompt_bold"
+                android:text="Course Activity"
+                android:textColor="#FFFFFF"
+                android:textSize="20dp"
+                app:layout_constraintEnd_toStartOf="@+id/Content2profileImage"
+                app:layout_constraintHorizontal_bias="0.558"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
             <TextView
                 android:id="@+id/textView18"
@@ -48,20 +62,6 @@
                 app:layout_constraintHorizontal_bias="0.0"
                 app:layout_constraintStart_toStartOf="@+id/textView17"
                 app:layout_constraintTop_toTopOf="@+id/textView17" />
-
-            <TextView
-                android:id="@+id/textView17"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="12dp"
-                android:fontFamily="@font/prompt_bold"
-                android:text="Course Activity"
-                android:textColor="#FFFFFF"
-                android:textSize="20dp"
-                app:layout_constraintEnd_toStartOf="@+id/Content2profileImage"
-                app:layout_constraintHorizontal_bias="0.395"
-                app:layout_constraintStart_toStartOf="parent"
-                app:layout_constraintTop_toTopOf="parent" />
 
             <ImageView
                 android:id="@+id/Content2profileImage"
@@ -79,8 +79,8 @@
 
             <ImageButton
                 android:id="@+id/Content2btnBackHome"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
+                android:layout_width="40dp"
+                android:layout_height="40dp"
                 android:layout_marginTop="16dp"
                 android:background="@drawable/circle_back_2"
                 android:contentDescription="Back to Home"
@@ -382,12 +382,13 @@
                 android:layout_below="@id/variableInfo18"
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="12dp"
-                android:backgroundTint="#ffc43c"
+                android:backgroundTint="#C93F0E"
                 android:elevation="8dp"
-                android:fontFamily="serif"
+                android:fontFamily="@font/prompt_bold"
                 android:outlineProvider="none"
                 android:text="Quiz บทที่ 2"
                 android:textAlignment="center"
+                android:textColor="#FFFFFF"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -433,9 +434,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="1"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page2"
@@ -445,9 +447,10 @@
                     android:clickable="true"
                     android:enabled="false"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="2"
                     android:textColor="#0033cc"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page3"
@@ -456,9 +459,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="3"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page4"
@@ -467,9 +471,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="4"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/page5"
@@ -478,9 +483,10 @@
                     android:layout_margin="8dp"
                     android:clickable="true"
                     android:focusable="true"
+                    android:fontFamily="@font/protest_strike"
                     android:text="5"
                     android:textColor="@color/black"
-                    android:textSize="18sp" />
+                    android:textSize="20sp" />
 
                 <TextView
                     android:id="@+id/pageNext"
