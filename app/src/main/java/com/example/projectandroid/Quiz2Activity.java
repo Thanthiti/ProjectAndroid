@@ -15,7 +15,6 @@ import androidx.cardview.widget.CardView;
 import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
-
 import java.util.Arrays;
 
 public class Quiz2Activity extends AppCompatActivity implements  View.OnClickListener{

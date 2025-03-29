@@ -77,10 +77,10 @@ public class LoginActivity extends AppCompatActivity implements
         name = editName.getText().toString().trim();
         pass = editPass.getText().toString().trim();
 
-       if (id == R.id.login_text_signup) {
-           Intent i = new Intent(this , RegisterActivity.class);
-           startActivity(i);
-       }
+        if (id == R.id.login_text_signup) {
+            Intent i = new Intent(this , RegisterActivity.class);
+            startActivity(i);
+        }
 
         if(id == R.id.LoginbtnSignup){
 //            if(checkName(name) && checkPass(pass)) {
@@ -88,11 +88,11 @@ public class LoginActivity extends AppCompatActivity implements
 //                readFile = new ManageFile(this,filename);
 //                Alldata = readFile.readFile();
 //                Checklogin(name, pass);
-                SendData();
-                if (valid) {
+            SendData();
+            if (valid) {
 //                    SendData();
-                }
             }
+        }
 //        }
     }
 
@@ -108,14 +108,10 @@ public class LoginActivity extends AppCompatActivity implements
 
             if (part[0].equals(name)) {
                 if (part[2].equals(pass)) {
-<<<<<<< HEAD
-                    int progress = Integer.parseInt(part[3]);
-                    user = new userData(part[0], part[1], part[2], progress, part[4]);
-=======
 
                     user = new userData(part[0], part[1], part[2], part[3], part[4]);
->>>>>>> 9aa70b3526f194204ea537441f208248469c74f8
                     valid = true;
+
                     layout_password.setHelperTextEnabled(false);
                     break;
                 } else {
