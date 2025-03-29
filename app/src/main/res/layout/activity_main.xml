@@ -204,6 +204,7 @@
                             android:fontFamily="@font/prompt_medium"
                             android:text="Data Type"
                             android:textAlignment="center"
+                            android:textColor="#000000"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -255,6 +256,7 @@
                             android:fontFamily="@font/prompt_medium"
                             android:text="Variables"
                             android:textAlignment="center"
+                            android:textColor="#000000"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -306,6 +308,7 @@
                             android:fontFamily="@font/prompt_medium"
                             android:text="Operator"
                             android:textAlignment="center"
+                            android:textColor="#000000"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -364,6 +367,7 @@
                             android:fontFamily="@font/prompt_medium"
                             android:text="Control Statements"
                             android:textAlignment="center"
+                            android:textColor="#000000"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -415,6 +419,7 @@
                             android:fontFamily="@font/prompt_medium"
                             android:text="Function"
                             android:textAlignment="center"
+                            android:textColor="#000000"
                             android:textSize="16sp" />
                     </LinearLayout>
 
@@ -466,6 +471,7 @@
                             android:fontFamily="@font/prompt_medium"
                             android:text="Edit Profile"
                             android:textAlignment="center"
+                            android:textColor="#000000"
                             android:textSize="16sp" />
                     </LinearLayout>
 

@@ -50,7 +50,7 @@ public class Quiz3Activity extends AppCompatActivity {
             return insets;
         });
 
-        card1 = findViewById(R.id.quiz3_card1);
+        //card1 = findViewById(R.id.quiz3_card1);
         card1.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

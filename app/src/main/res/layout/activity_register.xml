@@ -173,6 +173,7 @@
                     android:backgroundTint="#19457D"
                     android:fontFamily="@font/prompt_bold"
                     android:text="CREATE ACCOUNT"
+                    android:textColor="#FFFFFF"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintHorizontal_bias="0.495"
                     app:layout_constraintStart_toStartOf="parent"
