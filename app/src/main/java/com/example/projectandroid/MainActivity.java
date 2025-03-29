@@ -18,7 +18,10 @@ import androidx.core.graphics.Insets;
 import androidx.core.view.ViewCompat;
 import androidx.core.view.WindowInsetsCompat;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.LinkedHashSet;
+import java.util.Set;
 
 public class MainActivity extends AppCompatActivity implements View.OnClickListener {
     ProgressBar progressBar;
@@ -29,14 +32,16 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ConstraintLayout reportExp;
     ImageView logout ,ImageProfile;
     TextView textExp,textUsername;
-    String Name,Profile,Progress;
+    String Name,Profile;
     userData Edituser;
     Dialog dialog;
     Button btnDiaCancel , btnDiaConfirm;
-
+    ArrayList<Integer> showProgress = new ArrayList<>();
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
         int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
     ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
+
+    Set<Integer> unique;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +82,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String part [] = user.toString().split(" ");
 
         Name = part[0];
-        Progress = part[3];
+        String Progress [] = part[3].split("");
         Profile = part[4];
 
-        Edituser = new userData(part[0],part[1],part[2],Progress,part[4]);
+        Edituser = new userData(part[0],part[1],part[2],part[3],part[4]);
 
         progressBar = findViewById(R.id.home_progressbar);
         reportExp = findViewById(R.id.home_report_exp);
@@ -100,10 +105,12 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         ImageProfile.setImageResource(picId[index]);
 
         textUsername.setText(part[0]);
+        findDuplicate(Progress);
+        System.out.println(unique);
 
-//        ProGress Bar
-        textExp.setText("Your experience is : " + Progress +" %");
-//        progressBar.incrementProgressBy(Progress);
+        //        ProGress Bar
+        textExp.setText("Your experience is : " + (unique.size()-1) * 20 +" %");
+        progressBar.incrementProgressBy((unique.size()-1) * 20);
     }
 
     @Override
@@ -125,10 +132,20 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
             startActivity(i);
         } else if (view.getId() == R.id.home_report_exp) {
             Intent i = new Intent(this , ReportActivity.class );
+            i.putIntegerArrayListExtra("uniq",showProgress);
             startActivity(i);
         } else if (view.getId() == R.id.home_logout) {
             dialog.show();
         }
+   }
+
+   public  void findDuplicate(String [] Progress){
+
+        for (String number : Progress){
+            showProgress.add(Integer.parseInt(number));
+        }
+        unique = new LinkedHashSet<>(showProgress);
+
    }
 
 }
