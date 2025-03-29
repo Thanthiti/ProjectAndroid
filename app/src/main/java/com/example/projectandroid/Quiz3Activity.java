@@ -29,13 +29,11 @@ public class Quiz3Activity extends AppCompatActivity implements View.OnClickList
             "ตัวดำเนินการ (Operators) ใช้เพื่อ:",
             "คูณ 10 ด้วย 5 และพิมพ์ผลลัพธ์ออกมา:  \n" +
                     "System.out.println(10 __ 5);",
-            "ใช้ตัวดำเนินการที่ถูกต้องเพื่อเพิ่มค่าของตัวแปร x ขึ้นทีละ 1 \n" +
-                    "int x = 10;\n" +
-                    "__x;",
-            "ใช้ตัวดำเนินการกำหนดค่า (+=) เพื่อเพิ่มค่า 5 ให้กับตัวแปร x  \n" +
+            "ใช้ตัวดำเนินการที่ถูกต้องเพื่อเพิ่มค่าของตัวแปร x ขึ้นทีละ 1:",
+            "ใช้ตัวดำเนินการเพื่อเพิ่มค่า 5 ให้กับตัวแปร x:\n" +
                     "int x = 10;\n" +
                     "x __ 5;",
-            "ตัวดำเนินการตรรกศาสตร์ && (AND) จะคืนค่า true ในกรณีใด?"
+            "ตัวดำเนินการตรรกศาสตร์ && (AND) จะคืนค่า true ในกรณีใด?:"
     };
     String choice[][] = {{"สร้างค่าคงที่และค่าตัวแปร", "ดำเนินการกับตัวแปรและค่า", "สร้างออบเจ็กต์และคลาส", "เข้าถึงคอมเมนต์เพื่อแสดงบนหน้าจอ"},
             {"+", "-", "*", "/"},
@@ -150,7 +148,7 @@ public class Quiz3Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         int id = view.getId();
         boolean status = false;
-        if (id == R.id.btnquiz1_BackHome) {
+        if (id == R.id.btnquiz3_BackHome) {
             status = true;
             finish();
         } else if (id == R.id.example_alert_ok) {
@@ -177,7 +175,6 @@ public class Quiz3Activity extends AppCompatActivity implements View.OnClickList
                     index++;
                     if (index == questions.length) {
 
-                        Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
                         status = true;
                         dialogWin.show();
                         break;
@@ -198,8 +195,7 @@ public class Quiz3Activity extends AppCompatActivity implements View.OnClickList
             }
             life--;
             if (life < 0) {
-                Toast.makeText(this, "คุณแพ้แล้ว! ลองใหม่อีกครั้ง", Toast.LENGTH_LONG).show();
-                ResetQuize();
+                dialogLose.show();
             }
         }
     }

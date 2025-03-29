@@ -24,19 +24,19 @@ import java.util.Arrays;
 
 public class Quiz5Activity extends AppCompatActivity implements View.OnClickListener {
     String[] questions = {
-            "1. ฟังก์ชันใน Java คืออะไร?",
-            "2. คำว่า void ในการประกาศฟังก์ชันหมายถึงอะไร?",
-            "3. ฟังก์ชันต่อไปนี้จะคืนค่ากลับมาเป็นอะไร?\n" +
+            "ฟังก์ชันใน Java คืออะไร?",
+            "คำว่า void ในการประกาศฟังก์ชันหมายถึงอะไร?",
+            "ฟังก์ชันต่อไปนี้จะคืนค่ากลับมาเป็นอะไร?\n" +
                     "static int multiply(int a, int b) {\n" +
                     "    return a * b;\n",
-            "4. ฟังก์ชันแบบ Overloading หมายถึงอะไร?",
-            "5. ฟังก์ชันแบบ Recursive คืออะไร?"
+            "ฟังก์ชันแบบ Overloading หมายถึงอะไร?",
+            "ฟังก์ชันแบบ Recursive คืออะไร?"
     };
 
     String choice [][] = {{"ตัวแปรชนิดหนึ่ง","กลุ่มของโค้ดที่ทำงานเฉพาะอย่าง","คำสั่งสำหรับพิมพ์ข้อความ","ตัวดำเนินการทางคณิตศาสตร์"},
             {"ฟังก์ชันจะส่งค่ากลับเสมอ","ฟังก์ชันไม่มีค่าที่ส่งกลับ","ฟังก์ชันต้องมีพารามิเตอร์เสมอ","ฟังก์ชันไม่สามารถใช้ใน main ได้"},
             {"void","ค่าตัวเลข (int)","ค่าข้อความ (String)","ไม่สามารถบอกได้"},
-            {"ฟังก์ชันที่มีการเรียกซ้ำ","ฟังก์ชันชื่อเดียวกันแต่พารามิเตอร์ต่างกัน","ฟังก์ชันที่ไม่มีพารามิเตอร์","ฟังก์ชันที่ไม่สามารถใช้ return ได้"},
+            {"ฟังก์ชันที่มีการเรียกซ้ำ","ฟังก์ชันชื่อเดียวกันแต่พารามิเตอร์ต่าง","ฟังก์ชันที่ไม่มีพารามิเตอร์","ฟังก์ชันที่ไม่สามารถใช้ return ได้"},
             {"ฟังก์ชันที่เรียกใช้ตัวเองซ้ำๆ","ฟังก์ชันที่ไม่รับพารามิเตอร์","ฟังก์ชันที่มีแค่ if-else","ฟังก์ชันที่ใช้ switch-case"}
     };
     String Answer [] = {
@@ -147,7 +147,7 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         int id = view.getId();
         boolean status = false;
-        if(id == R.id.btnquiz1_BackHome){
+        if(id == R.id.btnquiz5_BackHome){
             status = true;
             finish();
         }else if(id == R.id.example_alert_ok){
@@ -173,8 +173,6 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
                     showToast("Correct!" , 0);
                     index++;
                     if (index == questions.length) {
-
-                        Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
                         status = true;
                         dialogWin.show();
                         break;
@@ -195,8 +193,7 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
             }
             life--;
             if (life < 0) {
-                Toast.makeText(this, "คุณแพ้แล้ว! ลองใหม่อีกครั้ง", Toast.LENGTH_LONG).show();
-                ResetQuize();
+                dialogLose.show();
             }
         }
     }
