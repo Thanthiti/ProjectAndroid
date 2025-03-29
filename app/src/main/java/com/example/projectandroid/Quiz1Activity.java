@@ -93,7 +93,7 @@ View.OnClickListener{
         Profile.setImageResource(picId[index]);
 
         System.out.println(part[3]);
-        String p = part[3];
+        String p = part[3]+"1";
         System.out.println(p);
         // Dialog Alert
         dialog = new Dialog(Quiz1Activity.this);
@@ -187,7 +187,6 @@ View.OnClickListener{
         text.setText(message);
         ImageView image = layout.findViewById(R.id.toast_icon);
         image.setImageResource(iconAlerttoast[pic]);
-
 
         Toast toast = new Toast(getApplicationContext());
         toast.setDuration(Toast.LENGTH_SHORT);
