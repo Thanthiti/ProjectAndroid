@@ -147,7 +147,7 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         int id = view.getId();
         boolean status = false;
-        if(id == R.id.btnquiz1_BackHome){
+        if(id == R.id.btnquiz5_BackHome){
             status = true;
             finish();
         }else if(id == R.id.example_alert_ok){
@@ -173,8 +173,6 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
                     showToast("Correct!" , 0);
                     index++;
                     if (index == questions.length) {
-
-                        Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
                         status = true;
                         dialogWin.show();
                         break;
@@ -195,8 +193,7 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
             }
             life--;
             if (life < 0) {
-                Toast.makeText(this, "คุณแพ้แล้ว! ลองใหม่อีกครั้ง", Toast.LENGTH_LONG).show();
-                ResetQuize();
+                dialogLose.show();
             }
         }
     }
