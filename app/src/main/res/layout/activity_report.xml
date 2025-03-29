@@ -122,22 +122,8 @@
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar4"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="200dp"
-                        android:layout_height="7dp"
-                        android:layout_marginTop="24dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/progressbar_report"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.222"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView3" />
-
                     <ImageButton
-                        android:id="@+id/imageButton2"
+                        android:id="@+id/Reportimagebtn1"
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:background="@drawable/edit_text_border"
@@ -159,7 +145,7 @@
                     android:elevation="10dp">
 
                     <ImageButton
-                        android:id="@+id/imageButton3"
+                        android:id="@+id/Reportimagebtn2"
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:background="@drawable/edit_text_border"
@@ -204,26 +190,14 @@
                         android:layout_marginTop="52dp"
                         android:fontFamily="@font/prompt_medium"
                         android:lineSpacingExtra="-8dp"
-                        android:text="What is data types? How to use data types?"
+                        android:text="What is Variables? How to use Variables?"
                         android:textColor="#FFFFFF"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.22"
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar4"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="200dp"
-                        android:layout_height="7dp"
-                        android:layout_marginTop="24dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/progressbar_report"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.222"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView3" /> <!-- ตั้งค่า progress ได้ -->
+                    <!-- ตั้งค่า progress ได้ -->
                     android:indeterminate="true"
                     android:indeterminateTint="@android:color/white"
                     tools:layout_editor_absoluteX="27dp"
@@ -239,7 +213,7 @@
                     android:elevation="10dp">
 
                     <ImageButton
-                        android:id="@+id/imageButton4"
+                        android:id="@+id/Reportimagebtn3"
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:background="@drawable/edit_text_border"
@@ -284,26 +258,14 @@
                         android:layout_marginTop="52dp"
                         android:fontFamily="@font/prompt_medium"
                         android:lineSpacingExtra="-8dp"
-                        android:text="What is data types? How to use data types?"
+                        android:text="What is Operator? How to use Operator?"
                         android:textColor="#FFFFFF"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.22"
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar4"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="200dp"
-                        android:layout_height="7dp"
-                        android:layout_marginTop="24dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/progressbar_report"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.222"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView3" /> <!-- ตั้งค่า progress ได้ -->
+                    <!-- ตั้งค่า progress ได้ -->
                     android:indeterminate="true"
                     android:indeterminateTint="@android:color/white"
                     tools:layout_editor_absoluteX="27dp"
@@ -319,7 +281,7 @@
                     android:elevation="10dp">
 
                     <ImageButton
-                        android:id="@+id/imageButton5"
+                        android:id="@+id/Reportimagebtn4"
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:background="@drawable/edit_text_border"
@@ -364,26 +326,14 @@
                         android:layout_marginTop="52dp"
                         android:fontFamily="@font/prompt_medium"
                         android:lineSpacingExtra="-8dp"
-                        android:text="What is data types? How to use data types?"
+                        android:text="What is Control Statements? How to use Control Statements?"
                         android:textColor="#FFFFFF"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.22"
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar4"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="200dp"
-                        android:layout_height="7dp"
-                        android:layout_marginTop="24dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/progressbar_report"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.222"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView3" /> <!-- ตั้งค่า progress ได้ -->
+                    <!-- ตั้งค่า progress ได้ -->
                     android:indeterminate="true"
                     android:indeterminateTint="@android:color/white"
                     tools:layout_editor_absoluteX="27dp"
@@ -399,7 +349,7 @@
                     android:elevation="10dp">
 
                     <ImageButton
-                        android:id="@+id/imageButton6"
+                        android:id="@+id/ReportimageBtn5"
                         android:layout_width="38dp"
                         android:layout_height="38dp"
                         android:background="@drawable/edit_text_border"
@@ -444,26 +394,14 @@
                         android:layout_marginTop="52dp"
                         android:fontFamily="@font/prompt_medium"
                         android:lineSpacingExtra="-8dp"
-                        android:text="What is data types? How to use data types?"
+                        android:text="What is Function? How to use Function?"
                         android:textColor="#FFFFFF"
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintHorizontal_bias="0.22"
                         app:layout_constraintStart_toEndOf="@+id/imageView3"
                         app:layout_constraintTop_toTopOf="parent" />
 
-                    <ProgressBar
-                        android:id="@+id/progressBar4"
-                        style="?android:attr/progressBarStyleHorizontal"
-                        android:layout_width="200dp"
-                        android:layout_height="7dp"
-                        android:layout_marginTop="24dp"
-                        android:max="100"
-                        android:progress="0"
-                        android:progressDrawable="@drawable/progressbar_report"
-                        app:layout_constraintEnd_toEndOf="parent"
-                        app:layout_constraintHorizontal_bias="0.222"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toBottomOf="@+id/imageView3" /> <!-- ตั้งค่า progress ได้ -->
+                    <!-- ตั้งค่า progress ได้ -->
                     android:indeterminate="true"
                     android:indeterminateTint="@android:color/white"
                     tools:layout_editor_absoluteX="27dp"
