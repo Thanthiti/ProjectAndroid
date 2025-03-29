@@ -23,7 +23,7 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
             "กำหนดชื่อตัวแปรเป็น carName และกำหนดค่า \"Volvo\" ให้กับมัน",
             "ข้อใดถูกต้องที่สุดในการสร้างตัวแปร maxSpeed และกำหนดค่า 120 ให้กับมัน",
             "เมธอดใดที่ใช้พิมพ์ค่าตัวแปรออกทางหน้าจอบ่อยที่สุด?",
-            "เติมคำที่ขาดหายไป เพื่อรวมข้อความและตัวแปรเข้าด้วยกัน**\n" +
+            "เติมคำที่ขาดหายไป\n" +
                     "String name = \"John\";\n" +
                     "System.out.println(\"Hello \"____);"
     };
