@@ -113,6 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/progressBar2"
+        android:background="#FFFFFF"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -382,13 +383,13 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="#ffc43c"
+                android:elevation="8dp"
                 android:fontFamily="serif"
+                android:outlineProvider="none"
                 android:text="Quiz บทที่ 2"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:elevation="8dp"
-                android:outlineProvider="none"/>
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btnScrollToTop"
@@ -442,8 +443,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:clickable="true"
-                    android:focusable="true"
                     android:enabled="false"
+                    android:focusable="true"
                     android:text="2"
                     android:textColor="#0033cc"
                     android:textSize="18sp" />

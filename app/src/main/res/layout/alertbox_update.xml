@@ -11,7 +11,8 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginBottom="10dp">
+        android:layout_marginBottom="10dp"
+        android:background="#FFFFFF">
 
         <TextView
             android:id="@+id/textView15"
@@ -20,6 +21,7 @@
             android:layout_marginTop="25dp"
             android:fontFamily="@font/prompt_bold"
             android:text="Confirm Update"
+            android:textColor="#000000"
             android:textSize="20dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
@@ -44,6 +46,7 @@
             android:layout_marginTop="76dp"
             android:fontFamily="@font/prompt_light"
             android:text="Are you sure youn want to update?"
+            android:textColor="#090000"
             android:textSize="16dp"
             app:layout_constraintEnd_toEndOf="@+id/textView15"
             app:layout_constraintStart_toStartOf="@+id/textView15"
@@ -70,6 +73,7 @@
                 android:fontFamily="@font/prompt_medium"
                 android:padding="12dp"
                 android:text="Update"
+                android:textColor="#FFFFFF"
                 android:textSize="12sp">
 
             </com.google.android.material.button.MaterialButton>
