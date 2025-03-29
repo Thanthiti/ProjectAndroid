@@ -97,8 +97,8 @@
             android:layout_marginTop="115dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
-            android:layout_toStartOf="@id/heart1_3"
-            app:srcCompat="@drawable/heart_1" />
+            app:srcCompat="@drawable/heart_1"
+            android:layout_toStartOf="@id/heart1_3"/>
 
         <!-- Menu Icon 1  -->
         <ImageView
@@ -108,8 +108,8 @@
             android:layout_marginTop="115dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
-            android:layout_toStartOf="@id/heart1_2"
-            app:srcCompat="@drawable/heart_1" />
+            app:srcCompat="@drawable/heart_1"
+            android:layout_toStartOf="@id/heart1_2"/>
 
     </RelativeLayout>
 
