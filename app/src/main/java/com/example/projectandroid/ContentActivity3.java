@@ -119,7 +119,9 @@ public class ContentActivity3 extends AppCompatActivity implements View.OnClickL
             openPage(5);
         }
         else if (v == btnBackHome) {
-            finish();
+            Intent intent = new Intent(ContentActivity3.this, MainActivity.class);
+            intent.putExtra("user",user);
+            startActivity(intent);
         }
         else if (v == btnQuiz3){
             Intent intent = new Intent(ContentActivity3.this, Quiz3Activity.class);
