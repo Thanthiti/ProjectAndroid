@@ -117,7 +117,9 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         } else if (v == page5) {
             openPage(5);
         } else if (v == btnBackHome) {
-            finish();
+            Intent intent = new Intent(ContentActivity2.this, MainActivity.class);
+            intent.putExtra("user",user);
+            startActivity(intent);
         }
         else {
             Intent intent = new Intent(ContentActivity2.this, Quiz2Activity.class);

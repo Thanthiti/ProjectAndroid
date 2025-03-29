@@ -150,7 +150,9 @@ public class Quiz3Activity extends AppCompatActivity implements View.OnClickList
         boolean status = false;
         if (id == R.id.btnquiz3_BackHome) {
             status = true;
-            finish();
+            Intent launch = new Intent(this,ContentActivity3.class);
+            launch.putExtra("user",user);
+            startActivity(launch);
         } else if (id == R.id.example_alert_ok) {
             edtProgress = new ManageFile(this, name, email, password, progress, profile, filename);
             edtProgress.UpdateData(name, email, password, profile, false);
@@ -163,7 +165,7 @@ public class Quiz3Activity extends AppCompatActivity implements View.OnClickList
         else if(id == R.id.example_alert_no){
             user = new userData(name,email,password,progress,profile);
             status = true;
-            Intent launch = new Intent(this, ContentActivity1.class);
+            Intent launch = new Intent(this, ContentActivity3.class);
             launch.putExtra("user",user);
             startActivity(launch);
         }
@@ -225,6 +227,7 @@ public class Quiz3Activity extends AppCompatActivity implements View.OnClickList
         }
     }
     public void ResetQuize() {
+        dialogLose.dismiss();
         index = 0;
         life = 2;
         question.setText(questions[0] + "");

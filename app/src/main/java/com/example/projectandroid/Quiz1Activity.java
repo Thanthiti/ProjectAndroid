@@ -148,20 +148,22 @@ View.OnClickListener{
     public void onClick(View view) {
         int id = view.getId();
         boolean status = false;
+        user = new userData(name,email,password,progress,profile);
         if(id == R.id.btnquiz1_BackHome){
             status = true;
-            finish();
+            Intent launch = new Intent(this,ContentActivity1.class);
+            launch.putExtra("user",user);
+            startActivity(launch);
+
         }else if(id == R.id.example_alert_ok){
             edtProgress = new ManageFile(this,name,email,password,progress,profile,filename);
             edtProgress.UpdateData(name,email,password,profile,false);
-            user = new userData(name,email,password,progress,profile);
             status = true;
             Intent launch = new Intent(this,MainActivity.class);
             launch.putExtra("user",user);
             startActivity(launch);
         }
         else if(id == R.id.example_alert_no){
-            user = new userData(name,email,password,progress,profile);
             status = true;
             Intent launch = new Intent(this, ContentActivity1.class);
             launch.putExtra("user",user);
