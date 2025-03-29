@@ -335,6 +335,7 @@
 
                     <TextView
                         android:text="Unicode 2^16 -1"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -357,6 +358,7 @@
 
                     <TextView
                         android:text="+127"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
