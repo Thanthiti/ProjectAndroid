@@ -221,8 +221,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             editName.setError("กรุณากรอกชื่อผู้ใช้");
             return false;
         }
-        if (Name.length() < 8 || Name.length() > 12) {
-            editName.setError("กรุณากรอกชื่อผู้ใช้ 8 - 12 ตัว");
+        if (Name.length() < 8 || Name.length() > 20) {
+            editName.setError("กรุณากรอกชื่อผู้ใช้ 8 - 20 ตัว");
             return false;
         }
         return true;
@@ -268,8 +268,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
             editPass.setError("กรุณากรอกรหัสผ่าน");
             return false;
         }
-        if (Pass.length() < 8 || Pass.length() > 12) {
-            editPass.setError("กรอกรหัสผ่านอย่างน้อย 8 - 12 ตัว");
+        if (Pass.length() < 8 || Pass.length() > 20) {
+            editPass.setError("กรอกรหัสผ่านอย่างน้อย 8 - 20 ตัว");
             return false;
         }
         return true;
