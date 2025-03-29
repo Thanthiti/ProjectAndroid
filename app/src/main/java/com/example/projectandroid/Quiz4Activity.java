@@ -24,12 +24,11 @@ import java.util.Arrays;
 
 public class Quiz4Activity extends AppCompatActivity implements View.OnClickListener {
     String[] questions = {
-            "1. ผลลัพธ์ของโค้ดต่อไปนี้คืออะไร?" + "int number = 20;\nif (number > 5) {\n  System.out.println(\"Greater than 5\");\n}",
-            "2. ถ้าต้องการวนซ้ำจำนวนครั้งที่แน่นอน ควรใช้คำสั่งใด?\n",
-            "3. เติมคำสั่งที่เหมาะสมเพื่อแสดง \"Hello World\" ถ้า x มากกว่า y",
-            "if (x > y) {\n  // ใส่คำสั่งที่เหมาะสม\n}",
-            "4. คำสั่ง else if ใช้เพื่อตรวจสอบเงื่อนไขใหม่เมื่อเงื่อนไขแรกใน if เป็น:\n",
-            "5. ลูปต่อไปนี้จะทำงานกี่ครั้ง?\n" + "for (int i = 0; i < 5; i++) {\n  System.out.println(i);\n}"
+            "ผลลัพธ์ของโค้ดต่อไปนี้คืออะไร?\n" + "int number = 20;\nif (number > 5) {\n  System.out.println(\"Greater than 5\");\n}",
+            "การวนซ้ำจำนวนครั้งที่แน่นอน ควรใช้คำสั่งใด?:",
+            "เติมคำสั่งที่เหมาะสมเพื่อแสดง \"Hello World\" ถ้า x มากกว่า y:\n" + "if (x > y) {\n  // ใส่คำสั่งที่เหมาะสม\n}",
+            "คำสั่ง else if ใช้เพื่อตรวจสอบเงื่อนไขใหม่เมื่อเงื่อนไขแรกใน if เป็น:",
+            "ลูปต่อไปนี้จะทำงานกี่ครั้ง?:\n" + "for (int i = 0; i < 5; i++) {\n  System.out.println(i);\n}"
     };
     String choice[][] = {{"น้อยกว่า 5", "มากกว่า 5", "เกิดข้อผิดพลาด", "ไม่มีผลลัพธ์"},
             {"for loop", "while loop", "do-while loop", "boolean"},
@@ -42,7 +41,7 @@ public class Quiz4Activity extends AppCompatActivity implements View.OnClickList
             "for loop",
             "if, >",
             "false",
-            "4"
+            "5"
     };
     String nameProfile[] = {"black", "pink", "red", "brown", "green", "orange", "yellow", "cyan", "purple"};
     int picId[] = {R.drawable.black, R.drawable.pink, R.drawable.red, R.drawable.brown, R.drawable.green

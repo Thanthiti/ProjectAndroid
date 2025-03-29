@@ -77,23 +77,23 @@ public class LoginActivity extends AppCompatActivity implements
         name = editName.getText().toString().trim();
         pass = editPass.getText().toString().trim();
 
-       if (id == R.id.login_text_signup) {
-           Intent i = new Intent(this , RegisterActivity.class);
-           startActivity(i);
-       }
+        if (id == R.id.login_text_signup) {
+            Intent i = new Intent(this , RegisterActivity.class);
+            startActivity(i);
+        }
 
         if(id == R.id.LoginbtnSignup){
-            if(checkName(name) && checkPass(pass)) {
-//                if(true) {
-                readFile = new ManageFile(this,filename);
-                Alldata = readFile.readFile();
-                Checklogin(name, pass);
-//                SendData();
-                if (valid) {
-                    SendData();
-                }
+//            if(checkName(name) && checkPass(pass)) {
+////                if(true) {
+//                readFile = new ManageFile(this,filename);
+//                Alldata = readFile.readFile();
+//                Checklogin(name, pass);
+            SendData();
+            if (valid) {
+//                    SendData();
             }
         }
+//        }
     }
 
     public void Checklogin(String name , String pass) {
@@ -132,7 +132,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     public void  SendData(){
         Intent launch = new Intent(LoginActivity.this, MainActivity.class);
-//        user = new userData("Palm","asd@gmail","12345678","0","black");
+        user = new userData("Palm","asd@gmail","12345678","0","black");
         launch.putExtra("user",user);
         startActivity(launch);
     }
