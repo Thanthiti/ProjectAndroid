@@ -72,6 +72,8 @@ View.OnClickListener{
     // icon toast
     int iconAlerttoast [] = {R.drawable.report_check , R.drawable.report_incorrect};
 
+    ManageFile edtProgress;
+    final String filename = "User.txt";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -82,7 +84,17 @@ View.OnClickListener{
             return insets;
         });
 
+        Intent launch = getIntent();
+        user = (userData) launch.getSerializableExtra("user");
+        String part [] = user.toString().split(" ");
 
+        Profile = findViewById(R.id.imgProfile1);
+        int index = Arrays.asList(nameProfile).indexOf(part[4]);
+        Profile.setImageResource(picId[index]);
+
+        System.out.println(part[3]);
+        String p = part[3];
+        System.out.println(p);
         // Dialog Alert
         dialog = new Dialog(Quiz1Activity.this);
         dialog.setContentView(R.layout.alertbox_winner);
@@ -95,23 +107,14 @@ View.OnClickListener{
         btnOkWinner.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent i = new Intent(Quiz1Activity.this , MainActivity.class);
-                startActivity(i);
+                Toast.makeText(Quiz1Activity.this, "thes", Toast.LENGTH_SHORT).show();
+//                    edtProgress = new ManageFile(this,part[0],part[1],part[2],);
+//                editData = new ManageFile(this,Name,Email,Password,Progress,profile,filename);
+
+                    finish();
+
             }
         });
-        //
-
-        Intent launch = getIntent();
-        user = (userData) launch.getSerializableExtra("user");
-        String part [] = user.toString().split(" ");
-
-        Profile = findViewById(R.id.imgProfile1);
-        int index = Arrays.asList(nameProfile).indexOf(part[4]);
-        Profile.setImageResource(picId[index]);
-
-
-        Progress = Integer.parseInt(part[3]);
-//        user = new userData(part[0],part[1],part[2],Progress,part[4]);
 
         question = findViewById(R.id.quiz1_question);
         questionNumber = findViewById(R.id.titleQuestion1);
@@ -138,20 +141,20 @@ View.OnClickListener{
             status = true;
             finish();
         }
-
         for (int i = 0; i < cardId.length; i++) {
             if (id == cardId[i]) {
                 if (choice[index][i] == Answer[index]) {
-                    // toast correct
                     showToast("Correct!" , 0);
                     index++;
-                    questionNumber.setText("Question " + (index+1) + " : " );
-//                    All Done
                     if (index == questions.length) {
+                        System.out.println(index);
                         Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
-                        //dialog.show();
+                        status = true;
+                        dialog.show();
+                        break;
                     }
                     question.setText(questions[index]);
+                    questionNumber.setText("Question " + (index+1) + " : " );
                     SetChoice(index);
                     status = true;
                     break;
@@ -172,7 +175,6 @@ View.OnClickListener{
             }
         }
     }
-
     // TOAST SUCCESS
     public void showToast(String message , int pic) {
         LayoutInflater inflater = getLayoutInflater();
@@ -193,8 +195,6 @@ View.OnClickListener{
         toast.setView(layout);
         toast.show();
     }
-    //
-
 
     public void SetChoice(int index){
         for(int i = 0;i < cardId.length;i++){
@@ -204,7 +204,6 @@ View.OnClickListener{
     public void ResetQuize(){
         index = 0;
         life = 2;
-
         question.setText(questions[0]+"");
         questionNumber.setText("Question " + index+1 + " : ");
         for(int i = 0 ;i < cardId.length;i++){
