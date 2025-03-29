@@ -49,7 +49,7 @@ View.OnClickListener{
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
 
-    TextView questionNumber,question;
+    TextView questionNumber,question,textUsername;
     ImageButton btnBack;
     ImageView Profile;
 
@@ -89,6 +89,7 @@ View.OnClickListener{
         String part [] = user.toString().split(" ");
 
         Profile = findViewById(R.id.imgProfile1);
+        textUsername = findViewById(R.id.quiz1textUsername);
         int index = Arrays.asList(nameProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
         name = part[0];
@@ -96,6 +97,7 @@ View.OnClickListener{
         password = part[2];
         progress = part[3]+"1";
         profile = part[4];
+        textUsername.setText(name+"");
 
         // Dialog Alert When User Win
         dialogWin = new Dialog(Quiz1Activity.this);

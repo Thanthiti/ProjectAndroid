@@ -50,7 +50,7 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
 
-    TextView questionNumber,question;
+    TextView questionNumber,question,textUsername;
     ImageButton btnBack;
     ImageView Profile;
 
@@ -67,8 +67,8 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
     int life = 2;
     userData user;
     // Alert Dialog
-    Dialog dialog;
-    Button btnOkWinner;
+    Dialog dialogWin , dialogLose;
+    Button btnOkWinner , btnYes , btnNo;
     // icon toast
     int iconAlerttoast [] = {R.drawable.report_check , R.drawable.report_incorrect};
     String name,email,password,progress,profile;
@@ -89,6 +89,7 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
         String part [] = user.toString().split(" ");
 
         Profile = findViewById(R.id.imgProfile2);
+        textUsername = findViewById(R.id.quiz2textUsername);
         int index = Arrays.asList(nameProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
         name = part[0];
@@ -96,16 +97,34 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
         password = part[2];
         progress = part[3]+"2";
         profile = part[4];
+        textUsername.setText(name+"");
 
-        // Dialog Alert
-        dialog = new Dialog(Quiz2Activity.this);
-        dialog.setContentView(R.layout.alertbox_winner);
-        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
-        dialog.setCancelable(false);
-
-        btnOkWinner = dialog.findViewById(R.id.example_alert_ok);
+        // Dialog Alert When User Win
+        dialogWin = new Dialog(Quiz2Activity.this);
+        dialogWin.setContentView(R.layout.alertbox_winner);
+        dialogWin.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogWin.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialogWin.setCancelable(false);
+        btnOkWinner = dialogWin.findViewById(R.id.example_alert_ok);
         btnOkWinner.setOnClickListener(this);
+
+        // Dialog Alert When User Lose
+        dialogLose = new Dialog(Quiz2Activity.this);
+        dialogLose.setContentView(R.layout.alertbox_lose);
+        dialogLose.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogLose.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialogLose.setCancelable(false);
+
+        btnNo = dialogLose.findViewById(R.id.example_alert_no);
+        btnYes = dialogLose.findViewById(R.id.example_alert_yes);
+        btnNo.setOnClickListener(this);
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // ถ้ากด yes
+                ResetQuize();
+            }
+        });
 
         question = findViewById(R.id.quiz2_question);
         questionNumber = findViewById(R.id.titleQuestion2);
@@ -140,6 +159,13 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
             launch.putExtra("user",user);
             startActivity(launch);
         }
+        else if(id == R.id.example_alert_no){
+            user = new userData(name,email,password,progress,profile);
+            status = true;
+            Intent launch = new Intent(this, ContentActivity1.class);
+            launch.putExtra("user",user);
+            startActivity(launch);
+        }
 
         for (int i = 0; i < cardId.length; i++) {
             if (id == cardId[i]) {
@@ -150,7 +176,7 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
 
                         Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
                         status = true;
-                        dialog.show();
+                        dialogWin.show();
                         break;
                     }
                     question.setText(questions[index]);
