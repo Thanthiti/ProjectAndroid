@@ -1,8 +1,13 @@
 package com.example.projectandroid;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -61,6 +66,11 @@ View.OnClickListener{
     int life = 2;
     int Progress;
     userData user;
+    // Alert Dialog
+    Dialog dialog;
+    Button btnOkWinner;
+    // icon toast
+    int iconAlerttoast [] = {R.drawable.report_check , R.drawable.report_incorrect};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,6 +81,25 @@ View.OnClickListener{
             v.setPadding(systemBars.left, systemBars.top, systemBars.right, systemBars.bottom);
             return insets;
         });
+
+
+        // Dialog Alert
+        dialog = new Dialog(Quiz1Activity.this);
+        dialog.setContentView(R.layout.alertbox_winner);
+        dialog.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialog.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialog.setCancelable(false);
+
+        btnOkWinner = dialog.findViewById(R.id.example_alert_ok);
+
+        btnOkWinner.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent i = new Intent(Quiz1Activity.this , MainActivity.class);
+                startActivity(i);
+            }
+        });
+        //
 
         Intent launch = getIntent();
         user = (userData) launch.getSerializableExtra("user");
@@ -113,11 +142,13 @@ View.OnClickListener{
         for (int i = 0; i < cardId.length; i++) {
             if (id == cardId[i]) {
                 if (choice[index][i] == Answer[index]) {
-                    Toast.makeText(this, "ถูกต้อง!", Toast.LENGTH_SHORT).show();
+                    // toast correct
+                    showToast("Correct!" , 0);
                     index++;
                     questionNumber.setText("Question " + (index+1) + " : " );
                     if (index == questions.length) {
                         Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
+                        //dialog.show();
                     }
                     question.setText(questions[index]);
                     SetChoice(index);
@@ -127,6 +158,8 @@ View.OnClickListener{
             }
         }
         if (!status) {
+            // toast incorrect
+            showToast("Incorrect!" , 1);
             if (life >= 0) {
                 System.out.println(life);
                 heartImage[life].setImageResource(R.drawable.broken);
@@ -138,6 +171,30 @@ View.OnClickListener{
             }
         }
     }
+
+    // TOAST SUCCESS
+    public void showToast(String message , int pic) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(
+                R.layout.custom_toast,
+                findViewById(R.id.custom_toast_container)
+        );
+
+        TextView text = layout.findViewById(R.id.toast_text);
+        text.setText(message);
+        ImageView image = layout.findViewById(R.id.toast_icon);
+        image.setImageResource(iconAlerttoast[pic]);
+
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 100);
+        toast.setView(layout);
+        toast.show();
+    }
+    //
+
+
     public void SetChoice(int index){
         for(int i = 0;i < cardId.length;i++){
             textViews[i].setText(choice[index][i]+"");
