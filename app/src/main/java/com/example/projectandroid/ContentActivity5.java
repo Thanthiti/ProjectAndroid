@@ -30,7 +30,6 @@ public class ContentActivity5 extends AppCompatActivity implements View.OnClickL
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
     userData user;
-    int Progress;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +52,7 @@ public class ContentActivity5 extends AppCompatActivity implements View.OnClickL
         Profile.setImageResource(picId[index]);
         Username.setText(""+part[0]);
 
-        Progress = Integer.parseInt(part[3]);
-        user = new userData(part[0],part[1],part[2],Progress,part[4]);
+        user = new userData(part[0],part[1],part[2],part[3],part[4]);
 
         // ผูก UI กับตัวแปร
         btnBackHome = findViewById(R.id.Content5btnBackHome);

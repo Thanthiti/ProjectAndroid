@@ -111,7 +111,7 @@ View.OnClickListener{
 
 
         Progress = Integer.parseInt(part[3]);
-        user = new userData(part[0],part[1],part[2],Progress,part[4]);
+//        user = new userData(part[0],part[1],part[2],Progress,part[4]);
 
         question = findViewById(R.id.quiz1_question);
         questionNumber = findViewById(R.id.titleQuestion1);
@@ -146,6 +146,7 @@ View.OnClickListener{
                     showToast("Correct!" , 0);
                     index++;
                     questionNumber.setText("Question " + (index+1) + " : " );
+//                    All Done
                     if (index == questions.length) {
                         Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
                         //dialog.show();
