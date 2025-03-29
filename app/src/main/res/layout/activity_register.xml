@@ -122,14 +122,14 @@
                     android:layout_height="wrap_content"
                     android:layout_marginTop="8dp"
                     android:fontFamily="@font/prompt_light"
-                    android:text="ALREADY HAVE AN ACOUNT?"
+                    android:text="ALREADY HAVE AN ACOUNT ?"
                     android:textAlignment="center"
                     android:textAllCaps="false"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     android:typeface="normal"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.536"
+                    app:layout_constraintHorizontal_bias="0.497"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
