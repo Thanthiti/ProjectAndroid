@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     android:gravity="center_vertical"
     android:orientation="vertical"
     android:padding="16dp"
@@ -12,32 +13,46 @@
     <!-- Toolbar -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="-110dp"
-        android:layout_marginBottom="5dp">
+        android:layout_height="wrap_content">
 
-        <!-- back home -->
+
+    <!-- back home -->
+
+        <TextView
+            android:id="@+id/textView10"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:layout_marginLeft="290dp"
+            android:layout_marginTop="95dp"
+            android:layout_marginEnd="32dp"
+            android:fontFamily="@font/protest_strike"
+            android:text="TextView"
+            android:textColor="#000000" />
+
 
         <ImageView
             android:id="@+id/imgProfile5"
             android:layout_width="80dp"
             android:layout_height="80dp"
+            android:layout_alignParentEnd="true"
             android:layout_marginLeft="275dp"
             android:layout_marginTop="10dp"
-            android:layout_alignParentEnd="true"
             android:layout_marginEnd="21dp"
             android:background="@drawable/circle_shape"
             android:elevation="5dp"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/black" />
 
+
         <ImageButton
             android:id="@+id/btnquiz5_BackHome"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_alignParentStart="true"
+            android:layout_marginStart="11dp"
             android:layout_marginLeft="10dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginTop="13dp"
             android:background="@drawable/circle_back_1"
             android:scaleType="fitCenter"
             app:srcCompat="@drawable/back" />
@@ -47,10 +62,11 @@
             android:id="@+id/tvTitle"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="5dp"
             android:fontFamily="@font/prompt_bold"
             android:text="Quiz after class"
+            android:textColor="#000000"
             android:textSize="20dp"
             android:textStyle="bold" />
 
@@ -58,8 +74,8 @@
             android:id="@+id/titleQuiz5"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="50dp"
-            android:layout_marginTop="55dp"
+            android:layout_marginLeft="60dp"
+            android:layout_marginTop="30dp"
             android:fontFamily="@font/prompt_medium"
             android:text="Data Type"
             android:textColor="#3F4FB3"
@@ -70,7 +86,7 @@
             android:layout_width="24dp"
             android:layout_height="24dp"
             android:layout_alignParentEnd="true"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="115dp"
             android:layout_marginRight="20dp"
             app:srcCompat="@drawable/heart_1" />
 
@@ -79,7 +95,7 @@
             android:id="@+id/heart5_2"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="115dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
             android:layout_toStartOf="@id/heart5_3"
@@ -90,7 +106,7 @@
             android:id="@+id/heart5_1"
             android:layout_width="24dp"
             android:layout_height="24dp"
-            android:layout_marginTop="100dp"
+            android:layout_marginTop="115dp"
             android:layout_marginEnd="4dp"
             android:layout_marginRight="20dp"
             android:layout_toStartOf="@id/heart5_2"
@@ -99,7 +115,7 @@
     </RelativeLayout>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="match_parent"
+        android:layout_width="370dp"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_margin="16dp"
@@ -109,17 +125,17 @@
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:orientation="vertical"
-            android:padding="10dp">
-
+            android:layout_height="100dp"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
             <!-- ส่วนแสดงคำถาม -->
             <TextView
                 android:id="@+id/titleQuestion5"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
                 android:fontFamily="@font/prompt_bold"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:text="Question 1 :"
                 android:textColor="#FFFFFF"
                 android:textSize="24sp"
@@ -127,11 +143,11 @@
 
             <TextView
                 android:id="@+id/quiz5_question"
-                android:layout_width="match_parent"
+                android:layout_width="350dp"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="-5dp"
                 android:fontFamily="@font/prompt_medium"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:text="ตัวดำเนินการ (Operators) ใช้เพื่อทำอะไร?"
                 android:textColor="#FFFFFF"
                 android:textSize="16sp"
@@ -145,12 +161,14 @@
         android:layout_height="wrap_content"
         android:layout_marginLeft="4dp"
         android:layout_marginRight="4dp"
+        android:background="#FFFFFF"
         app:cardCornerRadius="12dp"
         app:cardElevation="4dp">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:background="#FFFFFF"
             android:orientation="vertical"
             android:padding="16dp">
 
@@ -161,7 +179,8 @@
                 android:columnCount="2"
                 android:padding="2dp">
 
-                <!-- Card 1 -->
+
+            <!-- Card 1 -->
                 <androidx.cardview.widget.CardView
                     android:id="@+id/quiz5_card1"
                     android:layout_width="0dp"
@@ -173,25 +192,27 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="2dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#673AB7"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="#673AB7"
+                    android:gravity="clip_horizontal"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/img5_1"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
+                            android:layout_gravity="center_horizontal"
                             android:paddingBottom="5dp"
                             app:srcCompat="@drawable/one" />
-
                         <TextView
                             android:id="@+id/textView5_1"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/prompt_light"
                             android:gravity="center"
                             android:lineSpacingExtra="-5dp"
@@ -216,16 +237,17 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="140dp"
                         android:background="#4CAF50"
-                        android:gravity="center"
+                        android:gravity="clip_horizontal"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/img5_2"
                             android:layout_width="55dp"
                             android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
                             android:paddingBottom="5dp"
                             android:scaleType="centerCrop"
                             app:srcCompat="@drawable/two" />
@@ -233,7 +255,8 @@
                         <TextView
                             android:id="@+id/textView5_2"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/prompt_light"
                             android:gravity="center"
                             android:lineSpacingExtra="-5dp"
@@ -256,18 +279,19 @@
                     app:cardCornerRadius="12dp"
                     app:cardElevation="2dp">
 
-                    <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:background="#FF9800"
-                        android:gravity="center"
-                        android:orientation="vertical"
-                        android:padding="16dp">
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="140dp"
+                    android:background="#FF9800"
+                    android:gravity="clip_horizontal"
+                    android:orientation="vertical"
+                    android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/img5_3"
                             android:layout_width="55dp"
                             android:layout_height="50dp"
+                            android:layout_gravity="center_horizontal"
                             android:paddingBottom="5dp"
                             android:scaleType="centerCrop"
                             app:srcCompat="@drawable/three" />
@@ -275,7 +299,8 @@
                         <TextView
                             android:id="@+id/textView5_3"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/prompt_light"
                             android:gravity="center"
                             android:lineSpacingExtra="-5dp"
@@ -283,7 +308,6 @@
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             android:textStyle="bold" />
-
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
                 <!-- Card 4 -->
@@ -300,23 +324,25 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="140dp"
                         android:background="#E04E4E"
-                        android:gravity="center"
+                        android:gravity="clip_horizontal"
                         android:orientation="vertical"
-                        android:padding="16dp">
+                        android:padding="10dp">
 
                         <ImageView
                             android:id="@+id/img5_4"
                             android:layout_width="48dp"
                             android:layout_height="48dp"
+                            android:layout_gravity="center_horizontal"
                             android:paddingBottom="5dp"
                             app:srcCompat="@drawable/four" />
 
                         <TextView
                             android:id="@+id/textView5_4"
                             android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
+                            android:layout_height="match_parent"
+                            android:layout_gravity="center_horizontal"
                             android:fontFamily="@font/prompt_light"
                             android:gravity="center"
                             android:lineSpacingExtra="-5dp"
@@ -324,6 +350,7 @@
                             android:textColor="#FFFFFF"
                             android:textSize="18sp"
                             android:textStyle="bold" />
+
 
                     </LinearLayout>
                 </androidx.cardview.widget.CardView>
