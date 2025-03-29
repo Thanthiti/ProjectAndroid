@@ -2,6 +2,7 @@ package com.example.projectandroid;
 
 import android.app.Dialog;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.Gravity;
@@ -29,7 +30,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import java.util.Arrays;
 
 public class EditActivity extends AppCompatActivity implements View.OnClickListener {
-    ImageView btnBack,Profile,editProfile;
+    ImageView btnBack,Profile,Colortext;
     String Name,Email,Password,profile;
     EditText editName,editPass,editEmail;
     Button btnUpdate;
@@ -40,8 +41,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     int btnID [] = {R.id.EditimagePurple,R.id.EditimageBlack,R.id.EditimageRed,R.id.EditimageBrown,R.id.EditimageGreen
             ,R.id.EditimageOrange,R.id.EditimageYellow,R.id.EditimageCyan,R.id.EditimagePink};
     ImageButton btns[] = new ImageButton[btnID.length];
-
-    String nameProfile [] = {"purple","black","red","brown","green","orange","yellow","cyan","pink"};
+    String TagColor [] = {"#3C177B","#1E1F25","#790838","#5D2615","#0A4C2E","#B33E15","#C18722","#24A8BD","#AB2BAD"};
+    String ColorProfile [] = {"purple","black","red","brown","green","orange","yellow","cyan","pink"};
     int picId [] = {R.drawable.purple,R.drawable.black,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.pink};
     int iconAlert [] = {R.drawable.report_check , R.drawable.report_incorrect};
@@ -100,21 +101,29 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         editName = findViewById(R.id.EdittextUsername);
         editPass = findViewById(R.id.EdittextPassword);
         editEmail = findViewById(R.id.EdittextEmail);
+        Colortext = findViewById(R.id.imageView10);
 
         btnBack = findViewById(R.id.edit_btn_back);
         btnBack.setOnClickListener(this);
         btnUpdate = findViewById(R.id.EditbtnUpdate);
         btnUpdate.setOnClickListener(this);
 
+
         for(int i = 0 ; i < btnID.length;i++){
             btns[i] = findViewById(btnID[i]);
             btns[i].setOnClickListener(this);
 
         }
+           for(int i = 0 ;i< ColorProfile.length;i++){
+               if(part[4].equals(ColorProfile[i])){
+                   btnUpdate.setBackgroundColor(Color.parseColor(TagColor[i]));
+                   Colortext.setBackgroundColor(Color.parseColor(TagColor[i]));
+               }
+           }
 
-        int index = Arrays.asList(nameProfile).indexOf(part[4]);
+        int index = Arrays.asList(ColorProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
-        textProfile = nameProfile[index];
+        textProfile = ColorProfile[index];
 
         editName.setText(Name);
         editPass.setText(Password);
@@ -125,15 +134,15 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     @Override
     public void onClick(View view) {
         int id = view.getId();
-
-
         textName = editName.getText().toString();
         textEmail = editEmail.getText().toString();
         textPass = editPass.getText().toString();
         for(int i = 0 ; i < btns.length;i++){
             if(id == btnID[i]){
-                textProfile = nameProfile[i];
+                textProfile = ColorProfile[i];
                 Profile.setImageResource(picId[i]);
+                btnUpdate.setBackgroundColor(Color.parseColor(TagColor[i]));
+                Colortext.setBackgroundColor(Color.parseColor(TagColor[i]));
                 break;
             }
 
