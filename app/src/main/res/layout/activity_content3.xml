@@ -113,6 +113,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_below="@id/progressBar3"
+        android:background="#FFFFFF"
         android:fillViewport="true">
 
         <RelativeLayout
@@ -347,7 +348,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="ตัวดำเนินการ"
-                        android:textColor="@android:color/white"
+                        android:textColor="#090000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -356,7 +357,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="ตัวอย่าง"
-                        android:textColor="@android:color/white"
+                        android:textColor="#090000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
 
@@ -365,7 +366,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="เหมือนกับ"
-                        android:textColor="@android:color/white"
+                        android:textColor="#090000"
                         android:textSize="16sp"
                         android:textStyle="bold" />
                 </TableRow>
@@ -378,6 +379,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -385,6 +387,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = 5"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -392,6 +395,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = 5"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -402,6 +406,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="+="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -409,6 +414,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x += 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -416,6 +422,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x + 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -426,6 +433,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="-="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -433,6 +441,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x -= 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -440,6 +449,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x - 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -450,6 +460,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="*="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -457,6 +468,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x *= 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -464,6 +476,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x * 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -474,6 +487,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="/="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -481,6 +495,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x /= 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -488,6 +503,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x / 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -498,6 +514,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="%="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -505,6 +522,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x %= 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -512,6 +530,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x % 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -522,6 +541,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="&amp;="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -529,6 +549,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x &amp;= 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -536,6 +557,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x &amp; 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -546,6 +568,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="|="
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -553,6 +576,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x |= 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -560,6 +584,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x | 3"
+                        android:textColor="#090000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -570,6 +595,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="^="
+                        android:textColor="#100000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -577,6 +603,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x ^= 3"
+                        android:textColor="#100000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -584,6 +611,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x ^ 3"
+                        android:textColor="#100000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -594,6 +622,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text=">>="
+                        android:textColor="#100000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -601,6 +630,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x >>= 3"
+                        android:textColor="#100000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -608,6 +638,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x >> 3"
+                        android:textColor="#100000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -618,6 +649,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="&lt;&lt;="
+                        android:textColor="#100000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -625,6 +657,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x &lt;&lt;= 3"
+                        android:textColor="#100000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -632,6 +665,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x = x &lt;&lt; 3"
+                        android:textColor="#100000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -680,6 +714,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="&amp;&amp;"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -689,6 +724,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="คืนค่า true ถ้าทั้งสองเงื่อนไขเป็น true"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -698,6 +734,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x &lt; 5 &amp;&amp; x &lt; 10"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -711,6 +748,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="&#124;&#124;"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -720,6 +758,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="คืนค่า true ถ้าเงื่อนไขอย่างน้อยหนึ่งเป็น true"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -729,6 +768,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="x &lt; 5 &#124;&#124; x &lt; 4"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -742,6 +782,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="!"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -751,6 +792,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="กลับค่าความจริง (ถ้า true เปลี่ยนเป็น false)"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -760,6 +802,7 @@
                         android:gravity="center"
                         android:padding="8dp"
                         android:text="!(x &lt; 5 &amp;&amp; x &lt; 10)"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -788,13 +831,13 @@
                 android:layout_centerHorizontal="true"
                 android:layout_marginTop="12dp"
                 android:backgroundTint="#ffc43c"
+                android:elevation="8dp"
                 android:fontFamily="serif"
+                android:outlineProvider="none"
                 android:text="Quiz บทที่ 3"
                 android:textAlignment="center"
                 android:textSize="18sp"
-                android:textStyle="bold"
-                android:elevation="8dp"
-                android:outlineProvider="none"/>
+                android:textStyle="bold" />
 
             <ImageButton
                 android:id="@+id/btnScrollToTop"
@@ -859,8 +902,8 @@
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:clickable="true"
-                    android:focusable="true"
                     android:enabled="false"
+                    android:focusable="true"
                     android:text="3"
                     android:textColor="#0033cc"
                     android:textSize="18sp" />
