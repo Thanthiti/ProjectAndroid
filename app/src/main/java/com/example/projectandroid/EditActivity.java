@@ -44,7 +44,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     String nameProfile [] = {"purple","black","red","brown","green","orange","yellow","cyan","pink"};
     int picId [] = {R.drawable.purple,R.drawable.black,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.pink};
-
+    int iconAlert [] = {R.drawable.report_check , R.drawable.report_incorrect};
     ManageFile editData;
     userData updateUser;
     int Progress;
@@ -167,16 +167,25 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                 dialog.dismiss();
                 System.out.println("Status " + valid);
                 if(valid){
-                    showSuccessToast("Success");
+                    showSuccessToast("Update Success!" , 0);
                     status = true;
+                    // Dream test
+                    Intent launch = new Intent(EditActivity.this,MainActivity.class);
+                    if(status)updateUser = new userData(textName,textEmail,textPass,Progress,textProfile);
+                    else updateUser = new userData(Name,Email,Password,Progress,profile);
+                    launch.putExtra("user",updateUser);
+                    startActivity(launch);
+                    //
                 }else {
+                    //showSuccessToast("Sorry!, " + Name + " is already taken", 1);
                     editName.setError("ชื่อผู้ใชซ้ำ");
                 }
             }
         }
     }
+
 // TOAST SUCCESS
-    public void showSuccessToast(String message) {
+    public void showSuccessToast(String message , int pic) {
         LayoutInflater inflater = getLayoutInflater();
         View layout = inflater.inflate(
                 R.layout.custom_toast,
@@ -185,6 +194,9 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
         TextView text = layout.findViewById(R.id.toast_text);
         text.setText(message);
+        ImageView image = layout.findViewById(R.id.toast_icon);
+        image.setImageResource(iconAlert[pic]);
+
 
         Toast toast = new Toast(getApplicationContext());
         toast.setDuration(Toast.LENGTH_SHORT);
@@ -193,8 +205,6 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         toast.show();
     }
     //
-
-
 
 
     public boolean checkName(String Name){

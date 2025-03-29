@@ -55,6 +55,7 @@
                 android:backgroundTint="#1A467E"
                 android:fontFamily="@font/prompt_bold"
                 android:text="GET STARTED"
+                android:textColor="#FFFFFF"
                 android:textSize="20sp"
                 android:textStyle="bold" />
 
