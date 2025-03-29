@@ -19,12 +19,12 @@ public class ManageFile implements Serializable {
     private String name = "";
     private String email = "";
     private String password = "";
-    private int progress = 0;
+    private String progress = "";
     private String image = "";
     private String fileName = "";
     String PicProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
 
-    public  ManageFile(Context ctx,String name, String email, String password,int progress,String image,String fileName){
+    public  ManageFile(Context ctx,String name, String email, String password,String progress,String image,String fileName){
         this.ctx = ctx;
         this.name = name;
         this.email = email;

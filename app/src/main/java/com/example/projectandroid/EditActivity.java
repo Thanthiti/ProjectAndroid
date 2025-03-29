@@ -47,7 +47,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     int iconAlert [] = {R.drawable.report_check , R.drawable.report_incorrect};
     ManageFile editData;
     userData updateUser;
-    int Progress;
+    String Progress;
     final String filename = "User.txt";
     String textProfile = "";
     Boolean status = false;
@@ -93,7 +93,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         Name = part[0];
         Email = part[1];
         Password = part[2];
-        Progress = Integer.parseInt(part[3]);
+        Progress = part[3];
         profile = part[4];
 
         Profile = findViewById(R.id.EditImageProfile);

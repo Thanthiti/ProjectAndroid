@@ -82,7 +82,7 @@ View.OnClickListener{
 
 
         Progress = Integer.parseInt(part[3]);
-        user = new userData(part[0],part[1],part[2],Progress,part[4]);
+//        user = new userData(part[0],part[1],part[2],Progress,part[4]);
 
         question = findViewById(R.id.quiz1_question);
         questionNumber = findViewById(R.id.titleQuestion1);

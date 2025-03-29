@@ -118,7 +118,6 @@ public class RegisterActivity extends AppCompatActivity implements
                             layout_username.setHelperTextEnabled(true);
                             layout_username.setHelperText("Username already taken. Try another.");
                             layout_username.setHelperTextColor(ColorStateList.valueOf(Color.RED));
-                            ;
                             status = true;
                         }
                     }

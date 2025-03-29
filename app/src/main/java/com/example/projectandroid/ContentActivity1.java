@@ -29,7 +29,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
-    int Progress;
+
     userData user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +53,7 @@ public class ContentActivity1 extends AppCompatActivity implements View.OnClickL
         Profile.setImageResource(picId[index]);
         Username.setText(""+part[0]);
 
-        Progress = Integer.parseInt(part[3]);
-        user = new userData(part[0],part[1],part[2],Progress,part[4]);
+        user = new userData(part[0],part[1],part[2],part[3],part[4]);
 
 
         btnBackHome = findViewById(R.id.Content1btnBackHome);
