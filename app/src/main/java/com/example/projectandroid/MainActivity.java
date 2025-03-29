@@ -29,12 +29,10 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
     ConstraintLayout reportExp;
     ImageView logout ,ImageProfile;
     TextView textExp,textUsername;
-    String Name,Profile;
-    int Progress;
+    String Name,Profile,Progress;
     userData Edituser;
     Dialog dialog;
     Button btnDiaCancel , btnDiaConfirm;
-
 
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
         int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
@@ -79,7 +77,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         String part [] = user.toString().split(" ");
 
         Name = part[0];
-        Progress = Integer.parseInt(part[3]);
+        Progress = part[3];
         Profile = part[4];
 
         Edituser = new userData(part[0],part[1],part[2],Progress,part[4]);
@@ -103,8 +101,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         textUsername.setText(part[0]);
 
+//        ProGress Bar
         textExp.setText("Your experience is : " + Progress +" %");
-        progressBar.incrementProgressBy(Progress);
+//        progressBar.incrementProgressBy(Progress);
     }
 
     @Override

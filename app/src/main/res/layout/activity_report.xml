@@ -146,7 +146,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView8"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/report_incorrect" />
+                        app:srcCompat="@drawable/gg_incorrect" />
 
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -168,7 +168,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView8"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/report_incorrect" />
+                        app:srcCompat="@drawable/gg_incorrect" />
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -248,7 +248,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView8"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/report_incorrect" />
+                        app:srcCompat="@drawable/gg_incorrect" />
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -328,7 +328,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView8"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/report_incorrect" />
+                        app:srcCompat="@drawable/gg_incorrect" />
 
                     <ImageView
                         android:id="@+id/imageView3"
@@ -408,7 +408,7 @@
                         app:layout_constraintEnd_toEndOf="parent"
                         app:layout_constraintStart_toEndOf="@+id/textView8"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:srcCompat="@drawable/report_incorrect" />
+                        app:srcCompat="@drawable/gg_incorrect" />
 
                     <ImageView
                         android:id="@+id/imageView3"

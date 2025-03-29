@@ -29,6 +29,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
     String nameProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
+    userData user;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -41,7 +42,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         });
 
         Intent i = getIntent();
-        userData user = (userData) i.getSerializableExtra("user");
+        user = (userData) i.getSerializableExtra("user");
         String part [] = user.toString().split(" ");
 
         Username = findViewById(R.id.Content2Username);
@@ -49,6 +50,8 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         int index = Arrays.asList(nameProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
         Username.setText(""+part[0]);
+
+        user = new userData(part[0],part[1],part[2],part[3],part[4]);
 
         // ผูก UI กับตัวแปร
         btnBackHome = findViewById(R.id.Content2btnBackHome);
@@ -97,9 +100,11 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
     public void onClick(View v) {
         if (v == pagePrev) {
             Intent intent = new Intent(ContentActivity2.this, ContentActivity1.class);
+            intent.putExtra("user",user);
             startActivity(intent);
         } else if (v == pageNext) {
             Intent intent = new Intent(ContentActivity2.this, ContentActivity3.class);
+            intent.putExtra("user",user);
             startActivity(intent);
         } else if (v == page1) {
             openPage(1);
@@ -116,8 +121,8 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
         }
         else {
             Intent intent = new Intent(ContentActivity2.this, Quiz2Activity.class);
+            intent.putExtra("user",user);
             startActivity(intent);
-            finish();
         }
     }
 
@@ -161,6 +166,7 @@ public class ContentActivity2 extends AppCompatActivity implements View.OnClickL
                 intent = new Intent(ContentActivity2.this, ContentActivity2.class);
                 break;
         }
+        intent.putExtra("user",user);
         startActivity(intent);
     }
 }

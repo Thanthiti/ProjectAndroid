@@ -19,12 +19,12 @@ public class ManageFile implements Serializable {
     private String name = "";
     private String email = "";
     private String password = "";
-    private int progress = 0;
+    private String progress = "";
     private String image = "";
     private String fileName = "";
     String PicProfile [] = {"black","pink","red","brown","green","orange","yellow","cyan","purple"};
 
-    public  ManageFile(Context ctx,String name, String email, String password,int progress,String image,String fileName){
+    public  ManageFile(Context ctx,String name, String email, String password,String progress,String image,String fileName){
         this.ctx = ctx;
         this.name = name;
         this.email = email;
@@ -51,13 +51,17 @@ public class ManageFile implements Serializable {
                 String[] part = line.split("\\s+", 5);
 
                 if (part[0].equals(Newname) && !part[0].equals(name)) {
+                    System.out.println("1");
                     status = false;
                     return false;
                 }
 
                 if ( part[0].equals(name) && part[1].equals(email)) {
+                    System.out.println("2");
+
                     Alldata.add(Newname + " " + Newemail + " " + Newpass + " " + part[3] + " " + NewProfile);
                 } else {
+                    System.out.println("3");
                     Alldata.add(line);
                 }
             }
@@ -72,20 +76,20 @@ public class ManageFile implements Serializable {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-        try {
-            FileOutputStream fout = ctx.openFileOutput(fileName, Context.MODE_PRIVATE);
-            OutputStreamWriter writer = new OutputStreamWriter(fout);
-
-            for (String User : Alldata) {
-                writer.write(User + "\n");
-            }
-
-            writer.flush();
-            writer.close();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
+//
+//        try {
+//            FileOutputStream fout = ctx.openFileOutput(fileName, Context.MODE_PRIVATE);
+//            OutputStreamWriter writer = new OutputStreamWriter(fout);
+//
+//            for (String User : Alldata) {
+//                writer.write(User + "\n");
+//            }
+//
+//            writer.flush();
+//            writer.close();
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        }
 
         return status;
     }

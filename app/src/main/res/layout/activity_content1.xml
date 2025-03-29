@@ -5,6 +5,7 @@
     android:id="@+id/main"
     android:layout_width="wrap_content"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
     tools:context=".ContentActivity1">
 
     <!-- Header Bar -->
@@ -165,6 +166,7 @@
 • boolean myBool = true;  // เก็บค่า true หรือ false\n
 • String myText = &quot;Hello&quot;;  // เก็บข้อความ"
                 android:textAlignment="viewStart"
+                android:textColor="#000000"
                 android:textSize="18sp" />
 
 
@@ -295,6 +297,7 @@
 
                     <TextView
                         android:text="boolean"
+                        android:textColor="#0D0000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -314,14 +317,17 @@
 
                     <TextView
                         android:text="char"
+                        android:textColor="#0D0000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="16 bits"
+                        android:textColor="#0D0000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="Unicode 0"
+                        android:textColor="#0D0000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -333,14 +339,17 @@
 
                     <TextView
                         android:text="byte"
+                        android:textColor="#0D0000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="8 bits"
+                        android:textColor="#0D0000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="-128"
+                        android:textColor="#0D0000"
                         android:textSize="16sp" />
 
                     <TextView
@@ -352,18 +361,22 @@
 
                     <TextView
                         android:text="short"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="16 bits"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="-2^15"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="+2^15 -1"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -371,18 +384,22 @@
 
                     <TextView
                         android:text="int"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="32 bits"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="-2^31"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="+2^31 -1"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -390,18 +407,22 @@
 
                     <TextView
                         android:text="long"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="64 bits"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="-2^63"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="+2^63 -1"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -409,18 +430,22 @@
 
                     <TextView
                         android:text="float"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="32 bits"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="IEEE754"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="IEEE754"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -428,18 +453,22 @@
 
                     <TextView
                         android:text="double"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="64 bits"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="IEEE754"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="IEEE754"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
 
@@ -447,18 +476,22 @@
 
                     <TextView
                         android:text="void"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="—"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="—"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
 
                     <TextView
                         android:text="—"
+                        android:textColor="#000000"
                         android:textSize="16sp" />
                 </TableRow>
             </TableLayout>

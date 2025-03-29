@@ -8,11 +8,11 @@ public class userData implements Serializable {
     private String name = "";
     private String email = "";
     private String password = "";
-    private int progress = 0;
+    private String progress = "";
     private String image = "";
     private Context ctx;
 
-    public userData(String name, String email, String password,int progress,String image){
+    public userData(String name, String email, String password,String progress,String image){
         this.name = name;
         this.email = email;
         this.password = password;
@@ -31,7 +31,7 @@ public class userData implements Serializable {
     public String getPassword(){
         return this.password;
     }
-    public int getProgress() {
+    public String getProgress() {
         return this.progress;
     }
     public String getImage() {

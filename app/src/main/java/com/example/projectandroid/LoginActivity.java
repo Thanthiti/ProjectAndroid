@@ -108,8 +108,13 @@ public class LoginActivity extends AppCompatActivity implements
 
             if (part[0].equals(name)) {
                 if (part[2].equals(pass)) {
+<<<<<<< HEAD
                     int progress = Integer.parseInt(part[3]);
                     user = new userData(part[0], part[1], part[2], progress, part[4]);
+=======
+
+                    user = new userData(part[0], part[1], part[2], part[3], part[4]);
+>>>>>>> 9aa70b3526f194204ea537441f208248469c74f8
                     valid = true;
                     layout_password.setHelperTextEnabled(false);
                     break;
@@ -131,7 +136,7 @@ public class LoginActivity extends AppCompatActivity implements
 
     public void  SendData(){
         Intent launch = new Intent(LoginActivity.this, MainActivity.class);
-        user = new userData("Palm","asd@gmail","12345678",0,"black");
+        user = new userData("Palm","asd@gmail","12345678","0","black");
         launch.putExtra("user",user);
         startActivity(launch);
     }
