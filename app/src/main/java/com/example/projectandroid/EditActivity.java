@@ -163,7 +163,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 //                  Old Data
                 editData = new ManageFile(this,Name,Email,Password,Progress,profile,filename);
 //                  New Data
-                Boolean valid = editData.UpdateData(textName,textEmail,textPass,textProfile);
+                Boolean valid = editData.UpdateData(textName,textEmail,textPass,textProfile,true);
                 dialog.dismiss();
                 System.out.println("Status " + valid);
                 if(valid){

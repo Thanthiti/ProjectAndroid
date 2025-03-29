@@ -1,8 +1,13 @@
 package com.example.projectandroid;
 
+import android.app.Dialog;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -45,7 +50,7 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
     int picId [] = {R.drawable.black,R.drawable.pink,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.purple};
 
-    TextView questionNumber,question;
+    TextView questionNumber,question,textUsername;
     ImageButton btnBack;
     ImageView Profile;
 
@@ -60,9 +65,15 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
 
     int index = 0;
     int life = 2;
-    int Progress;
     userData user;
-
+    // Alert Dialog
+    Dialog dialogWin , dialogLose;
+    Button btnOkWinner , btnYes , btnNo;
+    // icon toast
+    int iconAlerttoast [] = {R.drawable.report_check , R.drawable.report_incorrect};
+    String name,email,password,progress,profile;
+    ManageFile edtProgress;
+    final String filename = "User.txt";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -78,12 +89,43 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
         String part [] = user.toString().split(" ");
 
         Profile = findViewById(R.id.imgProfile5);
+        textUsername = findViewById(R.id.quiz5textUsername);
         int index = Arrays.asList(nameProfile).indexOf(part[4]);
         Profile.setImageResource(picId[index]);
+        name = part[0];
+        email = part[1];
+        password = part[2];
+        progress = part[3]+"5";
+        profile = part[4];
+        textUsername.setText(name+"");
 
 
-        Progress = Integer.parseInt(part[3]);
-//        user = new userData(part[0],part[1],part[2],Progress,part[4]);
+        // Dialog Alert When User Win
+        dialogWin = new Dialog(Quiz5Activity.this);
+        dialogWin.setContentView(R.layout.alertbox_winner);
+        dialogWin.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogWin.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialogWin.setCancelable(false);
+        btnOkWinner = dialogWin.findViewById(R.id.example_alert_ok);
+        btnOkWinner.setOnClickListener(this);
+
+        // Dialog Alert When User Lose
+        dialogLose = new Dialog(Quiz5Activity.this);
+        dialogLose.setContentView(R.layout.alertbox_lose);
+        dialogLose.getWindow().setLayout(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+        dialogLose.getWindow().setBackgroundDrawable(getDrawable(R.drawable.custom_dialog_bg));
+        dialogLose.setCancelable(false);
+
+        btnNo = dialogLose.findViewById(R.id.example_alert_no);
+        btnYes = dialogLose.findViewById(R.id.example_alert_yes);
+        btnNo.setOnClickListener(this);
+        btnYes.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                // ถ้ากด yes
+                ResetQuize();
+            }
+        });
 
         question = findViewById(R.id.quiz5_question);
         questionNumber = findViewById(R.id.titleQuestion5);
@@ -96,10 +138,9 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
             cardViews[i] = findViewById(cardId[i]);
             cardViews[i].setOnClickListener(this);
             textViews[i] = findViewById(textID[i]);
-            textViews[i].setText(choice[index][i]);
+            textViews[i].setText(choice[0][i]);
         }
-        question.setText(questions[index]);
-
+        question.setText(questions[0]);
     }
 
     @Override
@@ -109,19 +150,37 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
         if(id == R.id.btnquiz1_BackHome){
             status = true;
             finish();
+        }else if(id == R.id.example_alert_ok){
+            edtProgress = new ManageFile(this,name,email,password,progress,profile,filename);
+            edtProgress.UpdateData(name,email,password,profile,false);
+            user = new userData(name,email,password,progress,profile);
+            status = true;
+            Intent launch = new Intent(this,MainActivity.class);
+            launch.putExtra("user",user);
+            startActivity(launch);
+        }
+        else if(id == R.id.example_alert_no){
+            user = new userData(name,email,password,progress,profile);
+            status = true;
+            Intent launch = new Intent(this, ContentActivity1.class);
+            launch.putExtra("user",user);
+            startActivity(launch);
         }
 
         for (int i = 0; i < cardId.length; i++) {
             if (id == cardId[i]) {
                 if (choice[index][i] == Answer[index]) {
-                    Toast.makeText(this, "ถูกต้อง!", Toast.LENGTH_SHORT).show();
+                    showToast("Correct!" , 0);
                     index++;
-                    questionNumber.setText("Question " + (index+1) + " : " );
-//                    All Done
                     if (index == questions.length) {
+
                         Toast.makeText(this, "ยินดีด้วย! คุณทำครบทุกข้อแล้ว!", Toast.LENGTH_LONG).show();
+                        status = true;
+                        dialogWin.show();
+                        break;
                     }
                     question.setText(questions[index]);
+                    questionNumber.setText("Question " + (index+1) + " : " );
                     SetChoice(index);
                     status = true;
                     break;
@@ -129,8 +188,9 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
             }
         }
         if (!status) {
+            // toast incorrect
+            showToast("Incorrect!" , 1);
             if (life >= 0) {
-                System.out.println(life);
                 heartImage[life].setImageResource(R.drawable.broken);
             }
             life--;
@@ -140,6 +200,26 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
             }
         }
     }
+    // TOAST SUCCESS
+    public void showToast(String message , int pic) {
+        LayoutInflater inflater = getLayoutInflater();
+        View layout = inflater.inflate(
+                R.layout.custom_toast,
+                findViewById(R.id.custom_toast_container)
+        );
+
+        TextView text = layout.findViewById(R.id.toast_text);
+        text.setText(message);
+        ImageView image = layout.findViewById(R.id.toast_icon);
+        image.setImageResource(iconAlerttoast[pic]);
+
+        Toast toast = new Toast(getApplicationContext());
+        toast.setDuration(Toast.LENGTH_SHORT);
+        toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 100);
+        toast.setView(layout);
+        toast.show();
+    }
+
     public void SetChoice(int index){
         for(int i = 0;i < cardId.length;i++){
             textViews[i].setText(choice[index][i]+"");
@@ -148,7 +228,6 @@ public class Quiz5Activity extends AppCompatActivity implements View.OnClickList
     public void ResetQuize(){
         index = 0;
         life = 2;
-
         question.setText(questions[0]+"");
         questionNumber.setText("Question " + index+1 + " : ");
         for(int i = 0 ;i < cardId.length;i++){
