@@ -45,7 +45,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
     String ColorProfile [] = {"purple","black","red","brown","green","orange","yellow","cyan","pink"};
     int picId [] = {R.drawable.purple,R.drawable.black,R.drawable.red,R.drawable.brown,R.drawable.green
             ,R.drawable.orange,R.drawable.yellow,R.drawable.cyan,R.drawable.pink};
-    int iconAlert [] = {R.drawable.report_check , R.drawable.report_incorrect};
+    int iconAlert [] = {R.drawable.report_check , R.drawable.report_incorrect,R.drawable.erortoast};
     ManageFile editData;
     userData updateUser;
     String Progress;
@@ -84,7 +84,6 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                    upDate(textName , textEmail , textPass);
                }
            });
-           //
 
         Intent launch = getIntent();
         userData user = (userData) launch.getSerializableExtra("user");
@@ -165,7 +164,8 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
 
     public void upDate(String textName , String textEmail , String textPass) {
         if(textName.equals(Name) && textEmail.equals(Email) && textPass.equals(Password) && profile.equals(textProfile)){
-            Toast.makeText(this, "ข้อมูลไม่มีการเปลี่ยนแปลง", Toast.LENGTH_SHORT).show();
+            showSuccessToast("The information has not changed.", 2);
+
         }
         else {
             if(checkName(textName)&&checkEmail(textEmail)&& checkPass(textPass)){
@@ -186,8 +186,7 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
                     startActivity(launch);
                     //
                 }else {
-                    //showSuccessToast("Sorry!, " + Name + " is already taken", 1);
-                    editName.setError("ชื่อผู้ใชซ้ำ");
+                    showSuccessToast("Sorry!, " + Name + " is already taken", 1);
                 }
             }
         }
@@ -206,11 +205,13 @@ public class EditActivity extends AppCompatActivity implements View.OnClickListe
         ImageView image = layout.findViewById(R.id.toast_icon);
         image.setImageResource(iconAlert[pic]);
 
-
         Toast toast = new Toast(getApplicationContext());
         toast.setDuration(Toast.LENGTH_SHORT);
         toast.setGravity(Gravity.CENTER_VERTICAL | Gravity.CENTER_HORIZONTAL, 0, 100);
         toast.setView(layout);
+        if(pic == 2){
+            toast.setGravity(Gravity.BOTTOM | Gravity.CENTER_HORIZONTAL, 0, 100);
+        }
         toast.show();
     }
     //

@@ -62,7 +62,6 @@ View.OnClickListener{
     int imageID [] = {R.id.heart1_1,R.id.heart1_2,R.id.heart1_3};
     ImageView heartImage [] = new ImageView[3];
 
-
     int index = 0;
     int life = 2;
     userData user,oldUser;

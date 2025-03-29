@@ -147,8 +147,8 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
     public void onClick(View view) {
         int id = view.getId();
         boolean status = false;
-        Olduser = new userData(name,email,password,Oldprogress,profile);
         if(id == R.id.btnquiz2_BackHome || id == R.id.example_alert_no){
+            Olduser = new userData(name,email,password,Oldprogress,profile);
             status = true;
             Intent launch = new Intent(this,ContentActivity2.class);
             launch.putExtra("user",Olduser);
@@ -156,6 +156,7 @@ public class Quiz2Activity extends AppCompatActivity implements  View.OnClickLis
         }else if(id == R.id.example_alert_ok){
             edtProgress = new ManageFile(this,name,email,password,progress,profile,filename);
             edtProgress.UpdateData(name,email,password,profile,false);
+            user = new userData(name,email,password,progress,profile);
             status = true;
             Intent launch = new Intent(this,MainActivity.class);
             launch.putExtra("user",user);
